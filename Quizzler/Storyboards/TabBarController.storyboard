@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="PEw-g0-MxU">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Q8p-5L-MpJ">
+            <objects>
+                <tabBarController id="PEw-g0-MxU" customClass="TabBarController" customModule="Quizzler" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="C3p-FO-4y5">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.84761112930000004" green="0.70685487989999995" blue="0.52636104819999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="barTintColor" red="0.84761112930000004" green="0.70685487989999995" blue="0.52636104819999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="selectedImageTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="mto-RM-bqo" kind="relationship" relationship="viewControllers" id="VjB-a0-emo"/>
+                        <segue destination="8ni-Nw-bof" kind="relationship" relationship="viewControllers" id="FN5-Nu-hiV"/>
+                        <segue destination="CWc-aF-8Jn" kind="relationship" relationship="viewControllers" id="5Oy-pa-nas"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LzK-zx-dae" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-942" y="-301"/>
+        </scene>
+        <!--Store-->
+        <scene sceneID="lnR-M4-7VU">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Store" id="CWc-aF-8Jn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Store" image="cart.fill.badge.plus" catalog="system" id="zKD-a9-yKq">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hCF-mU-6KD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-279" y="-447"/>
+        </scene>
+        <!--Dashboard-->
+        <scene sceneID="ZZK-x4-gi2">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Dashboard" id="mto-RM-bqo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="foG-Uy-EfX">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7LQ-nY-mw8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-334" y="-589"/>
+        </scene>
+        <!--Quizzes-->
+        <scene sceneID="oOx-69-Ymh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Quizzes" id="8ni-Nw-bof" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Quizz's" image="bag.fill" catalog="system" id="DJL-n7-3Fl">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kPR-7V-ihD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-350" y="-536"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bag.fill" catalog="system" width="128" height="128"/>
+        <image name="cart.fill.badge.plus" catalog="system" width="128" height="98"/>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+    </resources>
+</document>
