@@ -10,6 +10,10 @@ import UIKit
 
 class Dashboard: UIViewController {
 
+    @IBOutlet weak var startRecentQuizz: UIButton!
+    @IBOutlet weak var recentQuizScore: UILabel!
+    @IBOutlet weak var recentQuizImage: UIImageView!
+    @IBOutlet weak var recentQuizTitle: UILabel!
     @IBOutlet weak var highscore: UILabel!
     @IBOutlet weak var userName: UILabel!
     
@@ -18,10 +22,12 @@ class Dashboard: UIViewController {
         if self.traitCollection.userInterfaceStyle == .dark {
             // User Interface is Dark
             self.userName.textColor = UIColor.black
+            self.recentQuizTitle.textColor = UIColor.black
             //self.highScoreTitle.textColor = UIColor.black
         } else {
             // User Interface is Light
             self.userName.textColor = UIColor.black
+            self.recentQuizTitle.textColor = UIColor.black
             //self.highScoreTitle.textColor = UIColor.black
         }
         // Do any additional setup after loading the view.
