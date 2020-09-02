@@ -31,13 +31,13 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="4pX-oz-Gwi"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="42"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="42"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uwH-BC-FOj">
                                 <rect key="frame" x="116" y="571" width="182" height="46"/>
-                                <color key="backgroundColor" red="1" green="0.95800355133250481" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.68628140346183653" green="0.7670197689437428" blue="0.66219686427132118" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="DWH-fM-kxS"/>
                                 </constraints>
@@ -57,7 +57,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="gTV-44-nnZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="29"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="29"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -66,21 +66,21 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BLU-Bn-EhO">
                                         <rect key="frame" x="0.0" y="0.0" width="123.66666666666667" height="22"/>
-                                        <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.96019302525832373" green="0.75874434748034969" blue="0.00028765441335074532" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="15" image="star.fill" catalog="system">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CDH-1R-f2Q">
                                         <rect key="frame" x="125.66666666666666" y="0.0" width="123.66666666666666" height="22"/>
-                                        <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.0" green="0.4839373911321081" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="989" image="globe" catalog="system">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fcj-uK-lQ1">
                                         <rect key="frame" x="251.33333333333329" y="0.0" width="123.66666666666666" height="22"/>
-                                        <color key="tintColor" systemColor="systemIndigoColor" red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="tintColor" red="0.1365653872" green="0.29857599740000001" blue="0.28612440820000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <state key="normal" title="12" image="person.3.fill" catalog="system">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -95,7 +95,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50.329999999999998" id="9uM-0g-qNj"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="42"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="49"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -137,9 +137,11 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="highscore" destination="iXH-qx-2ZK" id="yQW-7X-GqJ"/>
+                        <outlet property="masteredQuizes" destination="BLU-Bn-EhO" id="b3z-6y-TCd"/>
                         <outlet property="recentQuizImage" destination="Yel-wH-EtI" id="Yzc-mm-94u"/>
                         <outlet property="recentQuizScore" destination="Yr0-g6-rWa" id="EL7-Sj-kWR"/>
                         <outlet property="recentQuizTitle" destination="mLm-H6-CgG" id="JRr-rb-cVe"/>
+                        <outlet property="startQuizBtn" destination="uwH-BC-FOj" id="uwj-wE-Emc"/>
                         <outlet property="startRecentQuizz" destination="uwH-BC-FOj" id="h6h-o0-Ytg"/>
                         <outlet property="userName" destination="na2-vm-rci" id="ynJ-5O-Lce"/>
                     </connections>

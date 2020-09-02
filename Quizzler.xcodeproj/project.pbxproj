@@ -16,6 +16,8 @@
 		0839289F24EADD2600897989 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0839289D24EADD2600897989 /* LaunchScreen.storyboard */; };
 		083928AA24EADD2700897989 /* QuizzlerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083928A924EADD2700897989 /* QuizzlerTests.swift */; };
 		083928B524EADD2700897989 /* QuizzlerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083928B424EADD2700897989 /* QuizzlerUITests.swift */; };
+		083DE93024FF34E200C9F6DF /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083DE92F24FF34E200C9F6DF /* Globals.swift */; };
+		083DE93224FF390E00C9F6DF /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083DE93124FF390E00C9F6DF /* Functions.swift */; };
 		08870FFA24F1CEDA00A5B088 /* Dashboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08870FF924F1CEDA00A5B088 /* Dashboard.storyboard */; };
 		08870FFC24F1D40B00A5B088 /* TabBarController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08870FFB24F1D40B00A5B088 /* TabBarController.storyboard */; };
 		08870FFE24F1D5DD00A5B088 /* Store.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08870FFD24F1D5DD00A5B088 /* Store.storyboard */; };
@@ -59,6 +61,8 @@
 		083928B024EADD2700897989 /* QuizzlerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuizzlerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		083928B424EADD2700897989 /* QuizzlerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizzlerUITests.swift; sourceTree = "<group>"; };
 		083928B624EADD2700897989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		083DE92F24FF34E200C9F6DF /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
+		083DE93124FF390E00C9F6DF /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		08870FF924F1CEDA00A5B088 /* Dashboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dashboard.storyboard; sourceTree = "<group>"; };
 		08870FFB24F1D40B00A5B088 /* TabBarController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBarController.storyboard; sourceTree = "<group>"; };
 		08870FFD24F1D5DD00A5B088 /* Store.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Store.storyboard; sourceTree = "<group>"; };
@@ -120,6 +124,8 @@
 				0850F87424F0A2D400C46FE2 /* Storyboards */,
 				0839288F24EADD2500897989 /* AppDelegate.swift */,
 				0887100124F1D69C00A5B088 /* Dashboard.swift */,
+				083DE93124FF390E00C9F6DF /* Functions.swift */,
+				083DE92F24FF34E200C9F6DF /* Globals.swift */,
 				0839289324EADD2500897989 /* LoginScreen.swift */,
 				0839289124EADD2500897989 /* SceneDelegate.swift */,
 				0887100524F1D6D000A5B088 /* Quizzes.swift */,
@@ -301,11 +307,13 @@
 				0839289424EADD2500897989 /* LoginScreen.swift in Sources */,
 				0887100A24F1D83C00A5B088 /* TabBarController.swift in Sources */,
 				0839289024EADD2500897989 /* AppDelegate.swift in Sources */,
+				083DE93224FF390E00C9F6DF /* Functions.swift in Sources */,
 				0887100624F1D6D000A5B088 /* Quizzes.swift in Sources */,
 				0887100224F1D69C00A5B088 /* Dashboard.swift in Sources */,
 				0887100424F1D6B500A5B088 /* Store.swift in Sources */,
 				0839289224EADD2500897989 /* SceneDelegate.swift in Sources */,
 				0839289A24EADD2500897989 /* Quizzler.xcdatamodeld in Sources */,
+				083DE93024FF34E200C9F6DF /* Globals.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,21 +11,106 @@
         <!--Quizz's-->
         <scene sceneID="i10-uE-PQL">
             <objects>
-                <viewController id="Vjb-yo-ghs" sceneMemberID="viewController">
+                <viewController id="Vjb-yo-ghs" customClass="Quizzes" customModule="Quizzler" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Eoj-N6-BZK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hAW-bt-BTM">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="yourQuizzesBackground" translatesAutoresizingMaskIntoConstraints="NO" id="hAW-bt-BTM">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FCe-FX-iez">
+                                <rect key="frame" x="20" y="201" width="374" height="471"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="471" id="6rH-B2-eBd"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="p8q-Iz-iZs">
+                                    <size key="itemSize" width="131" height="132"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="usersQuizesCollectionCell" id="omU-O3-6a6" customClass="userQuizzesCollectionCell" customModule="Quizzler" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="131" height="132"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="131" height="132"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.45000000000000001" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="canadaIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Y7E-VJ-rOk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="131" height="132"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MIt-2P-qDa">
+                                                    <rect key="frame" x="8" y="8" width="115" height="86"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="86" id="H8E-v9-sEU"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Courier-Bold" family="Courier" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24/35" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eo8-mu-hzP">
+                                                    <rect key="frame" x="8" y="102" width="115" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="18" id="R3o-fA-569"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="MIt-2P-qDa" firstAttribute="leading" secondItem="omU-O3-6a6" secondAttribute="leadingMargin" id="2ah-fN-CTX"/>
+                                            <constraint firstItem="MIt-2P-qDa" firstAttribute="top" secondItem="omU-O3-6a6" secondAttribute="topMargin" id="Qhc-fB-5Xh"/>
+                                            <constraint firstItem="eo8-mu-hzP" firstAttribute="trailing" secondItem="omU-O3-6a6" secondAttribute="trailingMargin" id="ZzZ-0L-Uzc"/>
+                                            <constraint firstItem="eo8-mu-hzP" firstAttribute="leading" secondItem="omU-O3-6a6" secondAttribute="leadingMargin" id="faa-Mk-Ona"/>
+                                            <constraint firstItem="eo8-mu-hzP" firstAttribute="top" secondItem="MIt-2P-qDa" secondAttribute="bottom" constant="8" id="iQA-zz-Omn"/>
+                                            <constraint firstItem="MIt-2P-qDa" firstAttribute="trailing" secondItem="omU-O3-6a6" secondAttribute="trailingMargin" id="sTZ-no-TBv"/>
+                                            <constraint firstAttribute="bottomMargin" secondItem="eo8-mu-hzP" secondAttribute="bottom" constant="4" id="uuH-hD-lAR"/>
+                                        </constraints>
+                                        <size key="customSize" width="131" height="132"/>
+                                        <connections>
+                                            <outlet property="scoreOfQuiz" destination="eo8-mu-hzP" id="pnQ-xZ-tXW"/>
+                                            <outlet property="titleOfQuiz" destination="MIt-2P-qDa" id="c5G-mp-Azi"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Quizzes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTd-ul-eB1">
+                                <rect key="frame" x="20" y="20" width="374" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="Nr9-TJ-eDC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="41"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="cTd-ul-eB1" firstAttribute="leading" secondItem="PnN-F5-kY6" secondAttribute="leading" constant="20" id="3cx-6B-c6E"/>
+                            <constraint firstItem="hAW-bt-BTM" firstAttribute="top" secondItem="Eoj-N6-BZK" secondAttribute="top" id="69G-wT-rC1"/>
+                            <constraint firstItem="PnN-F5-kY6" firstAttribute="trailing" secondItem="cTd-ul-eB1" secondAttribute="trailing" constant="20" id="8zy-Lj-YKr"/>
+                            <constraint firstItem="PnN-F5-kY6" firstAttribute="trailing" secondItem="FCe-FX-iez" secondAttribute="trailing" constant="20" id="Cit-7d-FuE"/>
+                            <constraint firstItem="hAW-bt-BTM" firstAttribute="trailing" secondItem="PnN-F5-kY6" secondAttribute="trailing" id="EfW-pm-7MG"/>
+                            <constraint firstItem="PnN-F5-kY6" firstAttribute="bottom" secondItem="FCe-FX-iez" secondAttribute="bottom" constant="15" id="Ii1-2Z-nLF"/>
+                            <constraint firstItem="FCe-FX-iez" firstAttribute="leading" secondItem="PnN-F5-kY6" secondAttribute="leading" constant="20" id="M9s-3N-Hsp"/>
+                            <constraint firstItem="cTd-ul-eB1" firstAttribute="top" secondItem="PnN-F5-kY6" secondAttribute="top" constant="20" id="OL3-Qs-OaR"/>
+                            <constraint firstItem="hAW-bt-BTM" firstAttribute="leading" secondItem="PnN-F5-kY6" secondAttribute="leading" id="bTz-LR-N20"/>
+                            <constraint firstItem="hAW-bt-BTM" firstAttribute="bottom" secondItem="Eoj-N6-BZK" secondAttribute="bottom" id="l6a-g2-jjW"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PnN-F5-kY6"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Quizz's" image="rectangle.fill.on.rectangle.angled.fill" catalog="system" id="CnC-7F-i8Q"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="usersQuizCollection" destination="FCe-FX-iez" id="D9j-HR-uUd"/>
+                        <outlet property="yourQuizzesTitle" destination="cTd-ul-eB1" id="MJE-7H-8Sn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kj5-zc-HdF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -33,6 +118,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="canadaIcon" width="128" height="128"/>
         <image name="rectangle.fill.on.rectangle.angled.fill" catalog="system" width="128" height="101"/>
+        <image name="yourQuizzesBackground" width="1428" height="2204"/>
     </resources>
 </document>

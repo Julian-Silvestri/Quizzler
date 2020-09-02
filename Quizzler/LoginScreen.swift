@@ -33,6 +33,15 @@ class LoginScreen: UIViewController {
     @IBAction func loginWithFacebookAction(_ sender: Any) {
         self.performSegue(withIdentifier: "login", sender: self)
     }
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        if #available(iOS 13.0, *) {
+            return .darkContent
+        } else {
+            // Fallback on earlier versions
+            return .default
+            
+        }
+    }
     
 }
 

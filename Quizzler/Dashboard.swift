@@ -16,18 +16,27 @@ class Dashboard: UIViewController {
     @IBOutlet weak var recentQuizTitle: UILabel!
     @IBOutlet weak var highscore: UILabel!
     @IBOutlet weak var userName: UILabel!
+    @IBOutlet weak var masteredQuizes: UIButton!
+    @IBOutlet weak var startQuizBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.startQuizBtn.layer.cornerRadius = 5
         if self.traitCollection.userInterfaceStyle == .dark {
+            
             // User Interface is Dark
             self.userName.textColor = UIColor.black
             self.recentQuizTitle.textColor = UIColor.black
+            //self.masteredQuizes.layer.borderColor = hexStringToUIColor(hex: "234C49").cgColor
+            //self.masteredQuizes.layer.borderWidth = 1
             //self.highScoreTitle.textColor = UIColor.black
         } else {
             // User Interface is Light
             self.userName.textColor = UIColor.black
             self.recentQuizTitle.textColor = UIColor.black
+            //self.masteredQuizes.layer.borderColor = hexStringToUIColor(hex: "234C49").cgColor
+            //self.masteredQuizes.layer.borderWidth = 1
             //self.highScoreTitle.textColor = UIColor.black
         }
         // Do any additional setup after loading the view.
