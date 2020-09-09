@@ -154,7 +154,7 @@
                         <outlet property="startQuizBtn" destination="uwH-BC-FOj" id="uwj-wE-Emc"/>
                         <outlet property="startRecentQuizz" destination="uwH-BC-FOj" id="h6h-o0-Ytg"/>
                         <outlet property="userName" destination="na2-vm-rci" id="ynJ-5O-Lce"/>
-                        <segue destination="raJ-OU-hwx" kind="presentation" identifier="playQuiz" modalPresentationStyle="fullScreen" modalTransitionStyle="partialCurl" id="xK0-A0-LAS"/>
+                        <segue destination="raJ-OU-hwx" kind="presentation" identifier="playQuiz" modalPresentationStyle="overFullScreen" modalTransitionStyle="flipHorizontal" id="xK0-A0-LAS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qLj-C7-o4I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
