@@ -31,12 +31,12 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="52" id="4pX-oz-Gwi"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="42"/>
+                                <fontDescription key="fontDescription" name="Charter-Roman" family="Charter" pointSize="42"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uwH-BC-FOj">
-                                <rect key="frame" x="116" y="571" width="182" height="46"/>
+                                <rect key="frame" x="116" y="591" width="182" height="46"/>
                                 <color key="backgroundColor" red="0.68628140346183653" green="0.7670197689437428" blue="0.66219686427132118" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="DWH-fM-kxS"/>
@@ -45,6 +45,9 @@
                                 <state key="normal" title="Start">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="startQuiz:" destination="WJ1-CJ-J17" eventType="touchUpInside" id="QHG-Jd-E4Y"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="nhlImage" translatesAutoresizingMaskIntoConstraints="NO" id="Yel-wH-EtI">
                                 <rect key="frame" x="124" y="282" width="167" height="169"/>
@@ -91,7 +94,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="18/35" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yr0-g6-rWa">
-                                <rect key="frame" x="116" y="485" width="182" height="50.333333333333371"/>
+                                <rect key="frame" x="116" y="516" width="182" height="50.333333333333371"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50.329999999999998" id="9uM-0g-qNj"/>
                                 </constraints>
@@ -99,29 +102,36 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="CWD-43-JCa">
+                                <rect key="frame" x="162" y="456.33333333333331" width="91" height="51"/>
+                                <color key="tintColor" red="1" green="0.75130158660000002" blue="0.0254392866" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="H0I-WN-JTh" firstAttribute="trailing" secondItem="uwH-BC-FOj" secondAttribute="trailing" constant="116" id="3xF-fw-8fp"/>
                             <constraint firstItem="Yel-wH-EtI" firstAttribute="top" secondItem="mLm-H6-CgG" secondAttribute="bottom" constant="23" id="45c-Gp-zzH"/>
+                            <constraint firstItem="CWD-43-JCa" firstAttribute="leading" secondItem="H0I-WN-JTh" secondAttribute="leading" constant="162" id="5Br-aH-wRM"/>
+                            <constraint firstItem="Yr0-g6-rWa" firstAttribute="top" secondItem="CWD-43-JCa" secondAttribute="bottom" constant="8.6699999999999999" id="Cg4-Bv-QV2"/>
                             <constraint firstItem="H0I-WN-JTh" firstAttribute="trailing" secondItem="na2-vm-rci" secondAttribute="trailing" constant="20" id="Hk5-2g-rtF"/>
+                            <constraint firstItem="H0I-WN-JTh" firstAttribute="trailing" secondItem="CWD-43-JCa" secondAttribute="trailing" constant="161" id="IB3-Cg-whb"/>
                             <constraint firstItem="opr-fB-fKN" firstAttribute="leading" secondItem="H0I-WN-JTh" secondAttribute="leading" id="IhF-e0-DEv"/>
                             <constraint firstItem="Yel-wH-EtI" firstAttribute="leading" secondItem="H0I-WN-JTh" secondAttribute="leading" constant="124" id="Kwg-Zb-pFr"/>
                             <constraint firstItem="opr-fB-fKN" firstAttribute="top" secondItem="lXS-u5-TRS" secondAttribute="top" id="LPe-VM-WRa"/>
-                            <constraint firstItem="uwH-BC-FOj" firstAttribute="top" secondItem="Yr0-g6-rWa" secondAttribute="bottom" constant="35.670000000000002" id="N6U-lZ-eFH"/>
+                            <constraint firstItem="uwH-BC-FOj" firstAttribute="top" secondItem="Yr0-g6-rWa" secondAttribute="bottom" constant="24.666666666666742" id="N6U-lZ-eFH"/>
                             <constraint firstItem="H0I-WN-JTh" firstAttribute="trailing" secondItem="mLm-H6-CgG" secondAttribute="trailing" constant="20" id="TEZ-kk-9P6"/>
+                            <constraint firstItem="CWD-43-JCa" firstAttribute="top" secondItem="Yel-wH-EtI" secondAttribute="bottom" constant="5" id="ZkF-Ci-65e"/>
                             <constraint firstItem="kVh-ec-HZt" firstAttribute="top" secondItem="na2-vm-rci" secondAttribute="bottom" constant="8" id="a0p-4U-Up4"/>
                             <constraint firstItem="mLm-H6-CgG" firstAttribute="leading" secondItem="H0I-WN-JTh" secondAttribute="leading" constant="20" id="aqW-Nd-CiB"/>
                             <constraint firstItem="kVh-ec-HZt" firstAttribute="leading" secondItem="H0I-WN-JTh" secondAttribute="leading" constant="20" id="b3G-Yf-E5d"/>
                             <constraint firstAttribute="bottom" secondItem="opr-fB-fKN" secondAttribute="bottom" id="dhM-EG-Mgg"/>
                             <constraint firstItem="H0I-WN-JTh" firstAttribute="trailing" secondItem="Yel-wH-EtI" secondAttribute="trailing" constant="123" id="ebj-gh-7zt"/>
-                            <constraint firstAttribute="bottom" secondItem="uwH-BC-FOj" secondAttribute="bottom" constant="119" id="epE-7C-5Qc"/>
+                            <constraint firstAttribute="bottom" secondItem="uwH-BC-FOj" secondAttribute="bottom" constant="99" id="epE-7C-5Qc"/>
                             <constraint firstItem="uwH-BC-FOj" firstAttribute="leading" secondItem="H0I-WN-JTh" secondAttribute="leading" constant="116" id="hMM-yf-NRS"/>
                             <constraint firstItem="Yr0-g6-rWa" firstAttribute="leading" secondItem="H0I-WN-JTh" secondAttribute="leading" constant="116" id="iKx-UU-oSV"/>
                             <constraint firstItem="na2-vm-rci" firstAttribute="leading" secondItem="H0I-WN-JTh" secondAttribute="leading" constant="20" id="rvA-Fz-cCh"/>
                             <constraint firstItem="H0I-WN-JTh" firstAttribute="trailing" secondItem="kVh-ec-HZt" secondAttribute="trailing" constant="19" id="shW-s7-PUD"/>
                             <constraint firstItem="opr-fB-fKN" firstAttribute="trailing" secondItem="H0I-WN-JTh" secondAttribute="trailing" id="v6R-QF-X9L"/>
-                            <constraint firstItem="Yr0-g6-rWa" firstAttribute="top" secondItem="Yel-wH-EtI" secondAttribute="bottom" constant="34" id="vr3-gV-TTo"/>
                             <constraint firstItem="na2-vm-rci" firstAttribute="top" secondItem="lXS-u5-TRS" secondAttribute="top" constant="75" id="wfq-qe-kBI"/>
                             <constraint firstItem="mLm-H6-CgG" firstAttribute="top" secondItem="kVh-ec-HZt" secondAttribute="bottom" constant="66" id="wlG-t5-xXw"/>
                             <constraint firstItem="H0I-WN-JTh" firstAttribute="trailing" secondItem="Yr0-g6-rWa" secondAttribute="trailing" constant="116" id="yak-mi-4sl"/>
@@ -144,11 +154,20 @@
                         <outlet property="startQuizBtn" destination="uwH-BC-FOj" id="uwj-wE-Emc"/>
                         <outlet property="startRecentQuizz" destination="uwH-BC-FOj" id="h6h-o0-Ytg"/>
                         <outlet property="userName" destination="na2-vm-rci" id="ynJ-5O-Lce"/>
+                        <segue destination="raJ-OU-hwx" kind="presentation" identifier="playQuiz" modalPresentationStyle="fullScreen" modalTransitionStyle="partialCurl" id="xK0-A0-LAS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qLj-C7-o4I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="176.81159420289856" y="26.90217391304348"/>
+        </scene>
+        <!--QuizPlaying-->
+        <scene sceneID="J1e-J9-ETk">
+            <objects>
+                <viewControllerPlaceholder storyboardName="QuizPlaying" id="raJ-OU-hwx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cKJ-H2-VET" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="826" y="-3"/>
         </scene>
     </scenes>
     <resources>
@@ -157,6 +176,7 @@
         <image name="mainBackground3-1" width="1595" height="2164"/>
         <image name="nhlImage" width="976" height="888"/>
         <image name="person.3.fill" catalog="system" width="128" height="61"/>
+        <image name="star" catalog="system" width="128" height="116"/>
         <image name="star.fill" catalog="system" width="128" height="116"/>
     </resources>
 </document>

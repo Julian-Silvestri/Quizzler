@@ -42,6 +42,9 @@ class Dashboard: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    @IBAction func startQuiz(_ sender: Any) {
+        self.performSegue(withIdentifier: "playQuiz", sender: self)
+    }
     override var preferredStatusBarStyle: UIStatusBarStyle{
         if #available(iOS 13.0, *) {
             return .darkContent
