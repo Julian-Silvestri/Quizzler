@@ -19,12 +19,14 @@ class QuizPlayingVC: UIViewController {
     @IBOutlet weak var status5: UIView!
     @IBOutlet weak var question1: UILabel!
     @IBOutlet weak var quitbtn: UIButton!
+    @IBOutlet weak var mainQuizPlayArea: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.status1.layer.cornerRadius = 7
         self.statusViewContainer.layer.cornerRadius = 7
         self.quitbtn.layer.cornerRadius = 5
+        self.mainQuizPlayArea.layer.cornerRadius = 5
 
     }
 

@@ -136,7 +136,7 @@
                                 </constraints>
                                 <state key="normal" title="Quit!"/>
                                 <connections>
-                                    <action selector="quitBtn:" destination="8ig-aj-ZT6" eventType="touchUpInside" id="9tQ-eo-g6m"/>
+                                    <action selector="quitBtn:" destination="8ig-aj-ZT6" eventType="touchUpInside" id="XI8-da-TY8"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -162,6 +162,7 @@
                         <viewLayoutGuide key="safeArea" id="cxn-X3-KWv"/>
                     </view>
                     <connections>
+                        <outlet property="mainQuizPlayArea" destination="sZN-Ye-7fW" id="dfD-Rg-OFC"/>
                         <outlet property="question1" destination="a1U-aw-PZE" id="6gZ-f6-dTh"/>
                         <outlet property="quitbtn" destination="lVp-xr-CY5" id="HTB-0h-c2Q"/>
                         <outlet property="status1" destination="M9Z-1L-ODs" id="kxc-hq-Aq9"/>
