@@ -21,7 +21,6 @@ class Dashboard: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.startQuizBtn.layer.cornerRadius = 5
         if self.traitCollection.userInterfaceStyle == .dark {
             
