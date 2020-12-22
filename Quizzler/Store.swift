@@ -37,7 +37,7 @@ class Store: UIViewController, UICollectionViewDataSource, UICollectionViewDeleg
     var descriptionOfItemSelected = ""
     var priceOfItemSelected = ""
     var imagesForCell = [String]()
-    var filteredQuizzes = [QuizzesInStore]()
+    var filteredQuizzes = [QuizInv]()
     
     var refreshControl = UIRefreshControl()
     
@@ -120,7 +120,7 @@ class Store: UIViewController, UICollectionViewDataSource, UICollectionViewDeleg
         if isFiltering() == true {
             return self.filteredQuizzes.count
         } else {
-            return Globals.quizzesInStore.count
+            return Globals.quizzesInv.count
         }
         
     }
@@ -142,7 +142,7 @@ class Store: UIViewController, UICollectionViewDataSource, UICollectionViewDeleg
             //cell.descriptionOfQuiz.textColor = UIColor.black
             //cell.priceOfQuiz.textColor = UIColor.black
         }
-        let data: QuizzesInStore
+        let data: QuizInv
         if isFiltering() == true {
             data = self.filteredQuizzes[indexPath.row]
             
@@ -151,7 +151,7 @@ class Store: UIViewController, UICollectionViewDataSource, UICollectionViewDeleg
             cell.imageOfCell.image = UIImage(named: "\(data.imageName)")
             return cell
         } else {
-            data = Globals.quizzesInStore[indexPath.row]
+            data = Globals.quizzesInv[indexPath.row]
             cell.titleOfQuiz.text = data.title
             cell.imageOfCell.image = UIImage(named: "\(data.imageName)")
 
@@ -163,13 +163,13 @@ class Store: UIViewController, UICollectionViewDataSource, UICollectionViewDeleg
     
     //MARK: Did Select Row At
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let data: QuizzesInStore
+        let data: QuizInv
         if isFiltering() == true {
             data = self.filteredQuizzes[indexPath.row]
             self.titleOfItemSelected = data.title
             self.descriptionOfItemSelected = data.description
         } else {
-            data = Globals.quizzesInStore[indexPath.row]
+            data = Globals.quizzesInv[indexPath.row]
             self.titleOfItemSelected = data.title
             self.descriptionOfItemSelected = data.description
         }
@@ -299,7 +299,7 @@ class Store: UIViewController, UICollectionViewDataSource, UICollectionViewDeleg
         //var filteredData = [String]()
         //filteredData = self.filteredQuizzes
         //filteredData.removeAll(keepingCapacity: false)
-        let updateArr = Globals.quizzesInStore.filter({
+        let updateArr = Globals.quizzesInv.filter({
             return ($0.title.lowercased().contains(text.lowercased()) != false)
         })
         self.filteredQuizzes = updateArr

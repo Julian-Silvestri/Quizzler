@@ -8,33 +8,21 @@
 
 import Foundation
 
-class UserOwnedQuizzes:Codable {
-    let title: String
-    let description: String
-    let price: String
-    let imageName: String
-    
-    init(title: String, description: String, price: String, imageName: String){
-        self.title = title
-        self.description = description
-        self.price = price
-        self.imageName = imageName
-    }
-    deinit {
-        print("get out of here - User owned quizzes")
-    }
-}
 
-class QuizzesInStore:Codable {
+class QuizInv:Codable {
     let title: String
     let description: String
-    let price: String
+    let questions: [Int:String]
+    let answer: [Int:String]
+    let possibleAnswers: [Int:[String]]
     let imageName: String
     
-    init(title: String, description: String, price: String, imageName: String){
+    init(title: String, description: String, questions: [Int:String],answer: [Int:String], possibleAnswers: [Int:[String]], imageName: String){
         self.title = title
         self.description = description
-        self.price = price
+        self.answer = answer
+        self.possibleAnswers = possibleAnswers
+        self.questions = questions
         self.imageName = imageName
     }
     deinit {

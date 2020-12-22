@@ -9,6 +9,6 @@
 import Foundation
 
 struct Globals {
-    static var userOwnedQuizes = [UserOwnedQuizzes]()
-    static var quizzesInStore = [QuizzesInStore]()
+    static var quizzesInv = [QuizInv]()
+
 }
