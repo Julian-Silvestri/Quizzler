@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Dashboard: UIViewController {
+class DashboardVC: UIViewController {
 
     @IBOutlet weak var startRecentQuizz: UIButton!
     @IBOutlet weak var recentQuizScore: UILabel!

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WJ1-CJ-J17">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home-->
+        <scene sceneID="VWF-y8-SiR">
+            <objects>
+                <viewController id="WJ1-CJ-J17" customClass="DashboardVC" customModule="Quizzler" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lXS-u5-TRS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainBackground3-1" translatesAutoresizingMaskIntoConstraints="NO" id="opr-fB-fKN">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1020" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iXH-qx-2ZK">
+                                <rect key="frame" x="20" y="385" width="374" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="56"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uwH-BC-FOj">
+                                <rect key="frame" x="116" y="591" width="182" height="46"/>
+                                <color key="backgroundColor" red="0.68628140346183653" green="0.7670197689437428" blue="0.66219686427132118" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="DWH-fM-kxS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startQuiz:" destination="WJ1-CJ-J17" eventType="touchUpInside" id="QHG-Jd-E4Y"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="H0I-WN-JTh"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="H0I-WN-JTh" firstAttribute="trailing" secondItem="uwH-BC-FOj" secondAttribute="trailing" constant="116" id="3xF-fw-8fp"/>
+                            <constraint firstItem="opr-fB-fKN" firstAttribute="leading" secondItem="H0I-WN-JTh" secondAttribute="leading" id="IhF-e0-DEv"/>
+                            <constraint firstItem="opr-fB-fKN" firstAttribute="top" secondItem="lXS-u5-TRS" secondAttribute="top" id="LPe-VM-WRa"/>
+                            <constraint firstAttribute="bottom" secondItem="opr-fB-fKN" secondAttribute="bottom" id="dhM-EG-Mgg"/>
+                            <constraint firstAttribute="bottom" secondItem="uwH-BC-FOj" secondAttribute="bottom" constant="99" id="epE-7C-5Qc"/>
+                            <constraint firstItem="uwH-BC-FOj" firstAttribute="leading" secondItem="H0I-WN-JTh" secondAttribute="leading" constant="116" id="hMM-yf-NRS"/>
+                            <constraint firstItem="opr-fB-fKN" firstAttribute="trailing" secondItem="H0I-WN-JTh" secondAttribute="trailing" id="v6R-QF-X9L"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="iXH-qx-2ZK"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="pp3-TB-lpf"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="highscore" destination="iXH-qx-2ZK" id="yQW-7X-GqJ"/>
+                        <outlet property="startQuizBtn" destination="uwH-BC-FOj" id="uwj-wE-Emc"/>
+                        <outlet property="startRecentQuizz" destination="uwH-BC-FOj" id="h6h-o0-Ytg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qLj-C7-o4I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="176.81159420289856" y="26.90217391304348"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="mainBackground3-1" width="1595" height="2164"/>
+    </resources>
+</document>
