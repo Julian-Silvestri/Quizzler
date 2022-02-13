@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gAS-Fu-mT2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gAS-Fu-mT2">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,7 +21,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="storeBackground" translatesAutoresizingMaskIntoConstraints="NO" id="ZNh-cu-SeY">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz Store" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Au-jp-EQW">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quizzes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Au-jp-EQW">
                                 <rect key="frame" x="29" y="57" width="355" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="eWi-Vh-wUb"/>
@@ -65,15 +66,9 @@
                                     <constraint firstAttribute="height" constant="50" id="n1L-f3-JTs"/>
                                 </constraints>
                             </stackView>
-                            <searchBar contentMode="redraw" placeholder="Filter by name.." showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b06-cG-xGf">
-                                <rect key="frame" x="0.0" y="126" width="414" height="56"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="barTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" spellCheckingType="yes" enablesReturnKeyAutomatically="YES"/>
-                            </searchBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="e7U-7v-Zwx" customClass="quiz">
-                                <rect key="frame" x="0.0" y="241" width="414" height="446"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <rect key="frame" x="0.0" y="182" width="414" height="505"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gxl-sw-NZL">
                                     <size key="itemSize" width="174" height="168"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -92,7 +87,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="174" height="168"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" systemColor="systemTealColor"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Art &amp; History" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="9" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hVJ-m1-t7W">
                                                     <rect key="frame" x="8" y="0.0" width="158" height="160"/>
@@ -119,28 +114,55 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqi-DF-lxw">
+                                <rect key="frame" x="361" y="21.333333333333336" width="33" height="30.000000000000011"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32.329999999999998" id="0Km-Jf-4ch"/>
+                                    <constraint firstAttribute="width" constant="33" id="iBS-vT-ZDa"/>
+                                </constraints>
+                                <color key="tintColor" red="0.7725490196" green="0.36862745099999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" backgroundImage="magnifyingglass" catalog="system"/>
+                                <connections>
+                                    <action selector="filterActionSheet:" destination="gAS-Fu-mT2" eventType="touchUpInside" id="1Ay-M2-fUy"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvO-fL-1T2">
+                                <rect key="frame" x="0.0" y="129" width="414" height="53"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="53" id="Nq5-gO-oDj"/>
+                                </constraints>
+                            </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Ytx-y2-x7z"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="ZNh-cu-SeY" firstAttribute="top" secondItem="FHK-N4-5XT" secondAttribute="top" id="14K-dT-x8P"/>
-                            <constraint firstItem="Ytx-y2-x7z" firstAttribute="trailing" secondItem="b06-cG-xGf" secondAttribute="trailing" id="305-K7-rPB"/>
                             <constraint firstItem="ZNh-cu-SeY" firstAttribute="leading" secondItem="Ytx-y2-x7z" secondAttribute="leading" id="4wB-6i-HYR"/>
                             <constraint firstItem="PC1-6Z-vBU" firstAttribute="leading" secondItem="Ytx-y2-x7z" secondAttribute="leading" id="5ws-fT-cxJ"/>
                             <constraint firstItem="ZNh-cu-SeY" firstAttribute="trailing" secondItem="Ytx-y2-x7z" secondAttribute="trailing" id="6GT-Ml-q0P"/>
                             <constraint firstItem="ZNh-cu-SeY" firstAttribute="bottom" secondItem="FHK-N4-5XT" secondAttribute="bottom" id="85z-qd-uQ7"/>
+                            <constraint firstItem="Ytx-y2-x7z" firstAttribute="trailing" secondItem="eqi-DF-lxw" secondAttribute="trailing" constant="20" id="AxH-a4-y5O"/>
                             <constraint firstItem="e7U-7v-Zwx" firstAttribute="top" secondItem="PC1-6Z-vBU" secondAttribute="bottom" constant="6" id="BQZ-FW-sP3"/>
                             <constraint firstItem="0Au-jp-EQW" firstAttribute="top" secondItem="Ytx-y2-x7z" secondAttribute="top" constant="57" id="Em9-c1-AA1"/>
                             <constraint firstItem="Ytx-y2-x7z" firstAttribute="trailing" secondItem="0Au-jp-EQW" secondAttribute="trailing" constant="30" id="Fss-co-A7o"/>
                             <constraint firstAttribute="trailing" secondItem="PC1-6Z-vBU" secondAttribute="trailing" id="Rzb-4J-Hrz"/>
                             <constraint firstItem="e7U-7v-Zwx" firstAttribute="leading" secondItem="Ytx-y2-x7z" secondAttribute="leading" id="Uz4-vY-Ve5"/>
+                            <constraint firstItem="qvO-fL-1T2" firstAttribute="leading" secondItem="Ytx-y2-x7z" secondAttribute="leading" id="WDY-gi-JkJ"/>
+                            <constraint firstItem="eqi-DF-lxw" firstAttribute="leading" secondItem="Ytx-y2-x7z" secondAttribute="leading" constant="361" id="Zhv-1B-pJh"/>
                             <constraint firstItem="e7U-7v-Zwx" firstAttribute="trailing" secondItem="Ytx-y2-x7z" secondAttribute="trailing" id="c47-M3-Vl6"/>
                             <constraint firstItem="e7U-7v-Zwx" firstAttribute="bottom" secondItem="Ytx-y2-x7z" secondAttribute="bottom" id="dPH-9h-4Qc"/>
-                            <constraint firstItem="b06-cG-xGf" firstAttribute="top" secondItem="0Au-jp-EQW" secondAttribute="bottom" constant="38" id="pRq-sS-LsQ"/>
-                            <constraint firstItem="b06-cG-xGf" firstAttribute="leading" secondItem="FHK-N4-5XT" secondAttribute="leading" id="tKt-4f-AYr"/>
+                            <constraint firstItem="eqi-DF-lxw" firstAttribute="top" secondItem="Ytx-y2-x7z" secondAttribute="top" constant="20" id="hHx-7s-oip"/>
+                            <constraint firstItem="qvO-fL-1T2" firstAttribute="top" secondItem="0Au-jp-EQW" secondAttribute="bottom" constant="41" id="ksE-Cw-dbR"/>
+                            <constraint firstItem="qvO-fL-1T2" firstAttribute="trailing" secondItem="Ytx-y2-x7z" secondAttribute="trailing" id="oZC-eR-vvR"/>
+                            <constraint firstItem="e7U-7v-Zwx" firstAttribute="top" secondItem="qvO-fL-1T2" secondAttribute="bottom" id="tjE-Yf-EEI"/>
                             <constraint firstItem="0Au-jp-EQW" firstAttribute="leading" secondItem="Ytx-y2-x7z" secondAttribute="leading" constant="29" id="uOW-t0-ptj"/>
-                            <constraint firstItem="PC1-6Z-vBU" firstAttribute="top" secondItem="b06-cG-xGf" secondAttribute="bottom" constant="3" id="ydz-ft-HOh"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="Ytx-y2-x7z"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="PC1-6Z-vBU"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Store" image="cart.fill.badge.plus" catalog="system" id="x8b-yJ-GzO"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
@@ -152,7 +174,7 @@
                         <outlet property="filterStackButtons" destination="PC1-6Z-vBU" id="fU9-fW-23w"/>
                         <outlet property="quizStoreCollectionView" destination="e7U-7v-Zwx" id="aqJ-Zt-Z9b"/>
                         <outlet property="quizStoreLabel" destination="0Au-jp-EQW" id="woD-8w-vFN"/>
-                        <outlet property="searchBar" destination="b06-cG-xGf" id="aOl-i0-Dkd"/>
+                        <outlet property="searchBarMenu" destination="qvO-fL-1T2" id="IU5-r2-qEg"/>
                         <segue destination="gLL-xs-h5A" kind="show" identifier="quizSelected" id="nH2-J8-hs3"/>
                     </connections>
                 </viewController>
@@ -190,8 +212,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="f9h-sX-nkO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="aaK-37-n2N"/>
                     <connections>
@@ -202,12 +224,19 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CK0-WJ-lVb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1357.9710144927537" y="-366.03260869565219"/>
+            <point key="canvasLocation" x="1414" y="-255"/>
         </scene>
     </scenes>
     <resources>
-        <image name="cart.fill.badge.plus" catalog="system" width="128" height="98"/>
+        <image name="cart.fill.badge.plus" catalog="system" width="128" height="106"/>
         <image name="emilyCarr" width="261" height="193"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <image name="storeBackground" width="1060" height="2208"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

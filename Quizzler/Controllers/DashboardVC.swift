@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Dashboard: UIViewController {
+class DashboardVC: UIViewController {
 
     @IBOutlet weak var startRecentQuizz: UIButton!
     @IBOutlet weak var recentQuizScore: UILabel!
@@ -21,7 +21,6 @@ class Dashboard: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.startQuizBtn.layer.cornerRadius = 5
         if self.traitCollection.userInterfaceStyle == .dark {
             

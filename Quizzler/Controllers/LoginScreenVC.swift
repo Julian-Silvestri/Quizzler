@@ -8,18 +8,30 @@
 
 import UIKit
 
-class LoginScreen: UIViewController {
+class LoginScreenVC: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var signInWithApple: UIButton!
     @IBOutlet weak var signInWithGoogle: UIButton!
     @IBOutlet weak var signInWithFacebook: UIButton!
+    
+    var titlesOfQuizzes = [String]()
+    var descriptionOfQuizzes = [String]()
+    var imagesForCell = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.signInWithGoogle.layer.cornerRadius = 5
         self.signInWithFacebook.layer.cornerRadius = 5
         self.signInWithApple.layer.cornerRadius = 5
+        NetworkService.shared.grabToken(completionHandler: {success in
+            if success == true {
+                print("good to go")
+            }
+        })
+//        loadQuizzes()
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if self.traitCollection.userInterfaceStyle == .dark {
@@ -32,6 +44,11 @@ class LoginScreen: UIViewController {
     }
     @IBAction func loginWithFacebookAction(_ sender: Any) {
         self.performSegue(withIdentifier: "login", sender: self)
+        NetworkService.shared.loadQuiz(difficulty: "medium", category: 9, completionHandler: {success in
+            if success == true {
+                print("got it")
+            }
+        })
     }
     override var preferredStatusBarStyle: UIStatusBarStyle{
         if #available(iOS 13.0, *) {
