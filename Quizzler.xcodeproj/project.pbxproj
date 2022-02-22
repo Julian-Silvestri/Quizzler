@@ -19,14 +19,16 @@
 		083928B524EADD2700897989 /* QuizzlerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083928B424EADD2700897989 /* QuizzlerUITests.swift */; };
 		083DE93224FF390E00C9F6DF /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083DE93124FF390E00C9F6DF /* Functions.swift */; };
 		084D1BD427B605C100B7D8C7 /* Quizzes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 084D1BD327B605C100B7D8C7 /* Quizzes.swift */; };
-		0870C29D250851BD00E42109 /* QuizPlaying.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0870C29C250851BD00E42109 /* QuizPlaying.storyboard */; };
 		0870C29F25087D1000E42109 /* QuizPlayingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0870C29E25087D1000E42109 /* QuizPlayingVC.swift */; };
 		087A100127C4332000D0D054 /* GenreButtonMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087A100027C4332000D0D054 /* GenreButtonMenu.swift */; };
 		087A100327C457C600D0D054 /* DifficultyButtonMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087A100227C457C600D0D054 /* DifficultyButtonMenu.swift */; };
 		087A100527C45AB200D0D054 /* QuizLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087A100427C45AB200D0D054 /* QuizLabels.swift */; };
 		087A100927C45D0500D0D054 /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087A100827C45D0500D0D054 /* StartButton.swift */; };
+		087A100B27C4899C00D0D054 /* AnswerButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087A100A27C4899C00D0D054 /* AnswerButtons.swift */; };
 		0887100224F1D69C00A5B088 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0887100124F1D69C00A5B088 /* HomeVC.swift */; };
 		0887100A24F1D83C00A5B088 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0887100924F1D83C00A5B088 /* TabBarController.swift */; };
+		08CBE42727C48AE700A61518 /* SubmitAnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CBE42627C48AE700A61518 /* SubmitAnswerButton.swift */; };
+		08CBE42B27C48C1300A61518 /* QuizPlayingNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CBE42A27C48C1300A61518 /* QuizPlayingNumber.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,14 +67,16 @@
 		083928B624EADD2700897989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		083DE93124FF390E00C9F6DF /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		084D1BD327B605C100B7D8C7 /* Quizzes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quizzes.swift; sourceTree = "<group>"; };
-		0870C29C250851BD00E42109 /* QuizPlaying.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = QuizPlaying.storyboard; sourceTree = "<group>"; };
 		0870C29E25087D1000E42109 /* QuizPlayingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizPlayingVC.swift; sourceTree = "<group>"; };
 		087A100027C4332000D0D054 /* GenreButtonMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreButtonMenu.swift; sourceTree = "<group>"; };
 		087A100227C457C600D0D054 /* DifficultyButtonMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyButtonMenu.swift; sourceTree = "<group>"; };
 		087A100427C45AB200D0D054 /* QuizLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizLabels.swift; sourceTree = "<group>"; };
 		087A100827C45D0500D0D054 /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
+		087A100A27C4899C00D0D054 /* AnswerButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButtons.swift; sourceTree = "<group>"; };
 		0887100124F1D69C00A5B088 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		0887100924F1D83C00A5B088 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		08CBE42627C48AE700A61518 /* SubmitAnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitAnswerButton.swift; sourceTree = "<group>"; };
+		08CBE42A27C48C1300A61518 /* QuizPlayingNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizPlayingNumber.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,10 +107,13 @@
 		08053F4827B8A2310042CE1C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				087A100A27C4899C00D0D054 /* AnswerButtons.swift */,
 				087A100027C4332000D0D054 /* GenreButtonMenu.swift */,
 				087A100227C457C600D0D054 /* DifficultyButtonMenu.swift */,
 				087A100427C45AB200D0D054 /* QuizLabels.swift */,
 				087A100827C45D0500D0D054 /* StartButton.swift */,
+				08CBE42627C48AE700A61518 /* SubmitAnswerButton.swift */,
+				08CBE42A27C48C1300A61518 /* QuizPlayingNumber.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -191,7 +198,6 @@
 			children = (
 				0839289D24EADD2600897989 /* LaunchScreen.storyboard */,
 				0839289524EADD2500897989 /* Home.storyboard */,
-				0870C29C250851BD00E42109 /* QuizPlaying.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -301,7 +307,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0839289F24EADD2600897989 /* LaunchScreen.storyboard in Resources */,
-				0870C29D250851BD00E42109 /* QuizPlaying.storyboard in Resources */,
 				0839289C24EADD2600897989 /* Assets.xcassets in Resources */,
 				0839289724EADD2500897989 /* Home.storyboard in Resources */,
 			);
@@ -329,7 +334,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				084D1BD427B605C100B7D8C7 /* Quizzes.swift in Sources */,
+				08CBE42B27C48C1300A61518 /* QuizPlayingNumber.swift in Sources */,
+				087A100B27C4899C00D0D054 /* AnswerButtons.swift in Sources */,
 				087A100127C4332000D0D054 /* GenreButtonMenu.swift in Sources */,
+				08CBE42727C48AE700A61518 /* SubmitAnswerButton.swift in Sources */,
 				0839289424EADD2500897989 /* LoginScreenVC.swift in Sources */,
 				0887100A24F1D83C00A5B088 /* TabBarController.swift in Sources */,
 				0839289024EADD2500897989 /* AppDelegate.swift in Sources */,

@@ -38,7 +38,7 @@ class GenreButtonMenu: UIButton {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupMenu()
-        self.layer.cornerRadius = 8
+        self.layer.cornerRadius = 12
 //        self.layer.borderColor = UIColor.black.cgColor
 //        self.layer.borderWidth = 1
     }

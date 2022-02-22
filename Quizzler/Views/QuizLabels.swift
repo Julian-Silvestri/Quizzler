@@ -15,5 +15,6 @@ class QuizLabels: UILabel {
     }
     func setupLabel(){
         self.textColor = UIColor.black
+        //self.font = UIFont(name: "Avenir", size: 66)
     }
 }

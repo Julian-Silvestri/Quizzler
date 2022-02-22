@@ -87,17 +87,17 @@ class NetworkService{
             
             do {
                 print("MADE IT HERE")
-//                let json = try JSONDecoder().decode(Quiz.self, from: data)
+                let json = try JSONDecoder().decode(Quiz.self, from: data)
                 
-//                Quiz.quiz.append(Quiz(responseCode: json.responseCode, results: json.results))
-//                for values in Quiz.quiz{
-//                    for data in values.results {
-//                        Quiz.quizzes.append(Result(category: data.category, type: data.type, difficulty: data.difficulty, question: data.question, correctAnswer: data.correctAnswer, incorrectAnswers: data.incorrectAnswers))
-//                    }
-//
-//                }
-                let json = try JSONDecoder().decode(Result.self, from: data)
-                Quiz.quizzes.append(Result(category: json.category, type: json.type, difficulty: json.difficulty , question: json.question, correctAnswer: json.correctAnswer, incorrectAnswers: json.incorrectAnswers))
+                Quiz.quiz.append(Quiz(responseCode: json.responseCode, results: json.results))
+                for values in Quiz.quiz{
+                    for data in values.results {
+                        Quiz.quizzes.append(Result(category: data.category, type: data.type, difficulty: data.difficulty, question: data.question, correctAnswer: data.correctAnswer, incorrectAnswers: data.incorrectAnswers))
+                    }
+
+                }
+//                let json = try JSONDecoder().decode(Result.self, from: data)
+//                Quiz.quizzes.append(Result(category: json.category, type: json.type, difficulty: json.difficulty , question: json.question, correctAnswer: json.correctAnswer, incorrectAnswers: json.incorrectAnswers))
                 dump(Quiz.quizzes)
                 completionHandler(true)
             } catch let err{
