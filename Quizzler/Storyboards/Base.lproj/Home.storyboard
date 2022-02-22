@@ -216,10 +216,16 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="o5Z-fq-IlQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="o5Z-fq-IlQ">
                                 <rect key="frame" x="20" y="118" width="374" height="118"/>
-                                <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="22"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Label">
+                                        <attributes>
+                                            <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <font key="NSFont" size="22" name="Avenir-Medium"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="UCe-co-onG">
@@ -229,11 +235,17 @@
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="80"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="answerBtn1Action:" destination="bvR-Il-Uqc" eventType="touchUpInside" id="s8C-Bi-SVH"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hL7-9k-yGL" customClass="AnswerButtons" customModule="Quizzler" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="98" width="350" height="80"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="answerBtn2Action:" destination="bvR-Il-Uqc" eventType="touchUpInside" id="eu3-om-seC"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRu-Nq-Usm" customClass="AnswerButtons" customModule="Quizzler" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="196" width="350" height="80"/>
@@ -243,11 +255,17 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="answerBtn3Action:" destination="bvR-Il-Uqc" eventType="touchUpInside" id="pkT-kL-ceM"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wmf-it-4NJ" customClass="AnswerButtons" customModule="Quizzler" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="294" width="350" height="80"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="answerBtn4Action:" destination="bvR-Il-Uqc" eventType="touchUpInside" id="MGS-XS-UVv"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1W-Ev-oVY" customClass="SubmitAnswerButton" customModule="Quizzler" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="392" width="350" height="80"/>
@@ -295,8 +313,13 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="answerBtn1" destination="nBs-60-p6H" id="bXP-jE-386"/>
+                        <outlet property="answerBtn2" destination="hL7-9k-yGL" id="bKq-T8-ww0"/>
+                        <outlet property="answerBtn3" destination="hRu-Nq-Usm" id="6mz-1k-UYh"/>
+                        <outlet property="answerBtn4" destination="wmf-it-4NJ" id="Kje-Gg-ukP"/>
                         <outlet property="currentNumberQuestion" destination="1Nw-bQ-dt2" id="2aR-Ra-t8O"/>
                         <outlet property="questionLabel" destination="o5Z-fq-IlQ" id="g0Z-Dr-EzV"/>
+                        <outlet property="submitAnswerBtn" destination="z1W-Ev-oVY" id="N4R-Ud-qx8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E2I-Bo-55g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
