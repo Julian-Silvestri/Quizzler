@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Login ScreenVC-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="LoginScreenVC" customModule="Quizzler" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quizzler_background1" translatesAutoresizingMaskIntoConstraints="NO" id="IpQ-WX-PvH">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quizzler" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="27" translatesAutoresizingMaskIntoConstraints="NO" id="QIg-dx-NGM" customClass="QuizLabels" customModule="Quizzler" customModuleProvider="target">
+                                <rect key="frame" x="84" y="111" width="246" height="117"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="117" id="AsK-z6-WrO"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="67"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="f4o-J7-JfW">
+                                <rect key="frame" x="87" y="53" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UaR-Zk-ZK0">
+                                <rect key="frame" x="82" y="591" width="250" height="63"/>
+                                <color key="backgroundColor" red="0.84761112930000004" green="0.70685487989999995" blue="0.52636104819999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="hsi-lw-ElS"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="Play!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="playBtnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BnQ-QY-oV9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="IpQ-WX-PvH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="490-5Q-kS9"/>
+                            <constraint firstItem="QIg-dx-NGM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="84" id="IhD-En-Qv4"/>
+                            <constraint firstItem="IpQ-WX-PvH" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" id="JnW-FE-nn1"/>
+                            <constraint firstItem="QIg-dx-NGM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="111" id="NWp-m6-0WG"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QIg-dx-NGM" secondAttribute="trailing" constant="84" id="NxI-Vt-pXC"/>
+                            <constraint firstItem="IpQ-WX-PvH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UMQ-XT-eX8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="UaR-Zk-ZK0" secondAttribute="trailing" constant="82" id="WP7-4B-d16"/>
+                            <constraint firstItem="UaR-Zk-ZK0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="82" id="Z0F-81-3kn"/>
+                            <constraint firstItem="IpQ-WX-PvH" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="ry0-Ob-Gtn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UaR-Zk-ZK0" secondAttribute="bottom" constant="82" id="ssZ-wv-ISV"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="f4o-J7-JfW"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="playBtn" destination="UaR-Zk-ZK0" id="MJD-Pq-SZT"/>
+                        <outlet property="titleLabel" destination="QIg-dx-NGM" id="zOF-S6-ehB"/>
+                        <segue destination="5sq-Wi-myi" kind="presentation" identifier="login" modalPresentationStyle="fullScreen" id="HWf-1y-cgY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="13" y="135"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="trq-a7-xLD">
+            <objects>
+                <viewController id="5sq-Wi-myi" customClass="HomeVC" customModule="Quizzler" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Mf-YZ-XvF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainBackground3-1" translatesAutoresizingMaskIntoConstraints="NO" id="xhG-cI-9l9">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <color key="backgroundColor" red="0.16078431372549018" green="0.25490196078431371" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o3F-bP-9h4" customClass="StartButton" customModule="Quizzler" customModuleProvider="target">
+                                <rect key="frame" x="82" y="591" width="250" height="63"/>
+                                <color key="backgroundColor" red="0.68627450980392157" green="0.76862745098039209" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="63" id="mOr-WD-fMz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="startQuiz:" destination="5sq-Wi-myi" eventType="touchUpInside" id="boM-dH-gcV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz Setup" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bga-U9-R5x" customClass="QuizLabels" customModule="Quizzler" customModuleProvider="target">
+                                <rect key="frame" x="20" y="20" width="374" height="74"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="74" id="8AD-gX-fg0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="48"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JLc-WY-Jna">
+                                <rect key="frame" x="32" y="121" width="350" height="288"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gU-nE-VLk" customClass="QuizLabels" customModule="Quizzler" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="52"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="38"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjM-dD-eGd" customClass="GenreButtonMenu" customModule="Quizzler" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="60" width="350" height="80"/>
+                                        <color key="backgroundColor" red="0.16078431372549018" green="0.25490196078431371" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="ec9-cT-Jmh"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <menu key="menu" id="EHs-BE-L2i">
+                                            <children>
+                                                <command title="Item 1" id="OfR-M9-Qaq"/>
+                                                <command title="Item 2" id="qqr-XH-Xlm"/>
+                                            </children>
+                                        </menu>
+                                        <state key="normal" title="Select Genre">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPi-3t-sgb" customClass="QuizLabels" customModule="Quizzler" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="148" width="350" height="52"/>
+                                        <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="38"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9v-aM-bCe" customClass="DifficultyButtonMenu" customModule="Quizzler" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="208" width="350" height="80"/>
+                                        <color key="backgroundColor" red="0.16078431372549018" green="0.25490196078431371" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="350" id="X32-pr-YX9"/>
+                                            <constraint firstAttribute="height" constant="80" id="bTc-Sr-XoC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <menu key="menu" id="iOT-Kx-bEk">
+                                            <children>
+                                                <command title="Item 1" id="fFq-Ul-VM8"/>
+                                                <command title="Item 2" id="g5U-se-UuI"/>
+                                            </children>
+                                        </menu>
+                                        <state key="normal" title="Select Difficulty">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0ZN-Ez-kha"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="o3F-bP-9h4" firstAttribute="leading" secondItem="0ZN-Ez-kha" secondAttribute="leading" constant="82" id="3Ci-AG-Wyd"/>
+                            <constraint firstItem="0ZN-Ez-kha" firstAttribute="trailing" secondItem="JLc-WY-Jna" secondAttribute="trailing" constant="32" id="3KE-U5-1WQ"/>
+                            <constraint firstAttribute="bottom" secondItem="xhG-cI-9l9" secondAttribute="bottom" id="75X-be-mpl"/>
+                            <constraint firstItem="Bga-U9-R5x" firstAttribute="leading" secondItem="0ZN-Ez-kha" secondAttribute="leading" constant="20" id="Exg-ce-gjf"/>
+                            <constraint firstItem="xhG-cI-9l9" firstAttribute="trailing" secondItem="0ZN-Ez-kha" secondAttribute="trailing" id="G9d-dM-nLn"/>
+                            <constraint firstItem="xhG-cI-9l9" firstAttribute="top" secondItem="3Mf-YZ-XvF" secondAttribute="top" id="GPF-s5-J4D"/>
+                            <constraint firstItem="Bga-U9-R5x" firstAttribute="top" secondItem="0ZN-Ez-kha" secondAttribute="top" constant="20" id="JGv-S7-Psb"/>
+                            <constraint firstItem="0ZN-Ez-kha" firstAttribute="trailing" secondItem="o3F-bP-9h4" secondAttribute="trailing" constant="82" id="Q5o-84-dGQ"/>
+                            <constraint firstAttribute="bottom" secondItem="o3F-bP-9h4" secondAttribute="bottom" constant="82" id="Vhi-jL-QDU"/>
+                            <constraint firstItem="JLc-WY-Jna" firstAttribute="leading" secondItem="0ZN-Ez-kha" secondAttribute="leading" constant="32" id="VwF-yh-DHP"/>
+                            <constraint firstItem="JLc-WY-Jna" firstAttribute="top" secondItem="Bga-U9-R5x" secondAttribute="bottom" constant="27" id="XBH-kF-Grb"/>
+                            <constraint firstItem="xhG-cI-9l9" firstAttribute="leading" secondItem="0ZN-Ez-kha" secondAttribute="leading" id="XdF-NI-u4Q"/>
+                            <constraint firstItem="0ZN-Ez-kha" firstAttribute="trailing" secondItem="Bga-U9-R5x" secondAttribute="trailing" constant="20" id="axP-we-4tJ"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="LTU-j5-3ME"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="selectDifficultyBtn" destination="d9v-aM-bCe" id="q8V-nm-AR6"/>
+                        <outlet property="selectGenreBtn" destination="TjM-dD-eGd" id="QLm-ZK-ZHy"/>
+                        <outlet property="startQuizBtn" destination="o3F-bP-9h4" id="DjM-Q0-SuL"/>
+                        <outlet property="startRecentQuizz" destination="o3F-bP-9h4" id="s2f-RM-gL1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ua-DE-dSD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="834.78260869565224" y="134.5108695652174"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="house.fill" catalog="system" width="128" height="106"/>
+        <image name="mainBackground3-1" width="1595" height="2164"/>
+        <image name="quizzler_background1" width="1280" height="720"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

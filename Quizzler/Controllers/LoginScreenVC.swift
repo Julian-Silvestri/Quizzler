@@ -11,9 +11,8 @@ import UIKit
 class LoginScreenVC: UIViewController {
 
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var signInWithApple: UIButton!
-    @IBOutlet weak var signInWithGoogle: UIButton!
-    @IBOutlet weak var signInWithFacebook: UIButton!
+    
+    @IBOutlet weak var playBtn: UIButton!
     
     var titlesOfQuizzes = [String]()
     var descriptionOfQuizzes = [String]()
@@ -21,9 +20,8 @@ class LoginScreenVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.signInWithGoogle.layer.cornerRadius = 5
-        self.signInWithFacebook.layer.cornerRadius = 5
-        self.signInWithApple.layer.cornerRadius = 5
+        self.playBtn.layer.cornerRadius = 5
+        self.titleLabel.textColor = UIColor.black
         NetworkService.shared.grabToken(completionHandler: {success in
             if success == true {
                 print("good to go")
@@ -34,28 +32,16 @@ class LoginScreenVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if self.traitCollection.userInterfaceStyle == .dark {
-            // User Interface is Dark
-            self.titleLabel.textColor = UIColor.black
-        } else {
-            // User Interface is Light
-            self.titleLabel.textColor = UIColor.black
-        }
     }
-    @IBAction func loginWithFacebookAction(_ sender: Any) {
+    @IBAction func playBtnAction(_ sender: Any) {
         self.performSegue(withIdentifier: "login", sender: self)
-        NetworkService.shared.loadQuiz(difficulty: "medium", category: 9, completionHandler: {success in
-            if success == true {
-                print("got it")
-            }
-        })
     }
     override var preferredStatusBarStyle: UIStatusBarStyle{
         if #available(iOS 13.0, *) {
             return .darkContent
         } else {
             // Fallback on earlier versions
-            return .default
+            return .darkContent
             
         }
     }

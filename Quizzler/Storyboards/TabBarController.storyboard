@@ -41,10 +41,10 @@
             </objects>
             <point key="canvasLocation" x="-279" y="-447"/>
         </scene>
-        <!--Dashboard-->
+        <!--Home-->
         <scene sceneID="ZZK-x4-gi2">
             <objects>
-                <viewControllerPlaceholder storyboardName="Dashboard" id="mto-RM-bqo" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Home" id="mto-RM-bqo" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="foG-Uy-EfX">
                         <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBarItem>

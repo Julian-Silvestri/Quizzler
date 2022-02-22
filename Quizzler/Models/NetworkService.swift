@@ -57,15 +57,14 @@ class NetworkService{
             do {
                 let json = try JSONDecoder().decode(Secret.self, from: data)
                 NetworkService.secrectKey.append(Secret(responseCode: json.responseCode, responseMessage: json.responseMessage, token: json.token))
-                
+                completionHandler(true)
             } catch let err{
                 print(err)
+                completionHandler(false)
             }
             //print(String(data: data, encoding: .utf8)!)
             print("secret key ")
             print(NetworkService.secrectKey[0].token)
-            
-            
         }
         task.resume()
     }
@@ -78,19 +77,33 @@ class NetworkService{
         request.httpMethod = "GET"
 
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
-          guard let data = data else {
-            print(String(describing: error))
-            return
-          }
-          print(String(data: data, encoding: .utf8)!)
+            
+            guard let data = data else {
+                print(String(describing: error))
+                return
+            }
+            
+//            print(String(data: data, encoding: .utf8)!)
             
             do {
+                print("MADE IT HERE")
+//                let json = try JSONDecoder().decode(Quiz.self, from: data)
+                
+//                Quiz.quiz.append(Quiz(responseCode: json.responseCode, results: json.results))
+//                for values in Quiz.quiz{
+//                    for data in values.results {
+//                        Quiz.quizzes.append(Result(category: data.category, type: data.type, difficulty: data.difficulty, question: data.question, correctAnswer: data.correctAnswer, incorrectAnswers: data.incorrectAnswers))
+//                    }
+//
+//                }
                 let json = try JSONDecoder().decode(Result.self, from: data)
                 Quiz.quizzes.append(Result(category: json.category, type: json.type, difficulty: json.difficulty , question: json.question, correctAnswer: json.correctAnswer, incorrectAnswers: json.incorrectAnswers))
                 dump(Quiz.quizzes)
-                
+                completionHandler(true)
             } catch let err{
                 print(err)
+                print("error ")
+                completionHandler(false)
             }
 
         }

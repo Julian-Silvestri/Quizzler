@@ -59,6 +59,7 @@ class Quiz: Codable {
     let results: [Result]
     
     static var quizzes = [Result]()
+    static var quiz = [Quiz]()
 
     enum CodingKeys: String, CodingKey {
         case responseCode = "response_code"
