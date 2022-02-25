@@ -48,6 +48,30 @@ func alertActionYesNo(viewController: UIViewController, title:String, message: S
     viewController.present(alertController, animated: true)
 }
 
+func alertActionYesNoWithImage(viewController: UIViewController, title:String, message: String, image: UIImage, completionHandler: @escaping(Bool)->Void){
+    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    alertController.addAction(UIAlertAction(title: "Next Question", style: .default, handler: {action in
+        completionHandler(true)
+    }))
+
+    let imageView = UIImageView(frame: CGRect(x: 0, y: 100, width: 64, height: 64))
+    imageView.image = image
+    imageView.contentMode = .scaleAspectFit
+    alertController.view.addSubview(imageView)
+
+    imageView.translatesAutoresizingMaskIntoConstraints = false
+    let height = NSLayoutConstraint(item: alertController.view as Any, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 190)
+    let width = NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 64.0)
+    let centerX = NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: alertController.view, attribute: .centerX, multiplier: 1, constant: 0)
+    let centerY = NSLayoutConstraint(item: imageView, attribute: .centerY, relatedBy: .equal, toItem: alertController.view, attribute: .centerY, multiplier: 1, constant: 0)
+    alertController.view.addConstraint(height)
+    alertController.view.addConstraint(width)
+    alertController.view.addConstraint(centerX)
+    alertController.view.addConstraint(centerY)
+
+    viewController.present(alertController, animated: true)
+}
+
 //func loadQuizzes() {
 //    //MARK: General History 1
 //    UserDefaults.setValue(0, forKey: "quiz_1_score")

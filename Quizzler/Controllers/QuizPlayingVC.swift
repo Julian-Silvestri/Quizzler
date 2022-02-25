@@ -20,8 +20,11 @@ class QuizPlayingVC: UIViewController {
     @IBOutlet weak var submitAnswerBtn: SubmitAnswerButton!
     
     var quiz = Quiz.quizzes
-    
     var answerButtonArray = [AnswerButtons]()
+    var currentQuizQuestion = 0
+    var currentQuizQuestion_notCompuSci = 1
+    var selectedAnswer = ""
+    var scoreForQuiz = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,12 +55,10 @@ class QuizPlayingVC: UIViewController {
 
     func quizStartSetup(){
         self.submitAnswerBtn.disableBtn()
-        self.currentNumberQuestion.text = "1/20"
-        self.decode(str: quiz[0].question)
-        self.answerBtn1.setTitle(quiz[0].incorrectAnswers[0], for: .normal)
-        self.answerBtn2.setTitle(quiz[0].incorrectAnswers[1], for: .normal)
-        self.answerBtn3.setTitle(quiz[0].incorrectAnswers[2], for: .normal)
-        self.answerBtn4.setTitle(quiz[0].correctAnswer, for: .normal)
+        self.currentNumberQuestion.text = "\(currentQuizQuestion_notCompuSci)/20"
+        //sets the question label while decoding the string
+        self.decode(str: self.quiz[currentQuizQuestion].question)
+        randomizeLocationOfAnswer(correctAnswer: self.quiz[currentQuizQuestion].correctAnswer, incorrectAnswers: self.quiz[currentQuizQuestion].incorrectAnswers)
     
     }
     
@@ -73,18 +74,70 @@ class QuizPlayingVC: UIViewController {
             sender.deSelected()
         } else {
             sender.selected()
+            self.selectedAnswer = sender.title(for: .normal) ?? ""
             self.submitAnswerBtn.enableBtn()
         }
     }
     
     @IBAction func submitAnswerAction(_ sender: Any) {
-        
+        alertActionYesNo(viewController: self, title: "Confirm", message: "Is that your final answer?", completionHandler: {yesNo in
+            if yesNo == true {
+                self.determineIfRightOrWrong(selectedAnswer: self.selectedAnswer)
+            }
+        })
+    }
+    
+    func determineIfRightOrWrong(selectedAnswer: String){
+        if selectedAnswer == self.quiz[currentQuizQuestion].correctAnswer {
+            alertActionYesNoWithImage(viewController: self, title: "Correct!", message: "Good Job", image: UIImage(named: "correctIcon")!, completionHandler: {success in
+                if success == true {
+                    //next question + 1 to score
+                    self.scoreForQuiz += 1
+                    self.currentQuizQuestion += 1
+                    self.currentQuizQuestion_notCompuSci += 1
+                    self.nextQuizQuestion()
+                }
+            })
+
+        } else {
+            alertActionYesNoWithImage(viewController: self, title: "Wrong!", message: "Sorry..", image: UIImage(named: "wrongIcon")!, completionHandler: {success in
+                if success == true {
+                    //next question + 0 to score
+                    
+                    self.scoreForQuiz += 0
+                    self.currentQuizQuestion += 1
+                    self.currentQuizQuestion_notCompuSci += 1
+                    self.nextQuizQuestion()
+                }
+            })
+
+        }
+    }
+    
+    func nextQuizQuestion(){
+        self.submitAnswerBtn.disableBtn()
+        self.questionLabel.textColor = UIColor.white
+        for buttons in self.answerButtonArray{
+            buttons.deSelected()
+        }
+        self.currentNumberQuestion.text = "\(currentQuizQuestion_notCompuSci)/20"
+        //sets the question label while decoding the string
+        self.decode(str: self.quiz[currentQuizQuestion].question)
+        randomizeLocationOfAnswer(correctAnswer: self.quiz[currentQuizQuestion].correctAnswer, incorrectAnswers: self.quiz[currentQuizQuestion].incorrectAnswers)
     }
     
     
     @IBAction func quitBtn(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        alertActionYesNo(viewController: self, title: "Quit?", message: "Are you sure you want to quit? All progress will be lost.", completionHandler: {yesNo in
+            if yesNo == true {
+                self.dismiss(animated: true, completion: nil)
+            } else {
+                return
+            }
+        })
     }
+    
+    
     
     @IBAction func test(_ sender: Any) {
         
@@ -103,19 +156,19 @@ class QuizPlayingVC: UIViewController {
             allAnswers.append(values)
         }
         
-        self.answerBtn4.setTitle(allAnswers.randomElement(), for: .normal)
-        
-        allAnswers.removeAll(where: {$0 == self.answerBtn4.titleLabel?.text ?? ""})
-        
-        self.answerBtn3.setTitle(allAnswers.randomElement(), for: .normal)
-        
-        allAnswers.removeAll(where: {$0 == self.answerBtn3.titleLabel?.text ?? ""})
-        
-        self.answerBtn2.setTitle(allAnswers.randomElement(), for: .normal)
-        
-        allAnswers.removeAll(where: {$0 == self.answerBtn2.titleLabel?.text ?? ""})
-        
-        self.answerBtn1.setTitle(allAnswers.randomElement(), for: .normal)
+        DispatchQueue.main.async {
+            print("THIS IS ALL ANSWERS \(allAnswers)")
+            self.answerBtn4.setTitle(allAnswers.randomElement(), for: .normal)
+            allAnswers.removeAll(where: {$0 == self.answerBtn4.title(for: .normal) ?? ""})
+            print("THIS IS ALL ANSWERS \(allAnswers)")
+            self.answerBtn3.setTitle(allAnswers.randomElement(), for: .normal)
+            allAnswers.removeAll(where: {$0 == self.answerBtn3.title(for: .normal) ?? ""})
+            print("THIS IS ALL ANSWERS \(allAnswers)")
+            self.answerBtn2.setTitle(allAnswers.randomElement(), for: .normal)
+            allAnswers.removeAll(where: {$0 == self.answerBtn2.title(for: .normal) ?? ""})
+            print("THIS IS ALL ANSWERS \(allAnswers)")
+            self.answerBtn1.setTitle(allAnswers.randomElement(), for: .normal)
+        }
         
     }
     
