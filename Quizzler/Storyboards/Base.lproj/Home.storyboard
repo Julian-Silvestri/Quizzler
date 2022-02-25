@@ -216,7 +216,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="o5Z-fq-IlQ">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="o5Z-fq-IlQ" customClass="QuestionLabel" customModule="Quizzler" customModuleProvider="target">
                                 <rect key="frame" x="20" y="118" width="374" height="118"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Label">
@@ -269,8 +269,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1W-Ev-oVY" customClass="SubmitAnswerButton" customModule="Quizzler" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="392" width="350" height="80"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Submit"/>
                                         <connections>
                                             <action selector="submitAnswerAction:" destination="bvR-Il-Uqc" eventType="touchUpInside" id="Tjq-Y0-9py"/>
                                         </connections>
@@ -321,8 +322,8 @@
                         <outlet property="answerBtn3" destination="hRu-Nq-Usm" id="6mz-1k-UYh"/>
                         <outlet property="answerBtn4" destination="wmf-it-4NJ" id="Kje-Gg-ukP"/>
                         <outlet property="currentNumberQuestion" destination="1Nw-bQ-dt2" id="2aR-Ra-t8O"/>
-                        <outlet property="questionLabel" destination="o5Z-fq-IlQ" id="g0Z-Dr-EzV"/>
-                        <outlet property="submitAnswerBtn" destination="z1W-Ev-oVY" id="N4R-Ud-qx8"/>
+                        <outlet property="questionLabel" destination="o5Z-fq-IlQ" id="j8r-hg-JKe"/>
+                        <outlet property="submitAnswerBtn" destination="z1W-Ev-oVY" id="vMV-Rd-MJj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="E2I-Bo-55g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -347,7 +348,7 @@
             <size key="intrinsicContentSize" width="67" height="31"/>
         </designable>
         <designable name="z1W-Ev-oVY">
-            <size key="intrinsicContentSize" width="67" height="31"/>
+            <size key="intrinsicContentSize" width="69.666666666666671" height="31"/>
         </designable>
     </designables>
     <resources>

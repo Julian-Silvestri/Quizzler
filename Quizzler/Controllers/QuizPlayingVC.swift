@@ -12,7 +12,8 @@ import AVFoundation
 class QuizPlayingVC: UIViewController {
     
     @IBOutlet weak var currentNumberQuestion: UILabel!
-    @IBOutlet weak var questionLabel: UILabel!
+
+    @IBOutlet weak var questionLabel: QuestionLabel!
     @IBOutlet weak var answerBtn1: AnswerButtons!
     @IBOutlet weak var answerBtn2: AnswerButtons!
     @IBOutlet weak var answerBtn3: AnswerButtons!
@@ -29,8 +30,8 @@ class QuizPlayingVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.quizStartSetup()
-        self.questionLabel.textColor = UIColor.white
-        self.questionLabel.font = UIFont(name: "Avenir", size: 16)
+//        self.questionLabel.textColor = UIColor.white
+//        self.questionLabel.font = UIFont(name: "Avenir", size: 16)
         self.questionLabel.numberOfLines = 0
         
         self.answerBtn1.tag = 1
@@ -46,6 +47,7 @@ class QuizPlayingVC: UIViewController {
             do {
                 let attrStr = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
                 self.questionLabel.attributedText = attrStr
+                self.questionLabel.setupLabel()
                 print(attrStr)
             } catch {
                 print(error)

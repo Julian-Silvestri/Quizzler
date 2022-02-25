@@ -124,10 +124,10 @@
 		08053F4927B8A23F0042CE1C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0870C29E25087D1000E42109 /* QuizPlayingVC.swift */,
-				0839289324EADD2500897989 /* LoginScreenVC.swift */,
 				0887100924F1D83C00A5B088 /* TabBarController.swift */,
+				0839289324EADD2500897989 /* LoginScreenVC.swift */,
 				0887100124F1D69C00A5B088 /* HomeVC.swift */,
+				0870C29E25087D1000E42109 /* QuizPlayingVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

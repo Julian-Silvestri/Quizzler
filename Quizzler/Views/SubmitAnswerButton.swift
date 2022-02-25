@@ -26,7 +26,9 @@ class SubmitAnswerButton: UIButton {
     func setupButton(){
         self.layer.cornerRadius = 8
         self.backgroundColor = #colorLiteral(red: 0.1960784346, green: 0.3411764801, blue: 0.1019607857, alpha: 1)
-        self.titleLabel?.textColor = UIColor.white
+        self.titleLabel?.text = "Submit"
+        self.titleLabel?.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+//        self.titleLabel?.text = "Submit"
     }
     
     func disableBtn(){
