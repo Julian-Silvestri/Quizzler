@@ -36,7 +36,12 @@ class HomeVC: UIViewController {
             if success == true {
                 print("quiz loaded")
                 DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "play", sender: self)
+                    if Quiz.quizzes.count <= 0 {
+                        alertActionBasic(viewController: self, title: "Error", message: "Could not load this quiz")
+                    } else {
+                        self.performSegue(withIdentifier: "play", sender: self)
+                    }
+                    
                 }
             }
         })

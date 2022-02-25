@@ -11,6 +11,9 @@ import UIKit
 @IBDesignable
 class AnswerButtons: UIButton {
     
+    let selectedColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+    let deSelectedColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+    
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         self.setupButtons()
@@ -29,8 +32,13 @@ class AnswerButtons: UIButton {
 //        self.titleColor(for: .normal)
     }
     
-    func selectedAsAnswer(){
-        
+    func selected(){
+        self.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
     }
+    
+    func deSelected(){
+        self.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+    }
+    
     
 }

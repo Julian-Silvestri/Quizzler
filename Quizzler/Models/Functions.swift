@@ -30,7 +30,23 @@ func hexStringToUIColor (hex:String) -> UIColor {
     )
 }
 
-
+func alertActionBasic(viewController: UIViewController, title:String, message: String){
+    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: {action in
+        return
+    }))
+    viewController.present(alertController, animated: true)
+}
+func alertActionYesNo(viewController: UIViewController, title:String, message: String, completionHandler: @escaping(Bool)->Void){
+    let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    alertController.addAction(UIAlertAction(title: "Yes", style: .default, handler: {action in
+        completionHandler(true)
+    }))
+    alertController.addAction(UIAlertAction(title: "No", style: .cancel, handler: {action in
+        completionHandler(false)
+    }))
+    viewController.present(alertController, animated: true)
+}
 
 //func loadQuizzes() {
 //    //MARK: General History 1

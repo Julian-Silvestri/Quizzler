@@ -236,7 +236,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                         <connections>
-                                            <action selector="answerBtn1Action:" destination="bvR-Il-Uqc" eventType="touchUpInside" id="s8C-Bi-SVH"/>
+                                            <action selector="answerSelectedAction:" destination="bvR-Il-Uqc" eventType="touchUpInside" id="awA-dm-HZ7"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hL7-9k-yGL" customClass="AnswerButtons" customModule="Quizzler" customModuleProvider="target">
@@ -244,7 +244,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                         <connections>
-                                            <action selector="answerBtn2Action:" destination="bvR-Il-Uqc" eventType="touchUpInside" id="eu3-om-seC"/>
+                                            <action selector="answerSelectedAction:" destination="bvR-Il-Uqc" eventType="touchUpInside" id="Txt-2M-qgr"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRu-Nq-Usm" customClass="AnswerButtons" customModule="Quizzler" customModuleProvider="target">
@@ -256,7 +256,7 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                         <connections>
-                                            <action selector="answerBtn3Action:" destination="bvR-Il-Uqc" eventType="touchUpInside" id="pkT-kL-ceM"/>
+                                            <action selector="answerSelectedAction:" destination="bvR-Il-Uqc" eventType="touchUpInside" id="DBc-W0-xO5"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wmf-it-4NJ" customClass="AnswerButtons" customModule="Quizzler" customModuleProvider="target">
@@ -264,13 +264,16 @@
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                         <connections>
-                                            <action selector="answerBtn4Action:" destination="bvR-Il-Uqc" eventType="touchUpInside" id="MGS-XS-UVv"/>
+                                            <action selector="answerSelectedAction:" destination="bvR-Il-Uqc" eventType="touchUpInside" id="lRp-KP-Y5K"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1W-Ev-oVY" customClass="SubmitAnswerButton" customModule="Quizzler" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="392" width="350" height="80"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <connections>
+                                            <action selector="submitAnswerAction:" destination="bvR-Il-Uqc" eventType="touchUpInside" id="Tjq-Y0-9py"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>

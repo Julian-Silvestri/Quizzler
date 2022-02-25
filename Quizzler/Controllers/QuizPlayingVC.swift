@@ -21,14 +21,20 @@ class QuizPlayingVC: UIViewController {
     
     var quiz = Quiz.quizzes
     
+    var answerButtonArray = [AnswerButtons]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.quizSetup()
+        self.quizStartSetup()
         self.questionLabel.textColor = UIColor.white
         self.questionLabel.font = UIFont(name: "Avenir", size: 16)
         self.questionLabel.numberOfLines = 0
-        self.submitAnswerBtn.disableBtn()
-//        self.questionLabel.minimumScaleFactor =
+        
+        self.answerBtn1.tag = 1
+        self.answerBtn2.tag = 2
+        self.answerBtn3.tag = 3
+        self.answerBtn4.tag = 4
+        self.answerButtonArray = [self.answerBtn1,self.answerBtn2,self.answerBtn3,self.answerBtn4]
     }
     
     func decode(str: String){
@@ -44,26 +50,37 @@ class QuizPlayingVC: UIViewController {
         }
     }
 
-    func quizSetup(){
+    func quizStartSetup(){
+        self.submitAnswerBtn.disableBtn()
         self.currentNumberQuestion.text = "1/20"
         self.decode(str: quiz[0].question)
         self.answerBtn1.setTitle(quiz[0].incorrectAnswers[0], for: .normal)
         self.answerBtn2.setTitle(quiz[0].incorrectAnswers[1], for: .normal)
         self.answerBtn3.setTitle(quiz[0].incorrectAnswers[2], for: .normal)
         self.answerBtn4.setTitle(quiz[0].correctAnswer, for: .normal)
+    
     }
     
-    @IBAction func answerBtn1Action(_ sender: Any) {
+    @IBAction func answerSelectedAction(_ sender: AnswerButtons){
+        
+        for buttons in self.answerButtonArray {
+            if buttons.backgroundColor == sender.selectedColor{
+                buttons.backgroundColor = sender.deSelectedColor
+            }
+        }
+        
+        if sender.backgroundColor == sender.selectedColor {
+            sender.deSelected()
+        } else {
+            sender.selected()
+            self.submitAnswerBtn.enableBtn()
+        }
     }
     
-    @IBAction func answerBtn2Action(_ sender: Any) {
+    @IBAction func submitAnswerAction(_ sender: Any) {
+        
     }
     
-    @IBAction func answerBtn3Action(_ sender: Any) {
-    }
-    
-    @IBAction func answerBtn4Action(_ sender: Any) {
-    }
     
     @IBAction func quitBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

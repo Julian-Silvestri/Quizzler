@@ -86,7 +86,6 @@ class NetworkService{
 //            print(String(data: data, encoding: .utf8)!)
             
             do {
-                print("MADE IT HERE")
                 let json = try JSONDecoder().decode(Quiz.self, from: data)
                 
                 Quiz.quiz.append(Quiz(responseCode: json.responseCode, results: json.results))

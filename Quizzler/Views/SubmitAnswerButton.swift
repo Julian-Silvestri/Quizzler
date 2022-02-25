@@ -14,11 +14,13 @@ class SubmitAnswerButton: UIButton {
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
         self.setupButton()
+        self.disableBtn()
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         self.setupButton()
+        self.disableBtn()
     }
     
     func setupButton(){
