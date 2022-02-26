@@ -154,6 +154,7 @@
 		0839288E24EADD2500897989 /* Quizzler */ = {
 			isa = PBXGroup;
 			children = (
+				08ABFC5527CAE2660087F5AC /* Helpers */,
 				08053F4927B8A23F0042CE1C /* Controllers */,
 				08053F4827B8A2310042CE1C /* Views */,
 				084D1BD027B604FD00B7D8C7 /* Models */,
@@ -189,8 +190,6 @@
 		084D1BD027B604FD00B7D8C7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				083DE93124FF390E00C9F6DF /* Functions.swift */,
-				08053F4627B8A1CB0042CE1C /* NetworkService.swift */,
 				084D1BD327B605C100B7D8C7 /* Quizzes.swift */,
 			);
 			path = Models;
@@ -203,6 +202,15 @@
 				0839289524EADD2500897989 /* Home.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		08ABFC5527CAE2660087F5AC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				08053F4627B8A1CB0042CE1C /* NetworkService.swift */,
+				083DE93124FF390E00C9F6DF /* Functions.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -93,12 +93,11 @@ class NetworkService{
                     for data in values.results {
                         Quiz.quizzes.append(Result(category: data.category, type: data.type, difficulty: data.difficulty, question: data.question, correctAnswer: data.correctAnswer, incorrectAnswers: data.incorrectAnswers))
                     }
-
                 }
 //                let json = try JSONDecoder().decode(Result.self, from: data)
 //                Quiz.quizzes.append(Result(category: json.category, type: json.type, difficulty: json.difficulty , question: json.question, correctAnswer: json.correctAnswer, incorrectAnswers: json.incorrectAnswers))
-                print("*.")
-                dump(Quiz.quizzes)
+//                print("*.")
+//                dump(Quiz.quizzes)
                 completionHandler(true)
             } catch let err{
                 print(err)
@@ -111,6 +110,6 @@ class NetworkService{
         task.resume()
     }
     
-    
 
+    
 }

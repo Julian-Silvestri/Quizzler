@@ -25,7 +25,7 @@ class QuizPlayingVC: UIViewController {
     var answerButtonArray = [AnswerButtons]()
     var currentQuizQuestion = 0
     var currentQuizQuestion_notCompuSci = 1
-    var selectedAnswer = ""
+    var selectedAnswer = NSAttributedString()
     var scoreForQuiz = 0
     
     var correct = ""
@@ -65,21 +65,21 @@ class QuizPlayingVC: UIViewController {
             }
         }
     }
-    
-    func decodeAnswerText(str: String, buttonToSet: UIButton, completionHandler: @escaping(Bool?)->Void){
-        
-        if let data = str.data(using: .utf8) {
-            do {
-                let attrStr = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
-                buttonToSet.setAttributedTitle(attrStr, for: .normal)
-                print(attrStr)
-                completionHandler(true)
-            } catch {
-                print(error)
-                completionHandler(false)
-            }
-        }
-    }
+//
+//    func decodeAnswerText(str: String, buttonToSet: UIButton, completionHandler: @escaping(Bool?)->Void){
+//
+//        if let data = str.data(using: .utf8) {
+//            do {
+//                let attrStr = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
+//                buttonToSet.setAttributedTitle(attrStr, for: .normal)
+//                print(attrStr)
+//                completionHandler(true)
+//            } catch {
+//                print(error)
+//                completionHandler(false)
+//            }
+//        }
+//    }
 
     func quizStartSetup(){
         self.submitAnswerBtn.disableBtn()
@@ -101,7 +101,7 @@ class QuizPlayingVC: UIViewController {
             sender.deSelected()
         } else {
             sender.selected()
-            self.selectedAnswer = sender.title(for: .normal) ?? ""
+            self.selectedAnswer = sender.attributedTitle(for: .normal) ?? NSAttributedString()
             self.submitAnswerBtn.enableBtn()
         }
 
@@ -115,8 +115,12 @@ class QuizPlayingVC: UIViewController {
         })
     }
     
-    func determineIfRightOrWrong(selectedAnswer: String){
-        if selectedAnswer == Quiz.quizzes[currentQuizQuestion].correctAnswer {
+    func determineIfRightOrWrong(selectedAnswer: NSAttributedString){
+        
+        let attributedCorrectAnswer = decode(str: Quiz.quizzes[currentQuizQuestion].correctAnswer)
+       
+        
+        if selectedAnswer == attributedCorrectAnswer {
             alertActionYesNoWithImage(viewController: self, title: "Correct!", message: "Good Job", image: UIImage(named: "correctIcon")!, completionHandler: {success in
                 if success == true {
                     //next question + 1 to score
@@ -143,6 +147,9 @@ class QuizPlayingVC: UIViewController {
     }
     
     func nextQuizQuestion(){
+        if self.currentQuizQuestion == 19 {
+            self.scoreAndFinishQuiz()
+        }
         self.submitAnswerBtn.disableBtn()
         self.questionLabel.textColor = UIColor.white
         for buttons in self.answerButtonArray{
@@ -179,49 +186,34 @@ class QuizPlayingVC: UIViewController {
     
     func randomizeLocationOfAnswer(correctAnswer: String, incorrectAnswers: [String]){
         
-        
-        
-        var allAnswers = [correctAnswer]
+        //decode all strings
+        var allAnswers = [NSAttributedString]()
+        allAnswers = [decode(str: correctAnswer)]
         for values in incorrectAnswers {
-            allAnswers.append(values)
+            allAnswers.append(decode(str: values))
         }
         
-
-        self.group.enter()
+        self.answerBtn4.setAttributedTitle(allAnswers.randomElement(), for: .normal)
+        allAnswers.removeAll(where: {$0 == self.answerBtn4.attributedTitle(for: .normal)})
+        self.answerBtn3.setAttributedTitle(allAnswers.randomElement(), for: .normal)
+        allAnswers.removeAll(where: {$0 == self.answerBtn3.attributedTitle(for: .normal)})
+        self.answerBtn2.setAttributedTitle(allAnswers.randomElement(), for: .normal)
+        allAnswers.removeAll(where: {$0 == self.answerBtn2.attributedTitle(for: .normal)})
+        self.answerBtn1.setAttributedTitle(allAnswers.randomElement(), for: .normal)
+        allAnswers.removeAll(where: {$0 == self.answerBtn1.attributedTitle(for: .normal)})
         
-        self.decodeAnswerText(str: allAnswers.randomElement() ?? "", buttonToSet: self.answerBtn4, completionHandler: {_ in
-            self.group.leave()
-        })
         
-        allAnswers.removeAll(where: {$0 == self.answerBtn4.title(for: .normal) ?? ""})
-        
-        self.group.enter()
-        
-        self.decodeAnswerText(str: allAnswers.randomElement() ?? "", buttonToSet: self.answerBtn3, completionHandler: {_ in
-            self.group.leave()
-        })
-        
-        allAnswers.removeAll(where: {$0 == self.answerBtn3.title(for: .normal) ?? ""})
-        
-        self.group.enter()
-        
-        self.decodeAnswerText(str: allAnswers.randomElement() ?? "", buttonToSet: self.answerBtn2, completionHandler: {_ in
-            self.group.leave()
-        })
-        
-        allAnswers.removeAll(where: {$0 == self.answerBtn2.title(for: .normal) ?? ""})
-        
-        self.group.enter()
-        
-        self.decodeAnswerText(str: allAnswers.randomElement() ?? "", buttonToSet: self.answerBtn1, completionHandler: {_ in
-            self.group.leave()
-        })
-
         self.answerBtn4.setupButtons()
         self.answerBtn3.setupButtons()
         self.answerBtn2.setupButtons()
         self.answerBtn1.setupButtons()
 
+    }
+    
+    func scoreAndFinishQuiz(){
+        alertActionBasic(viewController: self, title: "Finished!", message: "Your score is \(self.scoreForQuiz)/20", completionHandler: {_ in
+            self.dismiss(animated: true, completion: nil)
+        })
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{

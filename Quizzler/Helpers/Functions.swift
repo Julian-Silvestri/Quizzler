@@ -30,10 +30,10 @@ func hexStringToUIColor (hex:String) -> UIColor {
     )
 }
 
-func alertActionBasic(viewController: UIViewController, title:String, message: String){
+func alertActionBasic(viewController: UIViewController, title:String, message: String, completionHandler: @escaping(Bool?)->Void){
     let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
     alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: {action in
-        return
+        completionHandler(true)
     }))
     viewController.present(alertController, animated: true)
 }
@@ -60,7 +60,7 @@ func alertActionYesNoWithImage(viewController: UIViewController, title:String, m
     alertController.view.addSubview(imageView)
 
     imageView.translatesAutoresizingMaskIntoConstraints = false
-    let height = NSLayoutConstraint(item: alertController.view as Any, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 190)
+    let height = NSLayoutConstraint(item: alertController.view as Any, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 215)
     let width = NSLayoutConstraint(item: imageView, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 64.0)
     let centerX = NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: alertController.view, attribute: .centerX, multiplier: 1, constant: 0)
     let centerY = NSLayoutConstraint(item: imageView, attribute: .centerY, relatedBy: .equal, toItem: alertController.view, attribute: .centerY, multiplier: 1, constant: 0)
@@ -71,6 +71,37 @@ func alertActionYesNoWithImage(viewController: UIViewController, title:String, m
 
     viewController.present(alertController, animated: true)
 }
+
+func decode(str: String)->NSAttributedString{
+    var textToDecode = NSAttributedString()
+    if let data = str.data(using: .utf8) {
+        do {
+            let attrStr = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
+//            print(attrStr)
+            textToDecode = attrStr
+        } catch {
+            print(error)
+        }
+    }
+    return textToDecode
+}
+func decodeArrayOfStrings(str: [String])->[NSAttributedString]{
+    var textToDecode = [NSAttributedString]()
+    
+    for values in str {
+        if let data = values.data(using: .utf8) {
+            do {
+                let attrStr = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
+//                print(attrStr)
+                textToDecode.append(attrStr)
+            } catch {
+                print(error)
+            }
+        }
+    }
+    return textToDecode
+}
+
 
 //func loadQuizzes() {
 //    //MARK: General History 1
