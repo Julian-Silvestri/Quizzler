@@ -29,6 +29,7 @@ class AnswerButtons: UIButton {
         self.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
         self.titleLabel?.textColor = UIColor.white
         self.setTitleColor(UIColor.white, for: .normal)
+        self.titleLabel?.font = UIFont(name: "Avenir", size: 18)
 //        self.titleColor(for: .normal)
     }
     

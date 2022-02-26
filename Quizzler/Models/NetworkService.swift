@@ -97,6 +97,7 @@ class NetworkService{
                 }
 //                let json = try JSONDecoder().decode(Result.self, from: data)
 //                Quiz.quizzes.append(Result(category: json.category, type: json.type, difficulty: json.difficulty , question: json.question, correctAnswer: json.correctAnswer, incorrectAnswers: json.incorrectAnswers))
+                print("*.")
                 dump(Quiz.quizzes)
                 completionHandler(true)
             } catch let err{

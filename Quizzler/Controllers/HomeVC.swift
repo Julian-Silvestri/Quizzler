@@ -19,6 +19,12 @@ class HomeVC: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        Quiz.quizzes.removeAll()
+        Quiz.quiz.removeAll()
+    }
+    
     @IBAction func startQuiz(_ sender: Any) {
         
         print("TAG = \(self.selectGenreBtn.tag)")
@@ -41,7 +47,6 @@ class HomeVC: UIViewController {
                     } else {
                         self.performSegue(withIdentifier: "play", sender: self)
                     }
-                    
                 }
             }
         })
