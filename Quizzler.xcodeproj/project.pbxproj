@@ -27,7 +27,6 @@
 		087A100927C45D0500D0D054 /* StartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087A100827C45D0500D0D054 /* StartButton.swift */; };
 		087A100B27C4899C00D0D054 /* AnswerButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087A100A27C4899C00D0D054 /* AnswerButtons.swift */; };
 		0887100224F1D69C00A5B088 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0887100124F1D69C00A5B088 /* HomeVC.swift */; };
-		0887100A24F1D83C00A5B088 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0887100924F1D83C00A5B088 /* TabBarController.swift */; };
 		08CBE42727C48AE700A61518 /* SubmitAnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CBE42627C48AE700A61518 /* SubmitAnswerButton.swift */; };
 		08CBE42B27C48C1300A61518 /* QuizPlayingNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CBE42A27C48C1300A61518 /* QuizPlayingNumber.swift */; };
 /* End PBXBuildFile section */
@@ -76,7 +75,6 @@
 		087A100827C45D0500D0D054 /* StartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartButton.swift; sourceTree = "<group>"; };
 		087A100A27C4899C00D0D054 /* AnswerButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButtons.swift; sourceTree = "<group>"; };
 		0887100124F1D69C00A5B088 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
-		0887100924F1D83C00A5B088 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		08CBE42627C48AE700A61518 /* SubmitAnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitAnswerButton.swift; sourceTree = "<group>"; };
 		08CBE42A27C48C1300A61518 /* QuizPlayingNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizPlayingNumber.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,7 +122,6 @@
 		08053F4927B8A23F0042CE1C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				0887100924F1D83C00A5B088 /* TabBarController.swift */,
 				0839289324EADD2500897989 /* LoginScreenVC.swift */,
 				0887100124F1D69C00A5B088 /* HomeVC.swift */,
 				0870C29E25087D1000E42109 /* QuizPlayingVC.swift */,
@@ -350,7 +347,6 @@
 				087A100127C4332000D0D054 /* GenreButtonMenu.swift in Sources */,
 				08CBE42727C48AE700A61518 /* SubmitAnswerButton.swift in Sources */,
 				0839289424EADD2500897989 /* LoginScreenVC.swift in Sources */,
-				0887100A24F1D83C00A5B088 /* TabBarController.swift in Sources */,
 				0839289024EADD2500897989 /* AppDelegate.swift in Sources */,
 				0869E5AA27C89434004EDCF6 /* QuestionLabel.swift in Sources */,
 				083DE93224FF390E00C9F6DF /* Functions.swift in Sources */,

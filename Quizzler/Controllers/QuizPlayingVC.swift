@@ -20,14 +20,11 @@ class QuizPlayingVC: UIViewController {
     @IBOutlet weak var submitAnswerBtn: SubmitAnswerButton!
     
     let group = DispatchGroup()
-    
-//    var quiz = Quiz.quizzes
     var answerButtonArray = [AnswerButtons]()
     var currentQuizQuestion = 0
     var currentQuizQuestion_notCompuSci = 1
     var selectedAnswer = NSAttributedString()
     var scoreForQuiz = 0
-    
     var correct = ""
     var incorrectOne = ""
     var incorrectTwo = ""
@@ -44,6 +41,7 @@ class QuizPlayingVC: UIViewController {
         self.answerBtn3.tag = 3
         self.answerBtn4.tag = 4
         self.answerButtonArray = [self.answerBtn1,self.answerBtn2,self.answerBtn3,self.answerBtn4]
+//        action(#selector(quit()))
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -107,20 +105,19 @@ class QuizPlayingVC: UIViewController {
 
     }
     
-    @IBAction func submitAnswerAction(_ sender: Any) {
-        alertActionYesNo(viewController: self, title: "Confirm", message: "Is that your final answer?", completionHandler: {yesNo in
-            if yesNo == true {
-                self.determineIfRightOrWrong(selectedAnswer: self.selectedAnswer)
-            }
-        })
-    }
+//    @IBAction func submitAnswerAction(_ sender: Any) {
+//        alertActionYesNo(viewController: self, title: "Confirm", message: "Is that your final answer?", completionHandler: {yesNo in
+//            if yesNo == true {
+//                self.determineIfRightOrWrong(selectedAnswer: self.selectedAnswer)
+//            }
+//        })
+//    }
     
-    func determineIfRightOrWrong(selectedAnswer: NSAttributedString){
-        
+    @IBAction func submitFinalAnswer(_ sender: UIButton){
         let attributedCorrectAnswer = decode(str: Quiz.quizzes[currentQuizQuestion].correctAnswer)
        
         
-        if selectedAnswer == attributedCorrectAnswer {
+        if self.selectedAnswer == attributedCorrectAnswer {
             alertActionYesNoWithImage(viewController: self, title: "Correct!", message: "Good Job", image: UIImage(named: "correctIcon")!, completionHandler: {success in
                 if success == true {
                     //next question + 1 to score
@@ -135,8 +132,6 @@ class QuizPlayingVC: UIViewController {
             alertActionYesNoWithImage(viewController: self, title: "Wrong!", message: "Correct answer was \(Quiz.quizzes[currentQuizQuestion].correctAnswer).", image: UIImage(named: "wrongIcon")!, completionHandler: {success in
                 if success == true {
                     //next question + 0 to score
-                    
-                    self.scoreForQuiz += 0
                     self.currentQuizQuestion += 1
                     self.currentQuizQuestion_notCompuSci += 1
                     self.nextQuizQuestion()
@@ -144,12 +139,14 @@ class QuizPlayingVC: UIViewController {
             })
 
         }
+        
+        if self.currentQuizQuestion_notCompuSci == 21  {
+            self.scoreAndFinishQuiz()
+        }
     }
     
     func nextQuizQuestion(){
-        if self.currentQuizQuestion == 19 {
-            self.scoreAndFinishQuiz()
-        }
+
         self.submitAnswerBtn.disableBtn()
         self.questionLabel.textColor = UIColor.white
         for buttons in self.answerButtonArray{
@@ -159,6 +156,7 @@ class QuizPlayingVC: UIViewController {
         //sets the question label while decoding the string
         self.decodeQuestionText(str: Quiz.quizzes[currentQuizQuestion].question)
         randomizeLocationOfAnswer(correctAnswer: Quiz.quizzes[currentQuizQuestion].correctAnswer, incorrectAnswers: Quiz.quizzes[currentQuizQuestion].incorrectAnswers)
+
     }
     
     
@@ -170,9 +168,9 @@ class QuizPlayingVC: UIViewController {
                 return
             }
         })
+    
     }
-    
-    
+
     
     @IBAction func test(_ sender: Any) {
         
@@ -194,6 +192,7 @@ class QuizPlayingVC: UIViewController {
         }
         
         self.answerBtn4.setAttributedTitle(allAnswers.randomElement(), for: .normal)
+        self.answerBtn4.setTitleColor(UIColor.white, for: .normal)
         allAnswers.removeAll(where: {$0 == self.answerBtn4.attributedTitle(for: .normal)})
         self.answerBtn3.setAttributedTitle(allAnswers.randomElement(), for: .normal)
         allAnswers.removeAll(where: {$0 == self.answerBtn3.attributedTitle(for: .normal)})
@@ -201,8 +200,21 @@ class QuizPlayingVC: UIViewController {
         allAnswers.removeAll(where: {$0 == self.answerBtn2.attributedTitle(for: .normal)})
         self.answerBtn1.setAttributedTitle(allAnswers.randomElement(), for: .normal)
         allAnswers.removeAll(where: {$0 == self.answerBtn1.attributedTitle(for: .normal)})
+//
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont(name: "Avenir", size: 18)!,
+            .foregroundColor: UIColor.white
+        ]
         
         
+        
+        
+        
+//        let x = "\(str)"
+
+//        let attributedText = NSAttributedString(string: , attributes: attributes)
+//        self.answerBtn4.setAttributedTitle(attributedText, for: .normal)
+//        
         self.answerBtn4.setupButtons()
         self.answerBtn3.setupButtons()
         self.answerBtn2.setupButtons()

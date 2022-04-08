@@ -27,29 +27,37 @@ class HomeVC: UIViewController {
     
     @IBAction func startQuiz(_ sender: Any) {
         
-        print("TAG = \(self.selectGenreBtn.tag)")
-        var difficulty = ""
-        
-        if self.selectDifficultyBtn.tag == 1 {
-            difficulty = "easy"
-        } else if self.selectDifficultyBtn.tag == 2 {
-            difficulty = "medium"
-        } else if self.selectDifficultyBtn.tag == 3 {
-            difficulty = "hard"
-        }
-        
-        NetworkService.shared.loadQuiz(difficulty: difficulty, category: self.selectGenreBtn.tag, completionHandler: {success in
-            if success == true {
-                print("quiz loaded")
-                DispatchQueue.main.async {
-                    if Quiz.quizzes.count <= 0 {
-                        alertActionBasic(viewController: self, title: "Error", message: "Could not load this quiz", completionHandler: {_ in})
-                    } else {
-                        self.performSegue(withIdentifier: "play", sender: self)
+        if self.selectGenreBtn.titleLabel?.text == "Select Genre" || self.selectDifficultyBtn.titleLabel?.text == "Select Difficulty"{
+            alertActionBasic(viewController: self, title: "Error", message: "Please make sure you select a genre and a difficulty", completionHandler: {success in
+                return
+            })
+        }else{
+            print("TAG = \(self.selectGenreBtn.tag)")
+            var difficulty = ""
+            
+            if self.selectDifficultyBtn.tag == 1 {
+                difficulty = "easy"
+            } else if self.selectDifficultyBtn.tag == 2 {
+                difficulty = "medium"
+            } else if self.selectDifficultyBtn.tag == 3 {
+                difficulty = "hard"
+            }
+            
+            NetworkService.shared.loadQuiz(difficulty: difficulty, category: self.selectGenreBtn.tag, completionHandler: {success in
+                if success == true {
+                    print("quiz loaded")
+                    DispatchQueue.main.async {
+                        if Quiz.quizzes.count <= 0 {
+                            alertActionBasic(viewController: self, title: "Error", message: "Could not load this quiz", completionHandler: {_ in})
+                        } else {
+                            self.performSegue(withIdentifier: "play", sender: self)
+                        }
                     }
                 }
-            }
-        })
+            })
+        }
+        
+
     }
     override var preferredStatusBarStyle: UIStatusBarStyle{
         if #available(iOS 13.0, *) {

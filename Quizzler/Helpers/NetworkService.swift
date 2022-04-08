@@ -69,10 +69,12 @@ class NetworkService{
         task.resume()
     }
     
-    func loadQuiz(difficulty: String, category: Int, completionHandler: @escaping(Bool?)->Void){
-
-        var request = URLRequest(url: URL(string: "\(triviaURL)\(NetworkService.secrectKey[0].token)&category=\(category)&difficulty=\(difficulty)&type=multiple")!,timeoutInterval: Double.infinity)
-//        request.addValue("PHPSESSID=ec489967efc2bea9540a32b2fbd8eb22", forHTTPHeaderField: "Cookie")
+    func resetToken(completionHandler: @escaping(Bool?)->Void){
+        //empty the secret key
+        NetworkService.secrectKey.removeAll()
+        
+        var request = URLRequest(url: URL(string: "https://opentdb.com/api_token.php?command=reset&token=\(NetworkService.secrectKey[0].token)")!,timeoutInterval: Double.infinity)
+        request.addValue("PHPSESSID=ec489967efc2bea9540a32b2fbd8eb22", forHTTPHeaderField: "Cookie")
 
         request.httpMethod = "GET"
 
@@ -83,8 +85,30 @@ class NetworkService{
                 return
             }
             
-//            print(String(data: data, encoding: .utf8)!)
-            
+            do {
+                let json = try JSONDecoder().decode(Secret.self, from: data)
+                NetworkService.secrectKey.append(Secret(responseCode: json.responseCode, responseMessage: json.responseMessage, token: json.token))
+                completionHandler(true)
+            } catch let err{
+                print(err)
+                completionHandler(false)
+            }
+            //print(String(data: data, encoding: .utf8)!)
+            print("secret key ")
+            print(NetworkService.secrectKey[0].token)
+        }
+        task.resume()
+    }
+    
+    func loadQuiz(difficulty: String, category: Int, completionHandler: @escaping(Bool?)->Void){
+
+        var request = URLRequest(url: URL(string: "\(triviaURL)\(NetworkService.secrectKey[0].token)&category=\(category)&difficulty=\(difficulty)&type=multiple")!,timeoutInterval: Double.infinity)
+        request.httpMethod = "GET"
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                print(String(describing: error))
+                return
+            }
             do {
                 let json = try JSONDecoder().decode(Quiz.self, from: data)
                 
@@ -94,19 +118,19 @@ class NetworkService{
                         Quiz.quizzes.append(Result(category: data.category, type: data.type, difficulty: data.difficulty, question: data.question, correctAnswer: data.correctAnswer, incorrectAnswers: data.incorrectAnswers))
                     }
                 }
-//                let json = try JSONDecoder().decode(Result.self, from: data)
-//                Quiz.quizzes.append(Result(category: json.category, type: json.type, difficulty: json.difficulty , question: json.question, correctAnswer: json.correctAnswer, incorrectAnswers: json.incorrectAnswers))
-//                print("*.")
-//                dump(Quiz.quizzes)
                 completionHandler(true)
             } catch let err{
                 print(err)
                 print("error ")
-                completionHandler(false)
+                self.resetToken(completionHandler: {success in
+                    if success == true {
+                        print("token has been reset")
+                    } else{
+                        print("failure resetting token")
+                    }
+                })
             }
-
         }
-
         task.resume()
     }
     
