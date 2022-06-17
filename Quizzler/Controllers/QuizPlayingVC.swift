@@ -8,8 +8,9 @@
 
 import UIKit
 import AVFoundation
+import GoogleMobileAds
 
-class QuizPlayingVC: UIViewController {
+class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
     
     @IBOutlet weak var currentNumberQuestion: UILabel!
     @IBOutlet weak var questionLabel: QuestionLabel!
@@ -18,6 +19,10 @@ class QuizPlayingVC: UIViewController {
     @IBOutlet weak var answerBtn3: AnswerButtons!
     @IBOutlet weak var answerBtn4: AnswerButtons!
     @IBOutlet weak var submitAnswerBtn: SubmitAnswerButton!
+    @IBOutlet weak var gameOverView: UIView!
+    @IBOutlet weak var finalScore: UILabel!
+    
+    
     
     let group = DispatchGroup()
     var answerButtonArray = [AnswerButtons]()
@@ -29,6 +34,13 @@ class QuizPlayingVC: UIViewController {
     var incorrectOne = ""
     var incorrectTwo = ""
     var incorrectThree = ""
+    
+    let strokeTextAttributes: [NSAttributedString.Key: Any] = [
+        .strokeColor : UIColor.white
+    ]
+    
+    
+    private var interstitial: GADInterstitialAd?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +54,18 @@ class QuizPlayingVC: UIViewController {
         self.answerBtn4.tag = 4
         self.answerButtonArray = [self.answerBtn1,self.answerBtn2,self.answerBtn3,self.answerBtn4]
 //        action(#selector(quit()))
+        let request = GADRequest()
+        GADInterstitialAd.load(withAdUnitID:"ca-app-pub-2779669386425011~4429736348",
+                                    request: request,
+                          completionHandler: { [self] ad, error in
+                            if let error = error {
+                              print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                              return
+                            }
+                            interstitial = ad
+                            interstitial?.fullScreenContentDelegate = self
+                          }
+        )
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -50,19 +74,39 @@ class QuizPlayingVC: UIViewController {
         Quiz.quiz.removeAll()
     }
     
-    func decodeQuestionText(str: String){
-        
-        if let data = str.data(using: .utf8) {
-            do {
-                let attrStr = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
-                self.questionLabel.attributedText = attrStr
-                self.questionLabel.setupLabel()
-                print(attrStr)
-            } catch {
-                print(error)
-            }
+    func decodeQuestionText(input: String?) {
+
+        let data = (input?.data(using: String.Encoding.unicode, allowLossyConversion: true))!
+
+
+        if let string = try? NSAttributedString(data: data, options: [NSAttributedString.DocumentReadingOptionKey.documentType : NSAttributedString.DocumentType.html], documentAttributes: nil).string {
+            //Set color and font
+            let myAttribute = [ NSAttributedString.Key.strokeColor: UIColor.black , NSAttributedString.Key.font: UIFont(name: "Avenir", size: 22)!  ]
+            let myAttrString = NSAttributedString(string: string, attributes: myAttribute)
+            self.questionLabel.attributedText = myAttrString
+
+            self.questionLabel.setupLabel()
+            print(myAttrString)
         }
     }
+    
+    //MARK: WORKING CODE
+//    func decodeQuestionText(str: String){
+
+//        if let data = str.data(using: .utf8) {
+//            do {
+//                let attrStr = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
+//
+//
+//                self.questionLabel.attributedText = attrStr
+//
+//                self.questionLabel.setupLabel()
+//                print(attrStr)
+//            } catch {
+//                print(error)
+//            }
+//        }
+//    }
 //
 //    func decodeAnswerText(str: String, buttonToSet: UIButton, completionHandler: @escaping(Bool?)->Void){
 //
@@ -83,7 +127,7 @@ class QuizPlayingVC: UIViewController {
         self.submitAnswerBtn.disableBtn()
         self.currentNumberQuestion.text = "\(currentQuizQuestion_notCompuSci)/20"
         //sets the question label while decoding the string
-        self.decodeQuestionText(str: Quiz.quizzes[currentQuizQuestion].question)
+        self.decodeQuestionText(input: Quiz.quizzes[currentQuizQuestion].question)
         randomizeLocationOfAnswer(correctAnswer: Quiz.quizzes[currentQuizQuestion].correctAnswer, incorrectAnswers: Quiz.quizzes[currentQuizQuestion].incorrectAnswers)
     }
     
@@ -148,14 +192,21 @@ class QuizPlayingVC: UIViewController {
     func nextQuizQuestion(){
 
         self.submitAnswerBtn.disableBtn()
-        self.questionLabel.textColor = UIColor.white
+//        self.questionLabel.textColor = UIColor.white
         for buttons in self.answerButtonArray{
             buttons.deSelected()
         }
         self.currentNumberQuestion.text = "\(currentQuizQuestion_notCompuSci)/20"
+        self.currentNumberQuestion.textColor = UIColor.black//w/e i do what i want
         //sets the question label while decoding the string
-        self.decodeQuestionText(str: Quiz.quizzes[currentQuizQuestion].question)
-        randomizeLocationOfAnswer(correctAnswer: Quiz.quizzes[currentQuizQuestion].correctAnswer, incorrectAnswers: Quiz.quizzes[currentQuizQuestion].incorrectAnswers)
+        print("CURRENT QUIZ QUESTION -> \(currentQuizQuestion)")
+        if currentQuizQuestion > 19 {
+            gameOver()
+        }else{
+            self.decodeQuestionText(input: Quiz.quizzes[currentQuizQuestion].question)
+            randomizeLocationOfAnswer(correctAnswer: Quiz.quizzes[currentQuizQuestion].correctAnswer, incorrectAnswers: Quiz.quizzes[currentQuizQuestion].incorrectAnswers)
+        }
+        
 
     }
     
@@ -170,7 +221,17 @@ class QuizPlayingVC: UIViewController {
         })
     
     }
+    func gameOver(){
+        self.finalScore.text = "\(scoreForQuiz) / 20"
+        UIView.animate(withDuration: 1.5, animations: {
+            self.gameOverView.alpha = 1
+            self.finalScore.alpha = 1
+        })
+    }
 
+    @IBAction func playAgainBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     @IBAction func test(_ sender: Any) {
         
@@ -183,33 +244,36 @@ class QuizPlayingVC: UIViewController {
     }
     
     func randomizeLocationOfAnswer(correctAnswer: String, incorrectAnswers: [String]){
-        
+
+//        let attributes: [NSAttributedString.Key: Any] = [
+//            .font: UIFont(name: "Avenir-Next", size: 22)!,
+//            .strokeColor: UIColor.white
+//        ]
+
         //decode all strings
         var allAnswers = [NSAttributedString]()
         allAnswers = [decode(str: correctAnswer)]
         for values in incorrectAnswers {
             allAnswers.append(decode(str: values))
         }
-        
+//        NSAttributedString(allAnswers.randomElement(), including: attributes)
         self.answerBtn4.setAttributedTitle(allAnswers.randomElement(), for: .normal)
-        self.answerBtn4.setTitleColor(UIColor.white, for: .normal)
+        self.answerBtn4.titleLabel?.textColor = UIColor.white
+//        self.answerBtn4.setTitleColor(UIColor.white, for: .normal)
         allAnswers.removeAll(where: {$0 == self.answerBtn4.attributedTitle(for: .normal)})
+        
         self.answerBtn3.setAttributedTitle(allAnswers.randomElement(), for: .normal)
         allAnswers.removeAll(where: {$0 == self.answerBtn3.attributedTitle(for: .normal)})
+        
         self.answerBtn2.setAttributedTitle(allAnswers.randomElement(), for: .normal)
         allAnswers.removeAll(where: {$0 == self.answerBtn2.attributedTitle(for: .normal)})
+        
         self.answerBtn1.setAttributedTitle(allAnswers.randomElement(), for: .normal)
         allAnswers.removeAll(where: {$0 == self.answerBtn1.attributedTitle(for: .normal)})
+        
 //
-        let attributes: [NSAttributedString.Key: Any] = [
-            .font: UIFont(name: "Avenir", size: 18)!,
-            .foregroundColor: UIColor.white
-        ]
-        
-        
-        
-        
-        
+
+//
 //        let x = "\(str)"
 
 //        let attributedText = NSAttributedString(string: , attributes: attributes)
@@ -238,4 +302,44 @@ class QuizPlayingVC: UIViewController {
         }
     }
     
+    //MARK: Google Ads
+    /// Tells the delegate that the ad failed to present full screen content.
+    func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {
+    print("Ad did fail to present full screen content.")
+    }
+
+    /// Tells the delegate that the ad will present full screen content.
+    func adWillPresentFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    print("Ad will present full screen content.")
+    }
+
+    /// Tells the delegate that the ad dismissed full screen content.
+    func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
+    print("Ad did dismiss full screen content.")
+    }
+    
 }
+//
+//extension String {
+//
+//
+//    var utfData: Data? {
+//        return self.data(using: .utf8)
+//    }
+//
+//    var htmlAttributedString: NSAttributedString? {
+//        guard let data = self.utfData else {
+//            return nil
+//        }
+//        do {
+//            return try NSAttributedString(data: data,
+//           options: [
+//                    .documentType: NSAttributedString.DocumentType.html,
+//                    .characterEncoding: String.Encoding.utf8.rawValue
+//                    ], documentAttributes: strokeTextAttributes)
+//        } catch {
+//            print(error.localizedDescription)
+//            return nil
+//        }
+//    }
+//}

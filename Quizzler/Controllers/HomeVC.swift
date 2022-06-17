@@ -6,7 +6,8 @@
 //  Copyright © 2020 Julian Silvestri. All rights reserved.
 //
 
-import UIKit
+
+import GoogleMobileAds
 
 class HomeVC: UIViewController {
 
@@ -15,9 +16,13 @@ class HomeVC: UIViewController {
     @IBOutlet weak var selectGenreBtn: GenreButtonMenu!
     @IBOutlet weak var selectDifficultyBtn: DifficultyButtonMenu!
     
+    private var interstitial: GADInterstitialAd?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    
     }
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

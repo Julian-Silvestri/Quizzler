@@ -10,6 +10,7 @@ import UIKit
 
 class LoginScreenVC: UIViewController {
 
+    @IBOutlet weak var openTDBtn: UIButton!
     @IBOutlet weak var titleLabel: UILabel!
     
     @IBOutlet weak var playBtn: UIButton!
@@ -46,5 +47,9 @@ class LoginScreenVC: UIViewController {
         }
     }
     
+    @IBAction func openTDAction(_ sender: Any) {
+        UIApplication.shared.canOpenURL((URL(string: "https://opentdb.com/")!))
+        print("lets go")
+    }
 }
 

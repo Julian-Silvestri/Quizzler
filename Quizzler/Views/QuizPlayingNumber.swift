@@ -23,7 +23,9 @@ class QuizPlayingNumber: UILabel {
     
     func setupLabel(){
         self.font = UIFont(name: "Avenir", size: 66)
-        self.textColor = UIColor.white
+        self.textColor = UIColor.black
+        
+        
     }
 
 }
