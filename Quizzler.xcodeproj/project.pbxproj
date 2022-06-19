@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		08053F4727B8A1CB0042CE1C /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08053F4627B8A1CB0042CE1C /* NetworkService.swift */; };
+		0835CDF2285EE36900F4FBD7 /* PlayAgainBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0835CDF1285EE36900F4FBD7 /* PlayAgainBtn.swift */; };
 		0839289024EADD2500897989 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839288F24EADD2500897989 /* AppDelegate.swift */; };
 		0839289224EADD2500897989 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839289124EADD2500897989 /* SceneDelegate.swift */; };
 		0839289424EADD2500897989 /* LoginScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0839289324EADD2500897989 /* LoginScreenVC.swift */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		08053F4627B8A1CB0042CE1C /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		0835CDF1285EE36900F4FBD7 /* PlayAgainBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayAgainBtn.swift; sourceTree = "<group>"; };
 		0839288C24EADD2500897989 /* Quizzler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quizzler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0839288F24EADD2500897989 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0839289124EADD2500897989 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				08CBE42A27C48C1300A61518 /* QuizPlayingNumber.swift */,
 				0869E5A927C89434004EDCF6 /* QuestionLabel.swift */,
 				08ED33F5285E811D006D8CAF /* TypeButtonMenu.swift */,
+				0835CDF1285EE36900F4FBD7 /* PlayAgainBtn.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				084D1BD427B605C100B7D8C7 /* Quizzes.swift in Sources */,
 				08CBE42B27C48C1300A61518 /* QuizPlayingNumber.swift in Sources */,
 				087A100B27C4899C00D0D054 /* AnswerButtons.swift in Sources */,
+				0835CDF2285EE36900F4FBD7 /* PlayAgainBtn.swift in Sources */,
 				087A100127C4332000D0D054 /* GenreButtonMenu.swift in Sources */,
 				08CBE42727C48AE700A61518 /* SubmitAnswerButton.swift in Sources */,
 				0839289424EADD2500897989 /* LoginScreenVC.swift in Sources */,

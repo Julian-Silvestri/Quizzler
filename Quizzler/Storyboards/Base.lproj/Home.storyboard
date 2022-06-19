@@ -374,7 +374,7 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6PV-B5-GGL">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6PV-B5-GGL" customClass="PlayAgainBtn" customModule="Quizzler" customModuleProvider="target">
                                         <rect key="frame" x="28" y="594" width="358" height="101"/>
                                         <color key="backgroundColor" red="0.66274509800000003" green="0.70980392160000005" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
@@ -393,7 +393,7 @@
                                         <rect key="frame" x="121" y="264" width="173" height="208"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.3192958534" green="0.3713793755" blue="0.48207783700000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.31543523070000001" green="0.46356910470000001" blue="0.4234268665" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Iyb-rr-jih" secondAttribute="bottom" constant="264" id="2HS-Nl-kAc"/>
                                     <constraint firstItem="6PV-B5-GGL" firstAttribute="leading" secondItem="z76-dM-8ei" secondAttribute="leading" constant="28" id="7Is-Nn-81Z"/>
@@ -443,6 +443,7 @@
                         <outlet property="finalScore" destination="0X4-hi-lGs" id="O9D-lw-7u1"/>
                         <outlet property="finishIcon" destination="Iyb-rr-jih" id="EVw-vO-KkO"/>
                         <outlet property="gameOverView" destination="z76-dM-8ei" id="bGd-74-qPp"/>
+                        <outlet property="playAgaintBtn" destination="6PV-B5-GGL" id="mtK-NY-jwJ"/>
                         <outlet property="questionLabel" destination="iVZ-Vb-6LK" id="zhN-Bn-c0b"/>
                         <outlet property="submitAnswerBtn" destination="z1W-Ev-oVY" id="OoT-h6-ZNE"/>
                     </connections>
@@ -652,9 +653,6 @@
         </designable>
         <designable name="4T5-bH-FW7">
             <size key="intrinsicContentSize" width="53" height="31"/>
-        </designable>
-        <designable name="6PV-B5-GGL">
-            <size key="intrinsicContentSize" width="252.66666666666666" height="74.333333333333329"/>
         </designable>
         <designable name="BxB-7J-cEg">
             <size key="intrinsicContentSize" width="69.666666666666671" height="31"/>

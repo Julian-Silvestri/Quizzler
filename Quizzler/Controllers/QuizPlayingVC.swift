@@ -22,6 +22,8 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
     @IBOutlet weak var submitAnswerBtn: SubmitAnswerButton!
     @IBOutlet weak var gameOverView: UIView!
     @IBOutlet weak var finalScore: UILabel!
+
+    @IBOutlet weak var playAgaintBtn: PlayAgainBtn!
     
     let group = DispatchGroup()
     var answerButtonArray = [AnswerButtons]()
