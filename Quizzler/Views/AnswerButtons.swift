@@ -32,7 +32,7 @@ class AnswerButtons: UIButton {
 //            .font:myFont ?? UIFont(name: "Avenir-Next", size: 22),
 //            .strokeColor:UIColor.white
 //        ]
-        self.titleLabel?.textColor = UIColor.white
+        self.titleLabel?.textColor = UIColor.black
 //        self.att
         self.tintColor = UIColor.white
         self.setTitleColor(UIColor.white, for: .normal)

@@ -100,9 +100,9 @@ class NetworkService{
         task.resume()
     }
     
-    func loadQuiz(difficulty: String, category: Int, completionHandler: @escaping(Bool?)->Void){
+    func loadQuiz(type: String, difficulty: String, category: Int, completionHandler: @escaping(Bool?)->Void){
 
-        var request = URLRequest(url: URL(string: "\(triviaURL)\(NetworkService.secrectKey[0].token)&category=\(category)&difficulty=\(difficulty)&type=multiple")!,timeoutInterval: Double.infinity)
+        var request = URLRequest(url: URL(string: "\(triviaURL)\(NetworkService.secrectKey[0].token)&category=\(category)&difficulty=\(difficulty)&type=\(type)")!,timeoutInterval: Double.infinity)
         request.httpMethod = "GET"
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data else {
@@ -111,8 +111,8 @@ class NetworkService{
             }
             do {
                 let json = try JSONDecoder().decode(Quiz.self, from: data)
-                
                 Quiz.quiz.append(Quiz(responseCode: json.responseCode, results: json.results))
+//                Quiz.quiz.insert((Quiz(responseCode: json.responseCode, results: json.results)), at: 0)
                 for values in Quiz.quiz{
                     for data in values.results {
                         Quiz.quizzes.append(Result(category: data.category, type: data.type, difficulty: data.difficulty, question: data.question, correctAnswer: data.correctAnswer, incorrectAnswers: data.incorrectAnswers))
@@ -120,7 +120,7 @@ class NetworkService{
                 }
                 completionHandler(true)
             } catch let err{
-                print(err)
+                print(err.localizedDescription)
                 print("error ")
                 self.resetToken(completionHandler: {success in
                     if success == true {
@@ -134,6 +134,9 @@ class NetworkService{
         task.resume()
     }
     
+//    func numberOfQuestionsInCategory(category: String,completionHandler: @escaping(Bool)->Void){
+//
+//    }
 
     
 }

@@ -11,6 +11,7 @@ import GoogleMobileAds
 
 class HomeVC: UIViewController {
 
+    @IBOutlet weak var selectQuizTypeBtn: TypeButtonMenu!
     @IBOutlet weak var startRecentQuizz: UIButton!
     @IBOutlet weak var startQuizBtn: UIButton!
     @IBOutlet weak var selectGenreBtn: GenreButtonMenu!
@@ -26,8 +27,8 @@ class HomeVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        Quiz.quizzes.removeAll()
-        Quiz.quiz.removeAll()
+//        Quiz.quizzes.removeAll()
+//        Quiz.quiz.removeAll()
     }
     
     @IBAction func startQuiz(_ sender: Any) {
@@ -39,6 +40,7 @@ class HomeVC: UIViewController {
         }else{
             print("TAG = \(self.selectGenreBtn.tag)")
             var difficulty = ""
+            var type = ""
             
             if self.selectDifficultyBtn.tag == 1 {
                 difficulty = "easy"
@@ -48,18 +50,35 @@ class HomeVC: UIViewController {
                 difficulty = "hard"
             }
             
-            NetworkService.shared.loadQuiz(difficulty: difficulty, category: self.selectGenreBtn.tag, completionHandler: {success in
-                if success == true {
-                    print("quiz loaded")
-                    DispatchQueue.main.async {
-                        if Quiz.quizzes.count <= 0 {
-                            alertActionBasic(viewController: self, title: "Error", message: "Could not load this quiz", completionHandler: {_ in})
-                        } else {
-                            self.performSegue(withIdentifier: "play", sender: self)
+            if self.selectQuizTypeBtn.tag == 1{
+                type = "boolean"
+                NetworkService.shared.loadQuiz(type: type, difficulty: difficulty, category: self.selectGenreBtn.tag, completionHandler: {success in
+                    if success == true {
+                        print("quiz loaded")
+                        DispatchQueue.main.async {
+                            if Quiz.quizzes.count <= 0 {
+                                alertActionBasic(viewController: self, title: "Error", message: "Could not load this quiz", completionHandler: {_ in})
+                            } else {
+                                self.performSegue(withIdentifier: "playTF", sender: self)
+                            }
                         }
                     }
-                }
-            })
+                })
+            }else if self.selectQuizTypeBtn.tag == 2 {
+                type = "multiple"
+                NetworkService.shared.loadQuiz(type: type, difficulty: difficulty, category: self.selectGenreBtn.tag, completionHandler: {success in
+                    if success == true {
+                        print("quiz loaded")
+                        DispatchQueue.main.async {
+                            if Quiz.quizzes.count <= 0 {
+                                alertActionBasic(viewController: self, title: "Error", message: "Could not load this quiz", completionHandler: {_ in})
+                            } else {
+                                self.performSegue(withIdentifier: "playMC", sender: self)
+                            }
+                        }
+                    }
+                })
+            }
         }
         
 

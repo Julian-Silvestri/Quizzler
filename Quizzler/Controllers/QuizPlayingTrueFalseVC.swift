@@ -1,34 +1,32 @@
 //
-//  QuizPlayingVC.swift
+//  QuizPlayingTrueFalseVC.swift
 //  Quizzler
 //
-//  Created by Julian Silvestri on 2020-09-08.
-//  Copyright © 2020 Julian Silvestri. All rights reserved.
+//  Created by Julian Silvestri on 2022-06-18.
+//  Copyright © 2022 Julian Silvestri. All rights reserved.
 //
 
 import UIKit
 import AVFoundation
 import GoogleMobileAds
 
-class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
-
-    @IBOutlet weak var currentNumberQuestion: UILabel!
-    @IBOutlet weak var questionLabel: QuestionLabel!
+class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
+    
+    @IBOutlet weak var finalScore: UILabel!
+    @IBOutlet weak var quitBtn: UIButton!
+    @IBOutlet weak var gameOverView: UIView!
+    @IBOutlet weak var currentNumberQuestion: QuizPlayingNumber!
+    @IBOutlet weak var submitAnswerBtn: SubmitAnswerButton!
     @IBOutlet weak var answerBtn1: AnswerButtons!
     @IBOutlet weak var answerBtn2: AnswerButtons!
-    @IBOutlet weak var answerBtn3: AnswerButtons!
-    @IBOutlet weak var answerBtn4: AnswerButtons!
-    @IBOutlet weak var submitAnswerBtn: SubmitAnswerButton!
-    @IBOutlet weak var gameOverView: UIView!
-    @IBOutlet weak var finalScore: UILabel!
+    @IBOutlet weak var questionLabel: QuestionLabel!
     
-    
-    
+
     let group = DispatchGroup()
     var answerButtonArray = [AnswerButtons]()
     var currentQuizQuestion = Quiz.quiz.count-1
-    var currentQuizQuestion_notCompuSci = 1
-    var selectedAnswer = NSAttributedString()
+//    var currentQuizQuestion_notCompuSci = 1
+    var selectedAnswer: String = ""
     var scoreForQuiz = 0
     var correct = ""
     var incorrectOne = ""
@@ -38,7 +36,6 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
     let strokeTextAttributes: [NSAttributedString.Key: Any] = [
         .strokeColor : UIColor.white
     ]
-    
     
     private var interstitial: GADInterstitialAd?
     
@@ -50,9 +47,8 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
         self.questionLabel.numberOfLines = 0
         self.answerBtn1.tag = 1
         self.answerBtn2.tag = 2
-        self.answerBtn3.tag = 3
-        self.answerBtn4.tag = 4
-        self.answerButtonArray = [self.answerBtn1,self.answerBtn2,self.answerBtn3,self.answerBtn4]
+
+        self.answerButtonArray = [self.answerBtn1,self.answerBtn2]
 //        action(#selector(quit()))
         let request = GADRequest()
         GADInterstitialAd.load(withAdUnitID:"ca-app-pub-2779669386425011~4429736348",
@@ -89,39 +85,6 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
             print(myAttrString)
         }
     }
-    
-    //MARK: WORKING CODE
-//    func decodeQuestionText(str: String){
-
-//        if let data = str.data(using: .utf8) {
-//            do {
-//                let attrStr = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
-//
-//
-//                self.questionLabel.attributedText = attrStr
-//
-//                self.questionLabel.setupLabel()
-//                print(attrStr)
-//            } catch {
-//                print(error)
-//            }
-//        }
-//    }
-//
-//    func decodeAnswerText(str: String, buttonToSet: UIButton, completionHandler: @escaping(Bool?)->Void){
-//
-//        if let data = str.data(using: .utf8) {
-//            do {
-//                let attrStr = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
-//                buttonToSet.setAttributedTitle(attrStr, for: .normal)
-//                print(attrStr)
-//                completionHandler(true)
-//            } catch {
-//                print(error)
-//                completionHandler(false)
-//            }
-//        }
-//    }
 
     func quizStartSetup(){
         self.submitAnswerBtn.disableBtn()
@@ -143,7 +106,7 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
             sender.deSelected()
         } else {
             sender.selected()
-            self.selectedAnswer = sender.attributedTitle(for: .normal) ?? NSAttributedString()
+            self.selectedAnswer = "\(sender.titleLabel!.text ?? "ERROR")"
             self.submitAnswerBtn.enableBtn()
         }
 
@@ -158,7 +121,8 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
 //    }
     
     @IBAction func submitFinalAnswer(_ sender: UIButton){
-        let attributedCorrectAnswer = decode(str: Quiz.quizzes[currentQuizQuestion].correctAnswer)
+        
+        let attributedCorrectAnswer = Quiz.quizzes[currentQuizQuestion].correctAnswer
        
         
         if self.selectedAnswer == attributedCorrectAnswer {
@@ -184,9 +148,9 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
 
         }
         
-        if self.currentQuizQuestion_notCompuSci == 21  {
-            self.scoreAndFinishQuiz()
-        }
+//        if self.currentQuizQuestion_notCompuSci == 21  {
+//            self.scoreAndFinishQuiz()
+//        }
     }
     
     func nextQuizQuestion(){
@@ -257,40 +221,20 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
             allAnswers.append(decode(str: values))
         }
 //        NSAttributedString(allAnswers.randomElement(), including: attributes)
-        self.answerBtn4.setAttributedTitle(allAnswers.randomElement(), for: .normal)
-        self.answerBtn4.titleLabel?.textColor = UIColor.white
-//        self.answerBtn4.setTitleColor(UIColor.white, for: .normal)
-        allAnswers.removeAll(where: {$0 == self.answerBtn4.attributedTitle(for: .normal)})
         
-        self.answerBtn3.setAttributedTitle(allAnswers.randomElement(), for: .normal)
-        allAnswers.removeAll(where: {$0 == self.answerBtn3.attributedTitle(for: .normal)})
+        self.answerBtn1.setTitle("True", for: .normal)
+        self.answerBtn2.setTitle("False", for: .normal)
         
-        self.answerBtn2.setAttributedTitle(allAnswers.randomElement(), for: .normal)
-        allAnswers.removeAll(where: {$0 == self.answerBtn2.attributedTitle(for: .normal)})
-        
-        self.answerBtn1.setAttributedTitle(allAnswers.randomElement(), for: .normal)
-        allAnswers.removeAll(where: {$0 == self.answerBtn1.attributedTitle(for: .normal)})
-        
-//
-
-//
-//        let x = "\(str)"
-
-//        let attributedText = NSAttributedString(string: , attributes: attributes)
-//        self.answerBtn4.setAttributedTitle(attributedText, for: .normal)
-//        
-        self.answerBtn4.setupButtons()
-        self.answerBtn3.setupButtons()
         self.answerBtn2.setupButtons()
         self.answerBtn1.setupButtons()
 
     }
     
-    func scoreAndFinishQuiz(){
-        alertActionBasic(viewController: self, title: "Finished!", message: "Your score is \(self.scoreForQuiz)/20", completionHandler: {_ in
-            self.dismiss(animated: true, completion: nil)
-        })
-    }
+//    func scoreAndFinishQuiz(){
+//        alertActionBasic(viewController: self, title: "Finished!", message: "Your score is \(self.scoreForQuiz)/20", completionHandler: {_ in
+//            self.dismiss(animated: true, completion: nil)
+//        })
+//    }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{
         if #available(iOS 13.0, *) {
@@ -317,29 +261,6 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
     func adDidDismissFullScreenContent(_ ad: GADFullScreenPresentingAd) {
     print("Ad did dismiss full screen content.")
     }
-    
+
+
 }
-//
-//extension String {
-//
-//
-//    var utfData: Data? {
-//        return self.data(using: .utf8)
-//    }
-//
-//    var htmlAttributedString: NSAttributedString? {
-//        guard let data = self.utfData else {
-//            return nil
-//        }
-//        do {
-//            return try NSAttributedString(data: data,
-//           options: [
-//                    .documentType: NSAttributedString.DocumentType.html,
-//                    .characterEncoding: String.Encoding.utf8.rawValue
-//                    ], documentAttributes: strokeTextAttributes)
-//        } catch {
-//            print(error.localizedDescription)
-//            return nil
-//        }
-//    }
-//}

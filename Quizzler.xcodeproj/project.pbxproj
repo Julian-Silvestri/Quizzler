@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -29,6 +29,8 @@
 		0887100224F1D69C00A5B088 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0887100124F1D69C00A5B088 /* HomeVC.swift */; };
 		08CBE42727C48AE700A61518 /* SubmitAnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CBE42627C48AE700A61518 /* SubmitAnswerButton.swift */; };
 		08CBE42B27C48C1300A61518 /* QuizPlayingNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CBE42A27C48C1300A61518 /* QuizPlayingNumber.swift */; };
+		08ED33F6285E811D006D8CAF /* TypeButtonMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ED33F5285E811D006D8CAF /* TypeButtonMenu.swift */; };
+		08ED33F8285E84B0006D8CAF /* QuizPlayingTrueFalseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ED33F7285E84B0006D8CAF /* QuizPlayingTrueFalseVC.swift */; };
 		158963DF3FC7C31054FE95E3 /* Pods_Quizzler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C366C4AAE142FA4B4EC95968 /* Pods_Quizzler.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +80,8 @@
 		0887100124F1D69C00A5B088 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		08CBE42627C48AE700A61518 /* SubmitAnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitAnswerButton.swift; sourceTree = "<group>"; };
 		08CBE42A27C48C1300A61518 /* QuizPlayingNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizPlayingNumber.swift; sourceTree = "<group>"; };
+		08ED33F5285E811D006D8CAF /* TypeButtonMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeButtonMenu.swift; sourceTree = "<group>"; };
+		08ED33F7285E84B0006D8CAF /* QuizPlayingTrueFalseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizPlayingTrueFalseVC.swift; sourceTree = "<group>"; };
 		C366C4AAE142FA4B4EC95968 /* Pods_Quizzler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quizzler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0F0EAA7E5C48FA09C51D97F /* Pods-Quizzler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quizzler.release.xcconfig"; path = "Target Support Files/Pods-Quizzler/Pods-Quizzler.release.xcconfig"; sourceTree = "<group>"; };
 		F41985FE1615CB0A4A03D1BF /* Pods-Quizzler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quizzler.debug.xcconfig"; path = "Target Support Files/Pods-Quizzler/Pods-Quizzler.debug.xcconfig"; sourceTree = "<group>"; };
@@ -120,6 +124,7 @@
 				08CBE42627C48AE700A61518 /* SubmitAnswerButton.swift */,
 				08CBE42A27C48C1300A61518 /* QuizPlayingNumber.swift */,
 				0869E5A927C89434004EDCF6 /* QuestionLabel.swift */,
+				08ED33F5285E811D006D8CAF /* TypeButtonMenu.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -130,6 +135,7 @@
 				0839289324EADD2500897989 /* LoginScreenVC.swift */,
 				0887100124F1D69C00A5B088 /* HomeVC.swift */,
 				0870C29E25087D1000E42109 /* QuizPlayingVC.swift */,
+				08ED33F7285E84B0006D8CAF /* QuizPlayingTrueFalseVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -223,7 +229,6 @@
 				F41985FE1615CB0A4A03D1BF /* Pods-Quizzler.debug.xcconfig */,
 				E0F0EAA7E5C48FA09C51D97F /* Pods-Quizzler.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -426,6 +431,8 @@
 				0839289224EADD2500897989 /* SceneDelegate.swift in Sources */,
 				087A100327C457C600D0D054 /* DifficultyButtonMenu.swift in Sources */,
 				08053F4727B8A1CB0042CE1C /* NetworkService.swift in Sources */,
+				08ED33F8285E84B0006D8CAF /* QuizPlayingTrueFalseVC.swift in Sources */,
+				08ED33F6285E811D006D8CAF /* TypeButtonMenu.swift in Sources */,
 				0839289A24EADD2500897989 /* Quizzler.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
