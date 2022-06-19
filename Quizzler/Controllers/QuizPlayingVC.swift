@@ -12,6 +12,7 @@ import GoogleMobileAds
 
 class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
 
+    @IBOutlet weak var finishIcon: UIImageView!
     @IBOutlet weak var currentNumberQuestion: UILabel!
     @IBOutlet weak var questionLabel: QuestionLabel!
     @IBOutlet weak var answerBtn1: AnswerButtons!
@@ -21,8 +22,6 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
     @IBOutlet weak var submitAnswerBtn: SubmitAnswerButton!
     @IBOutlet weak var gameOverView: UIView!
     @IBOutlet weak var finalScore: UILabel!
-    
-    
     
     let group = DispatchGroup()
     var answerButtonArray = [AnswerButtons]()
@@ -38,7 +37,6 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
     let strokeTextAttributes: [NSAttributedString.Key: Any] = [
         .strokeColor : UIColor.white
     ]
-    
     
     private var interstitial: GADInterstitialAd?
     
@@ -70,8 +68,8 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        Quiz.quizzes.removeAll()
-//        Quiz.quiz.removeAll()
+        Quiz.quizzes.removeAll()
+        Quiz.quiz.removeAll()
     }
     
     func decodeQuestionText(input: String?) {
@@ -149,13 +147,6 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
 
     }
     
-//    @IBAction func submitAnswerAction(_ sender: Any) {
-//        alertActionYesNo(viewController: self, title: "Confirm", message: "Is that your final answer?", completionHandler: {yesNo in
-//            if yesNo == true {
-//                self.determineIfRightOrWrong(selectedAnswer: self.selectedAnswer)
-//            }
-//        })
-//    }
     
     @IBAction func submitFinalAnswer(_ sender: UIButton){
         let attributedCorrectAnswer = decode(str: Quiz.quizzes[currentQuizQuestion].correctAnswer)
@@ -183,31 +174,25 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
             })
 
         }
-        
-        if self.currentQuizQuestion_notCompuSci == 21  {
-            self.scoreAndFinishQuiz()
-        }
     }
     
     func nextQuizQuestion(){
-
-        self.submitAnswerBtn.disableBtn()
-//        self.questionLabel.textColor = UIColor.white
-        for buttons in self.answerButtonArray{
-            buttons.deSelected()
-        }
-        self.currentNumberQuestion.text = "\(currentQuizQuestion_notCompuSci)/20"
-        self.currentNumberQuestion.textColor = UIColor.black//w/e i do what i want
-        //sets the question label while decoding the string
-        print("CURRENT QUIZ QUESTION -> \(currentQuizQuestion)")
-        if currentQuizQuestion > 19 {
+        if self.currentQuizQuestion > 19 {
             gameOver()
-        }else{
+        } else {
+            self.submitAnswerBtn.disableBtn()
+            for buttons in self.answerButtonArray{
+                buttons.deSelected()
+            }
+            self.currentNumberQuestion.text = "\(currentQuizQuestion_notCompuSci)/20"
+            self.currentNumberQuestion.textColor = UIColor.black//w/e i do what i want
+            //sets the question label while decoding the string
+            
+
             self.decodeQuestionText(input: Quiz.quizzes[currentQuizQuestion].question)
             randomizeLocationOfAnswer(correctAnswer: Quiz.quizzes[currentQuizQuestion].correctAnswer, incorrectAnswers: Quiz.quizzes[currentQuizQuestion].incorrectAnswers)
+            
         }
-        
-
     }
     
     
@@ -222,7 +207,14 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
     
     }
     func gameOver(){
-        self.finalScore.text = "\(scoreForQuiz) / 20"
+        self.finalScore.text = "\(self.scoreForQuiz) / 20"
+        if self.scoreForQuiz >= 14 {
+            self.finishIcon.image = UIImage(named: "happyFace")
+        } else if self.scoreForQuiz < 14 && self.scoreForQuiz >= 10{
+            self.finishIcon.image = UIImage(named: "neutralFace")
+        } else {
+            self.finishIcon.image = UIImage(named: "sadFace")
+        }
         UIView.animate(withDuration: 1.5, animations: {
             self.gameOverView.alpha = 1
             self.finalScore.alpha = 1
@@ -271,25 +263,11 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
         self.answerBtn1.setAttributedTitle(allAnswers.randomElement(), for: .normal)
         allAnswers.removeAll(where: {$0 == self.answerBtn1.attributedTitle(for: .normal)})
         
-//
-
-//
-//        let x = "\(str)"
-
-//        let attributedText = NSAttributedString(string: , attributes: attributes)
-//        self.answerBtn4.setAttributedTitle(attributedText, for: .normal)
-//        
         self.answerBtn4.setupButtons()
         self.answerBtn3.setupButtons()
         self.answerBtn2.setupButtons()
         self.answerBtn1.setupButtons()
 
-    }
-    
-    func scoreAndFinishQuiz(){
-        alertActionBasic(viewController: self, title: "Finished!", message: "Your score is \(self.scoreForQuiz)/20", completionHandler: {_ in
-            self.dismiss(animated: true, completion: nil)
-        })
     }
     
     override var preferredStatusBarStyle: UIStatusBarStyle{

@@ -6,7 +6,8 @@
 //  Copyright © 2020 Julian Silvestri. All rights reserved.
 //
 
-
+import Foundation
+import UIKit
 import GoogleMobileAds
 
 class HomeVC: UIViewController {
@@ -27,10 +28,13 @@ class HomeVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        Quiz.quizzes.removeAll()
-//        Quiz.quiz.removeAll()
+        Quiz.quizzes.removeAll()
+        Quiz.quiz.removeAll()
     }
     
+    @IBAction func devShowTypeTag(_ sender: Any) {
+        print("***********************\(self.selectQuizTypeBtn.tag)")
+    }
     @IBAction func startQuiz(_ sender: Any) {
         
         if self.selectGenreBtn.titleLabel?.text == "Select Genre" || self.selectDifficultyBtn.titleLabel?.text == "Select Difficulty"{
@@ -52,9 +56,10 @@ class HomeVC: UIViewController {
             
             if self.selectQuizTypeBtn.tag == 1{
                 type = "boolean"
+                print("BOOOL")
                 NetworkService.shared.loadQuiz(type: type, difficulty: difficulty, category: self.selectGenreBtn.tag, completionHandler: {success in
                     if success == true {
-                        print("quiz loaded")
+                        print("true and false quiz loaded")
                         DispatchQueue.main.async {
                             if Quiz.quizzes.count <= 0 {
                                 alertActionBasic(viewController: self, title: "Error", message: "Could not load this quiz", completionHandler: {_ in})
@@ -66,9 +71,10 @@ class HomeVC: UIViewController {
                 })
             }else if self.selectQuizTypeBtn.tag == 2 {
                 type = "multiple"
+                print("MULTIPLEEEEEE")
                 NetworkService.shared.loadQuiz(type: type, difficulty: difficulty, category: self.selectGenreBtn.tag, completionHandler: {success in
                     if success == true {
-                        print("quiz loaded")
+                        print("multiple choice quiz loaded")
                         DispatchQueue.main.async {
                             if Quiz.quizzes.count <= 0 {
                                 alertActionBasic(viewController: self, title: "Error", message: "Could not load this quiz", completionHandler: {_ in})

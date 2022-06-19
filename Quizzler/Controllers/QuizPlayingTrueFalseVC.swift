@@ -25,7 +25,7 @@ class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
     let group = DispatchGroup()
     var answerButtonArray = [AnswerButtons]()
     var currentQuizQuestion = Quiz.quiz.count-1
-//    var currentQuizQuestion_notCompuSci = 1
+    var currentQuizQuestion_notCompuSci = 1
     var selectedAnswer: String = ""
     var scoreForQuiz = 0
     var correct = ""
@@ -42,14 +42,11 @@ class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.quizStartSetup()
-//        self.questionLabel.textColor = UIColor.white
-//        self.questionLabel.font = UIFont(name: "Avenir", size: 16)
         self.questionLabel.numberOfLines = 0
         self.answerBtn1.tag = 1
         self.answerBtn2.tag = 2
 
         self.answerButtonArray = [self.answerBtn1,self.answerBtn2]
-//        action(#selector(quit()))
         let request = GADRequest()
         GADInterstitialAd.load(withAdUnitID:"ca-app-pub-2779669386425011~4429736348",
                                     request: request,
@@ -66,8 +63,8 @@ class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        Quiz.quizzes.removeAll()
-//        Quiz.quiz.removeAll()
+        Quiz.quizzes.removeAll()
+        Quiz.quiz.removeAll()
     }
     
     func decodeQuestionText(input: String?) {
@@ -112,14 +109,6 @@ class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
 
     }
     
-//    @IBAction func submitAnswerAction(_ sender: Any) {
-//        alertActionYesNo(viewController: self, title: "Confirm", message: "Is that your final answer?", completionHandler: {yesNo in
-//            if yesNo == true {
-//                self.determineIfRightOrWrong(selectedAnswer: self.selectedAnswer)
-//            }
-//        })
-//    }
-    
     @IBAction func submitFinalAnswer(_ sender: UIButton){
         
         let attributedCorrectAnswer = Quiz.quizzes[currentQuizQuestion].correctAnswer
@@ -147,31 +136,28 @@ class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
             })
 
         }
-        
-//        if self.currentQuizQuestion_notCompuSci == 21  {
-//            self.scoreAndFinishQuiz()
-//        }
     }
     
     func nextQuizQuestion(){
 
-        self.submitAnswerBtn.disableBtn()
-//        self.questionLabel.textColor = UIColor.white
-        for buttons in self.answerButtonArray{
-            buttons.deSelected()
-        }
-        self.currentNumberQuestion.text = "\(currentQuizQuestion_notCompuSci)/20"
-        self.currentNumberQuestion.textColor = UIColor.black//w/e i do what i want
-        //sets the question label while decoding the string
-        print("CURRENT QUIZ QUESTION -> \(currentQuizQuestion)")
-        if currentQuizQuestion > 19 {
-            gameOver()
+        if self.currentQuizQuestion > 19 {
+            return
         }else{
-            self.decodeQuestionText(input: Quiz.quizzes[currentQuizQuestion].question)
-            randomizeLocationOfAnswer(correctAnswer: Quiz.quizzes[currentQuizQuestion].correctAnswer, incorrectAnswers: Quiz.quizzes[currentQuizQuestion].incorrectAnswers)
+            self.submitAnswerBtn.disableBtn()
+            for buttons in self.answerButtonArray{
+                buttons.deSelected()
+            }
+            self.currentNumberQuestion.text = "\(currentQuizQuestion_notCompuSci)/20"
+            self.currentNumberQuestion.textColor = UIColor.black//w/e i do what i want
+            //sets the question label while decoding the string
+            print("CURRENT QUIZ QUESTION -> \(currentQuizQuestion)")
+            if currentQuizQuestion > 19 {
+                gameOver()
+            }else{
+                self.decodeQuestionText(input: Quiz.quizzes[currentQuizQuestion].question)
+                randomizeLocationOfAnswer(correctAnswer: Quiz.quizzes[currentQuizQuestion].correctAnswer, incorrectAnswers: Quiz.quizzes[currentQuizQuestion].incorrectAnswers)
+            }
         }
-        
-
     }
     
     
@@ -208,19 +194,6 @@ class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
     }
     
     func randomizeLocationOfAnswer(correctAnswer: String, incorrectAnswers: [String]){
-
-//        let attributes: [NSAttributedString.Key: Any] = [
-//            .font: UIFont(name: "Avenir-Next", size: 22)!,
-//            .strokeColor: UIColor.white
-//        ]
-
-        //decode all strings
-        var allAnswers = [NSAttributedString]()
-        allAnswers = [decode(str: correctAnswer)]
-        for values in incorrectAnswers {
-            allAnswers.append(decode(str: values))
-        }
-//        NSAttributedString(allAnswers.randomElement(), including: attributes)
         
         self.answerBtn1.setTitle("True", for: .normal)
         self.answerBtn2.setTitle("False", for: .normal)
@@ -229,13 +202,7 @@ class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
         self.answerBtn1.setupButtons()
 
     }
-    
-//    func scoreAndFinishQuiz(){
-//        alertActionBasic(viewController: self, title: "Finished!", message: "Your score is \(self.scoreForQuiz)/20", completionHandler: {_ in
-//            self.dismiss(animated: true, completion: nil)
-//        })
-//    }
-    
+
     override var preferredStatusBarStyle: UIStatusBarStyle{
         if #available(iOS 13.0, *) {
             return .darkContent
