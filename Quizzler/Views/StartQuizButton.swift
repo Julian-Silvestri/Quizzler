@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StartButton: UIButton {
+class StartQuizButton: UIButton {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,5 +19,16 @@ class StartButton: UIButton {
         self.layer.cornerRadius = 8
         
     }
+    
+    func disable(){
+        self.alpha = 0.8
+        self.isUserInteractionEnabled = false
+    }
+    
+    func enable(){
+        self.alpha = 1
+        self.isUserInteractionEnabled = true
+    }
+
 
 }

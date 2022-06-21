@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreMedia
 
 class NetworkService{
     //Category Numbers
@@ -38,6 +39,7 @@ class NetworkService{
     public static let shared: NetworkService = NetworkService()
     
     var triviaURL = "https://opentdb.com/api.php?amount=20&token="
+    var triviaCountURL = "https://opentdb.com/api_count.php?category="
     static var secrectKey = [Secret]()
     
     func grabToken(completionHandler: @escaping(Bool?)->Void){
@@ -112,7 +114,6 @@ class NetworkService{
             do {
                 let json = try JSONDecoder().decode(Quiz.self, from: data)
                 Quiz.quiz.append(Quiz(responseCode: json.responseCode, results: json.results))
-//                Quiz.quiz.insert((Quiz(responseCode: json.responseCode, results: json.results)), at: 0)
                 for values in Quiz.quiz{
                     for data in values.results {
                         Quiz.quizzes.append(Result(category: data.category, type: data.type, difficulty: data.difficulty, question: data.question, correctAnswer: data.correctAnswer, incorrectAnswers: data.incorrectAnswers))
@@ -134,9 +135,37 @@ class NetworkService{
         task.resume()
     }
     
-//    func numberOfQuestionsInCategory(category: String,completionHandler: @escaping(Bool)->Void){
-//
-//    }
+//    "https://opentdb.com/api.php?amount=20&token="
+//https://opentdb.com/api_count.php?category=13
+    func quizCount(category: Int,completionHandler: @escaping(Bool)->Void){
+        var request = URLRequest(url: URL(string: "\(triviaCountURL)\(category)")!,timeoutInterval: Double.infinity)
+        request.httpMethod = "GET"
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                print(String(describing: error))
+                return
+            }
+            do {
+                let json = try JSONDecoder().decode(QuizCount.self, from: data)
+                QuizCount.quizCount.append(QuizCount(categoryID: json.categoryID, categoryQuestionCount: json.categoryQuestionCount))
+//                for values in QuizCount.quizCount{
+//                    print("CATEGORY ID -> \(values.categoryID) , Hard Count -> \(values.categoryQuestionCount.totalHardQuestionCount)")
+//                }
+                completionHandler(true)
+            } catch let err{
+                print(String(describing: err))
+                print("error ")
+//                self.resetToken(completionHandler: {success in
+//                    if success == true {
+//                        print("token has been reset")
+//                    } else{
+//                        print("failure resetting token")
+//                    }
+//                })
+            }
+        }
+        task.resume()
+    }
 
     
 }

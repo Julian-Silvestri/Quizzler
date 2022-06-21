@@ -169,8 +169,7 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
             alertActionYesNoWithImage(viewController: self, title: "Wrong!", message: "Correct answer was \(Quiz.quizzes[currentQuizQuestion].correctAnswer).", image: UIImage(named: "wrongIcon")!, completionHandler: {success in
                 if success == true {
                     //next question + 0 to score
-                    self.currentQuizQuestion += 1
-                    self.currentQuizQuestion_notCompuSci += 1
+
                     self.nextQuizQuestion()
                 }
             })
@@ -182,6 +181,8 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
         if self.currentQuizQuestion > 19 {
             gameOver()
         } else {
+            self.currentQuizQuestion += 1
+            self.currentQuizQuestion_notCompuSci += 1
             self.submitAnswerBtn.disableBtn()
             for buttons in self.answerButtonArray{
                 buttons.deSelected()

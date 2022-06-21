@@ -18,7 +18,18 @@ class DifficultyButtonMenu: UIButton {
 //        self.layer.borderWidth = 1
     }
     
+    func disable(){
+        self.alpha = 0.8
+        self.isUserInteractionEnabled = false
+    }
+    
+    func enable(){
+        self.alpha = 1
+        self.isUserInteractionEnabled = true
+    }
+    
     func setupMenu() {
+        
         let easy = UIAction(title: "Easy", image: nil) { (action) in
             self.setTitle("Easy", for: .normal)
             self.tag = 1
@@ -37,4 +48,5 @@ class DifficultyButtonMenu: UIButton {
         //barItem.menu = menu
     }
     
+
 }

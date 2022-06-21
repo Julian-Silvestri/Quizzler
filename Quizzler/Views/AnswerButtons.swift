@@ -11,8 +11,8 @@ import UIKit
 @IBDesignable
 class AnswerButtons: UIButton {
     
-    let selectedColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
-    let deSelectedColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+    let selectedColor = #colorLiteral(red: 0.2666666667, green: 0.5725490196, blue: 1, alpha: 1)
+    let deSelectedColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     let myFont = UIFont(name: "Avenir-Next", size: 22)
     
     override func prepareForInterfaceBuilder() {
@@ -27,7 +27,7 @@ class AnswerButtons: UIButton {
     
     func setupButtons(){
         self.layer.cornerRadius = 12
-        self.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
 //        let attributes: [NSAttributedString.Key: Any] = [
 //            .font:myFont ?? UIFont(name: "Avenir-Next", size: 22),
 //            .strokeColor:UIColor.white
@@ -40,11 +40,11 @@ class AnswerButtons: UIButton {
     }
     
     func selected(){
-        self.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
+        self.backgroundColor = #colorLiteral(red: 0.2666666667, green: 0.5725490196, blue: 1, alpha: 1)
     }
     
     func deSelected(){
-        self.backgroundColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+        self.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     }
     
     

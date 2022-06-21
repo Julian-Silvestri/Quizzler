@@ -43,7 +43,81 @@ class GenreButtonMenu: UIButton {
 //        self.layer.borderWidth = 1
     }
     
+    func disable(){
+        self.alpha = 0.8
+        self.isUserInteractionEnabled = false
+    }
+    
+    func enable(){
+        self.alpha = 1
+        self.isUserInteractionEnabled = true
+    }
+    
+    
     func setupMenu() {
+    
+        
+        DispatchQueue.main.async {
+            for values in QuizCount.quizCount{
+                print("CATEGORY ID -> \(values.categoryID) , Hard Count -> \(values.categoryQuestionCount.totalHardQuestionCount)")
+                if values.categoryID == 9 {
+                    let numberOfEasyQuizzes = values.categoryQuestionCount.totalEasyQuestionCount/20
+                    let numberOfMediumQuizzes = values.categoryQuestionCount.totalMediumQuestionCount/20
+                    let numberOfHardQuizzes = values.categoryQuestionCount.totalHardQuestionCount/20
+                } else if values.categoryID == 9 {
+                    
+                }else if values.categoryID == 10 {
+                    
+                }else if values.categoryID == 11 {
+                    
+                }else if values.categoryID == 12 {
+                    
+                }else if values.categoryID == 13 {
+                    
+                }else if values.categoryID == 14 {
+                    
+                }else if values.categoryID == 15 {
+                    
+                }else if values.categoryID == 16 {
+                    
+                }else if values.categoryID == 17 {
+                    
+                }else if values.categoryID == 18 {
+                    
+                }else if values.categoryID == 19 {
+                    
+                }else if values.categoryID == 20 {
+                    
+                }else if values.categoryID == 21 {
+                    
+                }else if values.categoryID == 22 {
+                    
+                }else if values.categoryID == 23 {
+                    
+                }else if values.categoryID == 24 {
+                    
+                }else if values.categoryID == 25 {
+                    
+                }else if values.categoryID == 26 {
+                    
+                }else if values.categoryID == 27 {
+                    
+                }else if values.categoryID == 28 {
+                    
+                }else if values.categoryID == 29 {
+                    
+                }else if values.categoryID == 30 {
+                    
+                }else if values.categoryID == 31 {
+                    
+                }else if values.categoryID == 32 {
+                    
+                }
+            }
+
+        }
+     
+        
         let general = UIAction(title: "General Knowledge", image: nil) { (action) in
             self.setTitle("General Knowledge", for: .normal)
             self.tag = 9
@@ -140,7 +214,7 @@ class GenreButtonMenu: UIButton {
             self.setTitle("Entertainment: Cartoon and Animation", for: .normal)
             self.tag = 32
         }
-        
+    
         let menu = UIMenu(title: "Genre", children: [general, entertainmentBooks, entertainmentFilm,entertainmentMusic,entertainmentMusicalsTheatres,entertainmentTelevision,entertainmentVideoGames,entertainmentVideoGames,entertainmentBoardGames,scienceAndNature,scienceComputers,scienceMathematics,mythology,sports,geography,history,politics,art,celebrities,animals,vehicles,entertainmentComics,scienceGadgets,entertainmentJapaneseAnimeManga,entertainmentCartoonAnimation])
         self.menu = menu
         self.showsMenuAsPrimaryAction = true

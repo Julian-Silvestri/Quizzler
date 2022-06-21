@@ -67,44 +67,41 @@ class Result: Codable {
         self.incorrectAnswers = incorrectAnswers
     }
 }
-
-// MARK: - Quiz True False
-class QuizTrueFalse: Codable {
-    let responseCode: Int
-    let results: [ResultTrueFalse]
+// MARK: - QuizCount
+class QuizCount: Codable {
+    let categoryID: Int
+    let categoryQuestionCount: CategoryQuestionCount
     
-    static var quizzes = [Result]()
-    static var quiz = [Quiz]()
+    static var totalQuestions = [CategoryQuestionCount]()
+    static var quizCount = [QuizCount]()
 
     enum CodingKeys: String, CodingKey {
-        case responseCode = "response_code"
-        case results
+        case categoryID = "category_id"
+        case categoryQuestionCount = "category_question_count"
     }
 
-    init(responseCode: Int, results: [ResultTrueFalse]) {
-        self.responseCode = responseCode
-        self.results = results
+    init(categoryID: Int, categoryQuestionCount: CategoryQuestionCount) {
+        self.categoryID = categoryID
+        self.categoryQuestionCount = categoryQuestionCount
     }
 }
 
-// MARK: - Result
-class ResultTrueFalse: Codable {
-    let category, type, difficulty, question: String
-    let correctAnswer: String
-    let incorrectAnswers: [String]
+// MARK: - CategoryQuestionCount
+class CategoryQuestionCount: Codable {
+    let totalQuestionCount, totalEasyQuestionCount, totalMediumQuestionCount, totalHardQuestionCount: Int
 
     enum CodingKeys: String, CodingKey {
-        case category, type, difficulty, question
-        case correctAnswer = "correct_answer"
-        case incorrectAnswers = "incorrect_answers"
+        case totalQuestionCount = "total_question_count"
+        case totalEasyQuestionCount = "total_easy_question_count"
+        case totalMediumQuestionCount = "total_medium_question_count"
+        case totalHardQuestionCount = "total_hard_question_count"
     }
 
-    init(category: String, type: String, difficulty: String, question: String, correctAnswer: String, incorrectAnswers: [String]) {
-        self.category = category
-        self.type = type
-        self.difficulty = difficulty
-        self.question = question
-        self.correctAnswer = correctAnswer
-        self.incorrectAnswers = incorrectAnswers
+    init(totalQuestionCount: Int, totalEasyQuestionCount: Int, totalMediumQuestionCount: Int, totalHardQuestionCount: Int) {
+        self.totalQuestionCount = totalQuestionCount
+        self.totalEasyQuestionCount = totalEasyQuestionCount
+        self.totalMediumQuestionCount = totalMediumQuestionCount
+        self.totalHardQuestionCount = totalHardQuestionCount
     }
 }
+

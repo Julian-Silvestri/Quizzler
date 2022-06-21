@@ -18,6 +18,16 @@ class TypeButtonMenu: UIButton {
 //        self.layer.borderWidth = 1
     }
     
+    func disable(){
+        self.alpha = 0.8
+        self.isUserInteractionEnabled = false
+    }
+    
+    func enable(){
+        self.alpha = 1
+        self.isUserInteractionEnabled = true
+    }
+    
     func setupMenu() {
         let trueFalse = UIAction(title: "True/False", image: nil) { (action) in
             self.setTitle("True/False", for: .normal)
@@ -27,6 +37,7 @@ class TypeButtonMenu: UIButton {
             self.setTitle("Multiple Choice", for: .normal)
             self.tag = 2
         }
+
         let menu = UIMenu(title: "Type", children: [trueFalse, multipleChoice])
         self.menu = menu
         self.showsMenuAsPrimaryAction = true

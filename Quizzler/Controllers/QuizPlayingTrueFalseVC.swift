@@ -12,6 +12,7 @@ import GoogleMobileAds
 
 class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
     
+    @IBOutlet weak var finishIcon: UIImageView!
     @IBOutlet weak var finalScore: UILabel!
     @IBOutlet weak var quitBtn: UIButton!
     @IBOutlet weak var gameOverView: UIView!
@@ -172,7 +173,14 @@ class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
     
     }
     func gameOver(){
-        self.finalScore.text = "\(scoreForQuiz) / 20"
+        self.finalScore.text = "\(self.scoreForQuiz) / 20"
+        if self.scoreForQuiz >= 14 {
+            self.finishIcon.image = UIImage(named: "happyFace")
+        } else if self.scoreForQuiz < 14 && self.scoreForQuiz >= 10{
+            self.finishIcon.image = UIImage(named: "neutralFace")
+        } else {
+            self.finishIcon.image = UIImage(named: "sadFace")
+        }
         UIView.animate(withDuration: 1.5, animations: {
             self.gameOverView.alpha = 1
             self.finalScore.alpha = 1
