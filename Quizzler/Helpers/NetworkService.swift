@@ -147,10 +147,11 @@ class NetworkService{
             }
             do {
                 let json = try JSONDecoder().decode(QuizCount.self, from: data)
+                var unFilteredData = [QuizCount]()
+                unFilteredData.append(QuizCount(categoryID: json.categoryID, categoryQuestionCount: json.categoryQuestionCount))
                 QuizCount.quizCount.append(QuizCount(categoryID: json.categoryID, categoryQuestionCount: json.categoryQuestionCount))
-//                for values in QuizCount.quizCount{
-//                    print("CATEGORY ID -> \(values.categoryID) , Hard Count -> \(values.categoryQuestionCount.totalHardQuestionCount)")
-//                }
+
+                print("COUNT oF QUIZZ -> ***\(QuizCount.quizCount.count)")
                 completionHandler(true)
             } catch let err{
                 print(String(describing: err))

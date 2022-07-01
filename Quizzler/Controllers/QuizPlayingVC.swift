@@ -27,7 +27,8 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
     
     let group = DispatchGroup()
     var answerButtonArray = [AnswerButtons]()
-    var currentQuizQuestion = Quiz.quiz.count-1
+    var currentQuizQuestion = 18
+//    var currentQuizQuestion = Quiz.quiz.count-1
     var currentQuizQuestion_notCompuSci = 1
     var selectedAnswer = NSAttributedString()
     var scoreForQuiz = 0

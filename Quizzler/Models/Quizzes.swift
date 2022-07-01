@@ -75,6 +75,7 @@ class QuizCount: Codable {
     static var totalQuestions = [CategoryQuestionCount]()
     static var quizCount = [QuizCount]()
 
+
     enum CodingKeys: String, CodingKey {
         case categoryID = "category_id"
         case categoryQuestionCount = "category_question_count"

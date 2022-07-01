@@ -43,4 +43,29 @@ class TypeButtonMenu: UIButton {
         self.showsMenuAsPrimaryAction = true
         //barItem.menu = menu
     }
+    
+    func resetMenu(){
+        self.setTitle("Select Quiz Type", for: .normal)
+    }
+//    private func createSiteMenu(actionTitle: String? = nil) {
+//        let menu = UIMenu(title: "Site", image: nil, identifier: nil, options: [], children: self.menu)
+//        self.menu = updateActionState(actionTitle: actionTitle, menu: menu)
+//        self.showsMenuAsPrimaryAction = true
+//    }
+//    private func updateActionState(actionTitle: String? = nil, menu: UIMenu) -> UIMenu {
+//        if let actionTitle = actionTitle {
+//            menu.children.forEach { action in
+//                guard let action = action as? UIAction else {
+//                    return
+//                }
+//                if action.title == actionTitle {
+//                    action.state = .on
+//                }
+//            }
+//        } else {
+//            let action = menu.children.first as? UIAction
+//            action?.state = .on
+//        }
+//        return menu
+//    }
 }

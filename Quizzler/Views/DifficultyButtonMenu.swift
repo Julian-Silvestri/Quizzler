@@ -48,5 +48,9 @@ class DifficultyButtonMenu: UIButton {
         //barItem.menu = menu
     }
     
+    func resetMenu(){
+        self.setTitle("Select Difficulty", for: .normal)
+    }
+    
 
 }

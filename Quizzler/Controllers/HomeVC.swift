@@ -23,11 +23,18 @@ class HomeVC: UIViewController {
     private var stepTwo = false
     private var stepThree = false
     
-    var quizSetup = Timer()
+    var quizSetupTimer = Timer()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.quizSetup = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(quizSetupProcess), userInfo: nil, repeats: true)
+//        dump(QuizCount.totalQuestions)
+        print("****************")
+        dump(QuizCount.quizCount)
+        filterQuizzes()
+        print("************")
+        dump(QuizCount.quizCount)
+        
     }
     
     
@@ -35,8 +42,15 @@ class HomeVC: UIViewController {
         super.viewWillAppear(animated)
         Quiz.quizzes.removeAll()
         Quiz.quiz.removeAll()
-        setupBtnsOnLoad()
+        self.setupBtnsOnLoad()
+        self.quizSetupTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(quizSetupProcess), userInfo: nil, repeats: true)
         
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.setupBtnsOnLoad()
+        self.quizSetupTimer.invalidate()
     }
 
     @objc func quizSetupProcess(){
@@ -83,6 +97,7 @@ class HomeVC: UIViewController {
                             if Quiz.quizzes.count <= 0 {
                                 alertActionBasic(viewController: self, title: "Error", message: "Could not load this quiz", completionHandler: {_ in})
                             } else {
+                                self.quizSetupTimer.invalidate()
                                 self.performSegue(withIdentifier: "playTF", sender: self)
                             }
                         }
@@ -98,6 +113,7 @@ class HomeVC: UIViewController {
                             if Quiz.quizzes.count <= 0 {
                                 alertActionBasic(viewController: self, title: "Error", message: "Could not load this quiz", completionHandler: {_ in})
                             } else {
+                                self.quizSetupTimer.invalidate()
                                 self.performSegue(withIdentifier: "playMC", sender: self)
                             }
                         }
@@ -110,6 +126,9 @@ class HomeVC: UIViewController {
     //MARK: Setup Btns on Load
     ///disables the necessary buttons on load (view will appear)
     func setupBtnsOnLoad(){
+        self.selectQuizTypeBtn.resetMenu()
+        self.selectGenreBtn.resetMenu()
+        self.selectDifficultyBtn.resetMenu()
         self.selectGenreBtn.disable()
         self.selectDifficultyBtn.disable()
         self.startQuizBtn.disable()

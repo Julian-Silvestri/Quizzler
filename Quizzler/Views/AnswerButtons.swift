@@ -11,7 +11,7 @@ import UIKit
 @IBDesignable
 class AnswerButtons: UIButton {
     
-    let selectedColor = #colorLiteral(red: 0.2666666667, green: 0.5725490196, blue: 1, alpha: 1)
+    let selectedColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
     let deSelectedColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
     let myFont = UIFont(name: "Avenir-Next", size: 22)
     
@@ -40,7 +40,7 @@ class AnswerButtons: UIButton {
     }
     
     func selected(){
-        self.backgroundColor = #colorLiteral(red: 0.2666666667, green: 0.5725490196, blue: 1, alpha: 1)
+        self.backgroundColor = #colorLiteral(red: 1, green: 0.5763723254, blue: 0, alpha: 1)
     }
     
     func deSelected(){

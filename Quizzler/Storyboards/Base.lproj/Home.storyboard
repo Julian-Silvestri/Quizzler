@@ -473,13 +473,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quizzler_3" translatesAutoresizingMaskIntoConstraints="NO" id="UQc-qS-ud7">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quizBg3" translatesAutoresizingMaskIntoConstraints="NO" id="UQc-qS-ud7">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20/20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSg-vy-gt0" customClass="QuizPlayingNumber" customModule="Quizzler" customModuleProvider="target">
                                 <rect key="frame" x="102" y="0.0" width="211" height="90.333333333333329"/>
                                 <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="66"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="Ato-Bj-xUW" customClass="QuestionLabel" customModule="Quizzler" customModuleProvider="target">
@@ -537,7 +537,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haM-Y0-K89">
                                 <rect key="frame" x="0.0" y="20" width="51" height="31"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" red="1" green="0.0" blue="0.029831843470000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Quit"/>
                                 <connections>
@@ -658,7 +658,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wUM-bG-hWM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2850.7246376811595" y="837.22826086956525"/>
+            <point key="canvasLocation" x="2816" y="796"/>
         </scene>
     </scenes>
     <designables>
@@ -672,13 +672,10 @@
             <size key="intrinsicContentSize" width="69.666666666666671" height="31"/>
         </designable>
         <designable name="CSg-vy-gt0">
-            <size key="intrinsicContentSize" width="182" height="90.333333333333329"/>
+            <size key="intrinsicContentSize" width="171.33333333333334" height="90.333333333333329"/>
         </designable>
         <designable name="LYl-yz-dr2">
-            <size key="intrinsicContentSize" width="182" height="90.333333333333329"/>
-        </designable>
-        <designable name="bPq-LR-XrN">
-            <size key="intrinsicContentSize" width="95.333333333333329" height="31"/>
+            <size key="intrinsicContentSize" width="171.33333333333334" height="90.333333333333329"/>
         </designable>
         <designable name="hL7-9k-yGL">
             <size key="intrinsicContentSize" width="67" height="31"/>
@@ -699,6 +696,7 @@
     <resources>
         <image name="finishScreenIcon_2" width="96" height="96"/>
         <image name="openTD" width="1234" height="600"/>
+        <image name="quizBg3" width="2000" height="1333"/>
         <image name="quizzler" width="1998" height="1992"/>
         <image name="quizzler_3" width="784" height="1668"/>
         <image name="quizzler_4" width="1942" height="1942"/>

@@ -29,6 +29,7 @@ class LoginScreenVC: UIViewController {
                 print("good to go")
             }
         })
+        filterOutQuizzes()
         
         
 //        loadQuizzes()
@@ -82,14 +83,142 @@ class LoginScreenVC: UIViewController {
         //30 = Science: Gadgets
         //31 = Entertainment: Japanese Anime and Manga
         //32 = Entertainment: Cartoon and Animation
-        while count <= 32{
-            NetworkService.shared.quizCount(category: count, completionHandler: {success in
+
+        
+        ///WHY DOES THIS NOT WORK :(
+        while self.count < 32 {
+            NetworkService.shared.quizCount(category: self.count, completionHandler: {success in
                 if success == true {
+//                    self.count+=1
                     return
                 }
             })
-            count += 1
+            self.count+=1
         }
+
+        
+        //I hate my life
+//        NetworkService.shared.quizCount(category: 9, completionHandler: {success in
+//            if success == true {
+//
+//                NetworkService.shared.quizCount(category: 10, completionHandler: {success in
+//                    if success == true {
+//
+//                        NetworkService.shared.quizCount(category: 11, completionHandler: {success in
+//                            if success == true {
+//
+//                                NetworkService.shared.quizCount(category: 12, completionHandler: {success in
+//                                    if success == true {
+//
+//                                        NetworkService.shared.quizCount(category: 13, completionHandler: {success in
+//                                            if success == true {
+//
+//                                                NetworkService.shared.quizCount(category: 14, completionHandler: {success in
+//                                                    if success == true {
+//
+//                                                        NetworkService.shared.quizCount(category: 15, completionHandler: {success in
+//                                                            if success == true {
+//
+//                                                                NetworkService.shared.quizCount(category: 16, completionHandler: {success in
+//                                                                    if success == true {
+//
+//                                                                        NetworkService.shared.quizCount(category: 17, completionHandler: {success in
+//                                                                            if success == true {
+//
+//                                                                                NetworkService.shared.quizCount(category: 18, completionHandler: {success in
+//                                                                                    if success == true {
+//
+//                                                                                        NetworkService.shared.quizCount(category: 19, completionHandler: {success in
+//                                                                                            if success == true {
+//
+//                                                                                                NetworkService.shared.quizCount(category: 20, completionHandler: {success in
+//                                                                                                    if success == true {
+//
+//                                                                                                        NetworkService.shared.quizCount(category: 21, completionHandler: {success in
+//                                                                                                            if success == true {
+//
+//                                                                                                                NetworkService.shared.quizCount(category: 22, completionHandler: {success in
+//                                                                                                                    if success == true {
+//
+//                                                                                                                        NetworkService.shared.quizCount(category: 23, completionHandler: {success in
+//                                                                                                                            if success == true {
+//
+//                                                                                                                                NetworkService.shared.quizCount(category: 24, completionHandler: {success in
+//                                                                                                                                    if success == true {
+//
+//                                                                                                                                        NetworkService.shared.quizCount(category: 25, completionHandler: {success in
+//                                                                                                                                            if success == true {
+//
+//                                                                                                                                                NetworkService.shared.quizCount(category: 26, completionHandler: {success in
+//                                                                                                                                                    if success == true {
+//
+//                                                                                                                                                        NetworkService.shared.quizCount(category: 27, completionHandler: {success in
+//                                                                                                                                                            if success == true {
+//
+//                                                                                                                                                                NetworkService.shared.quizCount(category: 28, completionHandler: {success in
+//                                                                                                                                                                    if success == true {
+//
+//                                                                                                                                                                        NetworkService.shared.quizCount(category: 29, completionHandler: {success in
+//                                                                                                                                                                            if success == true {
+//
+//                                                                                                                                                                                NetworkService.shared.quizCount(category: 30, completionHandler: {success in
+//                                                                                                                                                                                    if success == true {
+//
+//                                                                                                                                                                                        NetworkService.shared.quizCount(category: 31, completionHandler: {success in
+//                                                                                                                                                                                            if success == true {
+//
+//                                                                                                                                                                                                NetworkService.shared.quizCount(category: 32, completionHandler: {success in
+//                                                                                                                                                                                                    if success == true {
+//
+//                                                                                                                                                                                                        return
+//                                                                                                                                                                                                    }
+//                                                                                                                                                                                                })
+//                                                                                                                                                                                            }
+//                                                                                                                                                                                        })
+//                                                                                                                                                                                    }
+//                                                                                                                                                                                })
+//                                                                                                                                                                            }
+//                                                                                                                                                                        })
+//                                                                                                                                                                    }
+//                                                                                                                                                                })
+//                                                                                                                                                            }
+//                                                                                                                                                        })
+//                                                                                                                                                    }
+//                                                                                                                                                })
+//                                                                                                                                            }
+//                                                                                                                                        })
+//                                                                                                                                    }
+//                                                                                                                                })
+//                                                                                                                            }
+//                                                                                                                        })
+//                                                                                                                    }
+//                                                                                                                })
+//                                                                                                            }
+//                                                                                                        })
+//                                                                                                    }
+//                                                                                                })
+//                                                                                            }
+//                                                                                        })
+//                                                                                    }
+//                                                                                })
+//                                                                            }
+//                                                                        })
+//                                                                    }
+//                                                                })
+//                                                            }
+//                                                        })
+//                                                    }
+//                                                })
+//                                            }
+//                                        })
+//                                    }
+//                                })
+//                            }
+//                        })
+//                    }
+//                })
+//            }
+//        })
     }
 }
 

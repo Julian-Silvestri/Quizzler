@@ -11,7 +11,7 @@ import UIKit
 class QuestionLabel: UILabel {
 
     let fontColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
-    let fontName = UIFont(name: "Avenir-Next", size: 22)
+    let fontName = UIFont(name: "Avenir-Next", size: 28)
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -25,7 +25,8 @@ class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
 
     let group = DispatchGroup()
     var answerButtonArray = [AnswerButtons]()
-    var currentQuizQuestion = Quiz.quiz.count-1
+    var currentQuizQuestion = 18
+//    var currentQuizQuestion = Quiz.quiz.count-1
     var currentQuizQuestion_notCompuSci = 1
     var selectedAnswer: String = ""
     var scoreForQuiz = 0
@@ -142,7 +143,7 @@ class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
     func nextQuizQuestion(){
 
         if self.currentQuizQuestion > 19 {
-            return
+            gameOver()
         }else{
             self.submitAnswerBtn.disableBtn()
             for buttons in self.answerButtonArray{

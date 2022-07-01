@@ -8,6 +8,13 @@
 import UIKit
 import Foundation
 
+///Filter out the quiz questions for the category that have less than 20 questions.
+func filterQuizzes(){
+    QuizCount.quizCount.removeAll(where: {$0.categoryQuestionCount.totalEasyQuestionCount < 20})
+    QuizCount.quizCount.removeAll(where: {$0.categoryQuestionCount.totalMediumQuestionCount < 20})
+    QuizCount.quizCount.removeAll(where: {$0.categoryQuestionCount.totalHardQuestionCount < 20})
+}
+
 func hexStringToUIColor (hex:String) -> UIColor {
     var cString:String = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
     
