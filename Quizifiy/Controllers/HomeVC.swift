@@ -29,11 +29,11 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        dump(QuizCount.totalQuestions)
-        print("****************")
-        dump(QuizCount.quizCount)
-        filterQuizzes()
-        print("************")
-        dump(QuizCount.quizCount)
+//        print("****************")
+//        dump(QuizCount.quizCount)
+//        filterQuizzes()
+//        print("************")
+//        dump(QuizCount.quizCount)
         
     }
     

@@ -47,7 +47,6 @@ class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
         self.questionLabel.numberOfLines = 0
         self.answerBtn1.tag = 1
         self.answerBtn2.tag = 2
-
         self.answerButtonArray = [self.answerBtn1,self.answerBtn2]
         let request = GADRequest()
         GADInterstitialAd.load(withAdUnitID:"ca-app-pub-2779669386425011~4429736348",

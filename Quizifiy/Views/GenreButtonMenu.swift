@@ -9,7 +9,34 @@
 import UIKit
 
 class GenreButtonMenu: UIButton {
+    var generalKnowledge = Bool()
+    var entertainmentBooks_ = Bool()
+    var entertainmentFilm_ = Bool()
+    var entertainmentMusic_ = Bool()
+    var entertainmentMusicalsTheaters_ = Bool()
+    var entertainmentTelevision_ = Bool()
+    var entertainmentVideoGames_ = Bool()
+    var entertainmentBoardGames_ = Bool()
+    var entertainmentComics_ = Bool()
+    var entertainmentJapanAnime_ = Bool()
+    var entertainmentCartoon_ = Bool()
+    var scienceNature_ = Bool()
+    var scienceComputers_ = Bool()
+    var scienceMath_ = Bool()
+    var mythology_ = Bool()
+    var sports_ = Bool()
+    var geography_ = Bool()
+    var history_ = Bool()
+    var politics_ = Bool()
+    var art_ = Bool()
+    var celebrities_ = Bool()
+    var animals_ = Bool()
+    var vehicles_ = Bool()
+    var scienceGadgets_ = Bool()
     
+    
+    var filteredBtnArray = [UIAction]()
+
     //9 = General Knowledge
     //10 = Entertainment: Books
     //11 = Entertainment: Film
@@ -56,6 +83,7 @@ class GenreButtonMenu: UIButton {
     
     func setupMenu() {
 
+        filterQuizzes()
         let general = UIAction(title: "General Knowledge", image: nil) { (action) in
             self.setTitle("General Knowledge", for: .normal)
             self.tag = 9
@@ -152,10 +180,149 @@ class GenreButtonMenu: UIButton {
             self.setTitle("Entertainment: Cartoon and Animation", for: .normal)
             self.tag = 32
         }
+        
+//        let menu = UIMenu(title:"Genre", children: [])
+//        let menu = UIMenu(title: "Genre", children: [general, entertainmentBooks, entertainmentFilm,entertainmentMusic,entertainmentMusicalsTheatres,entertainmentTelevision,entertainmentVideoGames,entertainmentVideoGames,entertainmentBoardGames,scienceAndNature,scienceComputers,scienceMathematics,mythology,sports,geography,history,politics,art,celebrities,animals,vehicles,entertainmentComics,scienceGadgets,entertainmentJapaneseAnimeManga,entertainmentCartoonAnimation])
+        
+        
+        
+        
+        ///BELOW IS THE PROPER WAY TO FILTER THE LIST I WANT
+        ///however, the data with the quizzes does not have catergory ID as an Integer.
+        ///the data has category as a string, ie: general knowledge , entertainment books etc...
+        ///the quiz count funtion has category ID as INT, ie: general knowledge = 9 , entertainment books = 10 etc...
+        ///there is no way to associate the category (string) to the category ID without doing it manually.
+        ///there may be a way for me to do this by creating a new class that has the desired types,
+        ///however that would sitll involve this manual process... and why do things twice.
+        ///
+        ///sad sad days.
+        
+//        for i in 9...32{
+//            if QuizCount.quizCount.contains(where: {$0.categoryID == i}) {
+//                for values in QuizCount.quizCount {
+//                    if values.categoryID == i {
+//                        let filteredQuizBtn = UIAction(title: values. , image: <#T##UIImage?#>)
+//                        filteredBtnArray.append(<#T##newElement: UIAction##UIAction#>)
+//                    }
+//                }
+//
+//            }
+//        }
+
+        
+        ///I hate this code below so much
+        ///it hurts me just to look at it
+        ///I will not give up until i resolve this embarassment.
+
+        //this code filters the quizzes out when they do not meet the requirements. 
+        for i in 9...32{
+            if QuizCount.quizCount.contains(where: {$0.categoryID == i}) {
+                
+                if i == 9 {
+                    generalKnowledge = true
+                    filteredBtnArray.append(general)
+                }
+                if i == 10 {
+                    entertainmentBooks_ = true
+                    filteredBtnArray.append(entertainmentBooks)
+                }
+                if i == 11 {
+                    entertainmentFilm_ = true
+                    filteredBtnArray.append(entertainmentFilm)
+                }
+                if i == 12 {
+                    entertainmentMusic_ = true
+                    filteredBtnArray.append(entertainmentMusic)
+                }
+                if i == 13 {
+                    entertainmentMusicalsTheaters_ = true
+                    filteredBtnArray.append(entertainmentMusicalsTheatres)
+                }
+                if i == 14 {
+                    entertainmentTelevision_ = true
+                    filteredBtnArray.append(entertainmentTelevision)
+                }
+                if i == 15 {
+                    entertainmentVideoGames_ = true
+                    filteredBtnArray.append(entertainmentVideoGames)
+                }
+                if i == 16 {
+                    entertainmentBoardGames_ = true
+                    filteredBtnArray.append(entertainmentBoardGames)
+                }
+                if i == 17 {
+                    scienceNature_ = true
+                    filteredBtnArray.append(scienceAndNature)
+                }
+                if i == 18{
+                    scienceComputers_ = true
+                    filteredBtnArray.append(scienceComputers)
+                }
+                if i == 19{
+                    scienceMath_ = true
+                    filteredBtnArray.append(scienceMathematics)
+                }
+                if i == 20 {
+                    mythology_ = true
+                    filteredBtnArray.append(mythology)
+                }
+                if i == 21 {
+                    sports_ = true
+                    filteredBtnArray.append(sports)
+                }
+                if i == 22 {
+                    geography_ = true
+                    filteredBtnArray.append(geography)
+                }
+                if i == 23 {
+                    history_ = true
+                    filteredBtnArray.append(history)
+                }
+                if i == 24 {
+                    politics_ = true
+                    filteredBtnArray.append(politics)
+                }
+                if i == 25 {
+                    art_ = true
+                    filteredBtnArray.append(art)
+                }
+                if i == 26 {
+                    celebrities_ = true
+                    filteredBtnArray.append(celebrities)
+                }
+                if i == 27 {
+                    animals_ = true
+                    filteredBtnArray.append(animals)
+                }
+                if i == 28 {
+                    vehicles_ = true
+                    filteredBtnArray.append(vehicles)
+                }
+                if i == 29 {
+                    entertainmentComics_ = true
+                    filteredBtnArray.append(entertainmentComics)
+                }
+                if i == 30 {
+                    scienceGadgets_ = true
+                    filteredBtnArray.append(scienceGadgets)
+                }
+                if i == 31 {
+                    entertainmentJapanAnime_ = true
+                    filteredBtnArray.append(entertainmentJapaneseAnimeManga)
+                }
+                if i == 32 {
+                    entertainmentCartoon_ = true
+                    filteredBtnArray.append(entertainmentCartoonAnimation)
+                }
+            }
+        }
     
-        let menu = UIMenu(title: "Genre", children: [general, entertainmentBooks, entertainmentFilm,entertainmentMusic,entertainmentMusicalsTheatres,entertainmentTelevision,entertainmentVideoGames,entertainmentVideoGames,entertainmentBoardGames,scienceAndNature,scienceComputers,scienceMathematics,mythology,sports,geography,history,politics,art,celebrities,animals,vehicles,entertainmentComics,scienceGadgets,entertainmentJapaneseAnimeManga,entertainmentCartoonAnimation])
+
+        let menu = UIMenu(title:"Genre", children: filteredBtnArray)
         self.menu = menu
         self.showsMenuAsPrimaryAction = true
+        
+        
         //barItem.menu = menu
     }
     

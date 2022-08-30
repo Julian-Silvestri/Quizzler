@@ -26,14 +26,21 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
     @IBOutlet weak var playAgaintBtn: PlayAgainBtn!
     
     let group = DispatchGroup()
+    /// used to keep track of the players answers
+    var playerAnswers = [String]()
+    ///used as the current questions answers, the next question will refresh these answers to match the current question
     var allAnswers = [NSAttributedString]()
+    ///used to keep track of the answer buttons in an array to track answers selected
     var answerButtonArray = [AnswerButtons]()
+    ///used as the the array counter to grab the next quiz
     var currentQuizQuestion = 0
-//    var currentQuizQuestion = Quiz.quiz.count-1
+    ///used as the title label current question 1/20
     var currentQuizQuestion_notCompuSci = 1
-//    var selectedAnswer = NSAttributedString()
+    ///used as the players selected answer for the question
     var selectedAnswer = String()
+    ///used as the players current score
     var scoreForQuiz = 0
+    
     var correct = ""
     var incorrectOne = ""
     var incorrectTwo = ""
@@ -49,15 +56,12 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.quizStartSetup()
-//        self.questionLabel.textColor = UIColor.white
-//        self.questionLabel.font = UIFont(name: "Avenir", size: 16)
         self.questionLabel.numberOfLines = 0
         self.answerBtn1.tag = 1
         self.answerBtn2.tag = 2
         self.answerBtn3.tag = 3
         self.answerBtn4.tag = 4
         self.answerButtonArray = [self.answerBtn1,self.answerBtn2,self.answerBtn3,self.answerBtn4]
-//        action(#selector(quit()))
         let request = GADRequest()
         GADInterstitialAd.load(withAdUnitID:"ca-app-pub-2779669386425011~4429736348",
                                     request: request,
@@ -161,23 +165,14 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
     
     
     @IBAction func submitFinalAnswer(_ sender: UIButton){
-        
-//        let attributedCorrectAnswer = decode(str: Quiz.quizzes[currentQuizQuestion].correctAnswer)
+
         let attributedCorrectAnswer = Quiz.quizzes[currentQuizQuestion].correctAnswer
         print("*************CORRECT ANSWER IS -> \(attributedCorrectAnswer)")
         print("*************SELECTED ANSWER IS -> \(self.selectedAnswer)")
         
-//        if self.selectedAnswer == attributedCorrectAnswer {
-//            print("correct")
-//        } else {
-//            print("wrong")
-//            print("???????????before????????????? \(self.selectedAnswer)")
-//            self.selectedAnswer
-//            = attributedCorrectAnswer
-//            
-//            print("???????????after????????????? \(self.selectedAnswer)")
-//        }
-        
+        ///append players final answer to array
+        self.playerAnswers.append(self.selectedAnswer)
+
         if self.selectedAnswer == attributedCorrectAnswer {
         
             alertActionYesNoWithImage(viewController: self, title: "Correct!", message: "Good Job", image: UIImage(named: "correctIcon")!, completionHandler: {success in
@@ -236,20 +231,7 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
         })
     
     }
-    func gameOver(){
-        self.finalScore.text = "\(self.scoreForQuiz) / 20"
-        if self.scoreForQuiz >= 14 {
-            self.finishIcon.image = UIImage(named: "happyFace")
-        } else if self.scoreForQuiz < 14 && self.scoreForQuiz >= 10{
-            self.finishIcon.image = UIImage(named: "neutralFace")
-        } else {
-            self.finishIcon.image = UIImage(named: "sadFace")
-        }
-        UIView.animate(withDuration: 1.5, animations: {
-            self.gameOverView.alpha = 1
-            self.finalScore.alpha = 1
-        })
-    }
+
 
     @IBAction func playAgainBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -337,6 +319,39 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
         }
     }
     
+    func gameOver(){
+        
+        //set the final score label
+        //set the image for the game over screen based on score
+        //animate the game over view on top
+        //MARK: need to add more to the game over screen. Too bland.
+    
+        self.finalScore.text = "\(self.scoreForQuiz) / 20"
+        if self.scoreForQuiz >= 14 {
+            self.finishIcon.image = UIImage(named: "happyFace")
+        } else if self.scoreForQuiz < 14 && self.scoreForQuiz >= 10{
+            self.finishIcon.image = UIImage(named: "neutralFace")
+        } else {
+            self.finishIcon.image = UIImage(named: "sadFace")
+        }
+        UIView.animate(withDuration: 1.5, animations: {
+            self.gameOverView.alpha = 1
+            self.finalScore.alpha = 1
+        })
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "viewResultsMC" {
+            if let destination = segue.destination as? ShowResultsOfQuizVC {
+                destination.playersScore = self.scoreForQuiz
+                destination.playersAnswers = self.playerAnswers
+            }
+        }
+    }
+    
+    @IBAction func showResultsActionBtn(_ sender: Any) {
+        self.performSegue(withIdentifier: "viewResultsMC", sender: self)
+    }
     //MARK: Google Ads
     /// Tells the delegate that the ad failed to present full screen content.
     func ad(_ ad: GADFullScreenPresentingAd, didFailToPresentFullScreenContentWithError error: Error) {

@@ -31,6 +31,7 @@
 		087A100B27C4899C00D0D054 /* AnswerButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087A100A27C4899C00D0D054 /* AnswerButtons.swift */; };
 		087F095C2881CDC50025AF67 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 087F095B2881CDC50025AF67 /* StoreKit.framework */; };
 		0887100224F1D69C00A5B088 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0887100124F1D69C00A5B088 /* HomeVC.swift */; };
+		089DC50128BE788D00CD44C2 /* ShowResultsOfQuizVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089DC50028BE788C00CD44C2 /* ShowResultsOfQuizVC.swift */; };
 		08CBE42727C48AE700A61518 /* SubmitAnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CBE42627C48AE700A61518 /* SubmitAnswerButton.swift */; };
 		08CBE42B27C48C1300A61518 /* QuizPlayingNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CBE42A27C48C1300A61518 /* QuizPlayingNumber.swift */; };
 		08D7795B28807BD100AFC5E1 /* IAPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D7795A28807BD100AFC5E1 /* IAPService.swift */; };
@@ -90,6 +91,7 @@
 		087A100A27C4899C00D0D054 /* AnswerButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButtons.swift; sourceTree = "<group>"; };
 		087F095B2881CDC50025AF67 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		0887100124F1D69C00A5B088 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		089DC50028BE788C00CD44C2 /* ShowResultsOfQuizVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowResultsOfQuizVC.swift; sourceTree = "<group>"; };
 		08CBE42627C48AE700A61518 /* SubmitAnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitAnswerButton.swift; sourceTree = "<group>"; };
 		08CBE42A27C48C1300A61518 /* QuizPlayingNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizPlayingNumber.swift; sourceTree = "<group>"; };
 		08D7795A28807BD100AFC5E1 /* IAPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPService.swift; sourceTree = "<group>"; };
@@ -153,9 +155,10 @@
 			children = (
 				0839289324EADD2500897989 /* LoginScreenVC.swift */,
 				0887100124F1D69C00A5B088 /* HomeVC.swift */,
-				0870C29E25087D1000E42109 /* QuizPlayingVC.swift */,
 				08ED33F7285E84B0006D8CAF /* QuizPlayingTrueFalseVC.swift */,
+				0870C29E25087D1000E42109 /* QuizPlayingVC.swift */,
 				086D9E5E287FCF73009589B3 /* SupportVC.swift */,
+				089DC50028BE788C00CD44C2 /* ShowResultsOfQuizVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -190,8 +193,8 @@
 				08053F4827B8A2310042CE1C /* Views */,
 				084D1BD027B604FD00B7D8C7 /* Models */,
 				0850F87424F0A2D400C46FE2 /* Storyboards */,
-				0839288F24EADD2500897989 /* AppDelegate.swift */,
 				0839289124EADD2500897989 /* SceneDelegate.swift */,
+				0839288F24EADD2500897989 /* AppDelegate.swift */,
 				0839289B24EADD2600897989 /* Assets.xcassets */,
 				083928A024EADD2600897989 /* Info.plist */,
 				0839289824EADD2500897989 /* Quizify.xcdatamodeld */,
@@ -471,6 +474,7 @@
 				08053F4727B8A1CB0042CE1C /* NetworkService.swift in Sources */,
 				08ED33F8285E84B0006D8CAF /* QuizPlayingTrueFalseVC.swift in Sources */,
 				08ED33F6285E811D006D8CAF /* TypeButtonMenu.swift in Sources */,
+				089DC50128BE788D00CD44C2 /* ShowResultsOfQuizVC.swift in Sources */,
 				0839289A24EADD2500897989 /* Quizify.xcdatamodeld in Sources */,
 				086D9E5F287FCF74009589B3 /* SupportVC.swift in Sources */,
 				086D9E61287FCFAB009589B3 /* SupportButtons.swift in Sources */,

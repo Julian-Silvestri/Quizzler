@@ -56,6 +56,7 @@ class Result: Codable {
         case category, type, difficulty, question
         case correctAnswer = "correct_answer"
         case incorrectAnswers = "incorrect_answers"
+
     }
 
     init(category: String, type: String, difficulty: String, question: String, correctAnswer: String, incorrectAnswers: [String]) {
@@ -104,5 +105,12 @@ class CategoryQuestionCount: Codable {
         self.totalMediumQuestionCount = totalMediumQuestionCount
         self.totalHardQuestionCount = totalHardQuestionCount
     }
+}
+
+struct PlayerResultsOfQuiz {
+    
+//    let results = []
+    
+    
 }
 
