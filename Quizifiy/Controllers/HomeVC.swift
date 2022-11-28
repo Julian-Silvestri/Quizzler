@@ -60,6 +60,7 @@ class HomeVC: UIViewController {
                 self.selectDifficultyBtn.enable()
                 if self.selectDifficultyBtn.titleLabel?.text != "Select Difficulty"{
                     self.startQuizBtn.enable()
+                    CustomLoader.instance.hideLoaderView()
                 }
             }
         }

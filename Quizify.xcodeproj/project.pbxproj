@@ -31,6 +31,8 @@
 		087A100B27C4899C00D0D054 /* AnswerButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087A100A27C4899C00D0D054 /* AnswerButtons.swift */; };
 		087F095C2881CDC50025AF67 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 087F095B2881CDC50025AF67 /* StoreKit.framework */; };
 		0887100224F1D69C00A5B088 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0887100124F1D69C00A5B088 /* HomeVC.swift */; };
+		0899CCA0292BD81900F6C09C /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899CC9F292BD81900F6C09C /* Gif.swift */; };
+		0899CCA2292BD84100F6C09C /* CustomLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899CCA1292BD84100F6C09C /* CustomLoader.swift */; };
 		089DC50128BE788D00CD44C2 /* ShowResultsOfQuizVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 089DC50028BE788C00CD44C2 /* ShowResultsOfQuizVC.swift */; };
 		08CBE42727C48AE700A61518 /* SubmitAnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CBE42627C48AE700A61518 /* SubmitAnswerButton.swift */; };
 		08CBE42B27C48C1300A61518 /* QuizPlayingNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08CBE42A27C48C1300A61518 /* QuizPlayingNumber.swift */; };
@@ -91,6 +93,9 @@
 		087A100A27C4899C00D0D054 /* AnswerButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButtons.swift; sourceTree = "<group>"; };
 		087F095B2881CDC50025AF67 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		0887100124F1D69C00A5B088 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		088D587129349150004DA41A /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		0899CC9F292BD81900F6C09C /* Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
+		0899CCA1292BD84100F6C09C /* CustomLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoader.swift; sourceTree = "<group>"; };
 		089DC50028BE788C00CD44C2 /* ShowResultsOfQuizVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowResultsOfQuizVC.swift; sourceTree = "<group>"; };
 		08CBE42627C48AE700A61518 /* SubmitAnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitAnswerButton.swift; sourceTree = "<group>"; };
 		08CBE42A27C48C1300A61518 /* QuizPlayingNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizPlayingNumber.swift; sourceTree = "<group>"; };
@@ -166,6 +171,7 @@
 		0839288324EADD2500897989 = {
 			isa = PBXGroup;
 			children = (
+				088D587129349150004DA41A /* Configuration.storekit */,
 				0839288E24EADD2500897989 /* Quizifiy */,
 				083928B324EADD2700897989 /* QuizifyUITests */,
 				0839288D24EADD2500897989 /* Products */,
@@ -245,6 +251,8 @@
 				083DE93124FF390E00C9F6DF /* Functions.swift */,
 				08D7795A28807BD100AFC5E1 /* IAPService.swift */,
 				08D7796128807D9900AFC5E1 /* Constants.swift */,
+				0899CC9F292BD81900F6C09C /* Gif.swift */,
+				0899CCA1292BD84100F6C09C /* CustomLoader.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -464,6 +472,7 @@
 				083DE93224FF390E00C9F6DF /* Functions.swift in Sources */,
 				087A100927C45D0500D0D054 /* StartQuizButton.swift in Sources */,
 				0870C29F25087D1000E42109 /* QuizPlayingVC.swift in Sources */,
+				0899CCA2292BD84100F6C09C /* CustomLoader.swift in Sources */,
 				087A100527C45AB200D0D054 /* QuizLabels.swift in Sources */,
 				08D7795B28807BD100AFC5E1 /* IAPService.swift in Sources */,
 				0887100224F1D69C00A5B088 /* HomeVC.swift in Sources */,
@@ -477,6 +486,7 @@
 				089DC50128BE788D00CD44C2 /* ShowResultsOfQuizVC.swift in Sources */,
 				0839289A24EADD2500897989 /* Quizify.xcdatamodeld in Sources */,
 				086D9E5F287FCF74009589B3 /* SupportVC.swift in Sources */,
+				0899CCA0292BD81900F6C09C /* Gif.swift in Sources */,
 				086D9E61287FCFAB009589B3 /* SupportButtons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

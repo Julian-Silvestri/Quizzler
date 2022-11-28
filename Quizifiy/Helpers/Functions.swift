@@ -9,12 +9,12 @@ import UIKit
 import Foundation
 
 
-func filterQuizzes(){
+func filterQuizzes(completionHandler: @escaping(Bool)->Void){
     ///Filter out the quiz questions that have less than 20 questions for each difficulty.
     QuizCount.quizCount.removeAll(where: {$0.categoryQuestionCount.totalEasyQuestionCount < 20})
     QuizCount.quizCount.removeAll(where: {$0.categoryQuestionCount.totalMediumQuestionCount < 20})
     QuizCount.quizCount.removeAll(where: {$0.categoryQuestionCount.totalHardQuestionCount < 20})
-    
+    completionHandler(true)
 }
 
 func hexStringToUIColor (hex:String) -> UIColor {

@@ -29,7 +29,11 @@ class LoginScreenVC: UIViewController {
                 print("good to go")
             }
         })
-        filterOutQuizzes()
+        filterOutQuizzes(completionHandler: {success in
+            if success == true {
+               
+            }
+        })
         
         
 //        loadQuizzes()
@@ -39,8 +43,19 @@ class LoginScreenVC: UIViewController {
         super.viewWillAppear(animated)
     }
     @IBAction func playBtnAction(_ sender: Any) {
-        filterQuizzes()
-        self.performSegue(withIdentifier: "login", sender: self)
+        CustomLoader.instance.showLoaderView()
+
+        DispatchQueue.main.asyncAfter(deadline: .now()+3, execute: {
+            filterQuizzes(completionHandler: {success in
+                if success == true {
+                    CustomLoader.instance.hideLoaderView()
+                    self.performSegue(withIdentifier: "login", sender: self)
+                }
+            })
+        })
+
+
+        
     }
     override var preferredStatusBarStyle: UIStatusBarStyle{
         if #available(iOS 13.0, *) {
@@ -53,13 +68,17 @@ class LoginScreenVC: UIViewController {
     }
     
     @IBAction func openTDAction(_ sender: Any) {
-        UIApplication.shared.canOpenURL((URL(string: "https://opentdb.com/")!))
-        print("lets go")
-        filterOutQuizzes()
+//        UIApplication.shared.canOpenURL((URL(string: "https://opentdb.com/")!))
+//        print("lets go")
+//        filterOutQuizzes(completionHandler: {success in
+//            if success == true {
+//                CustomLoader.instance.hideLoaderView()
+//            }
+//        })
 
     }
     
-    func filterOutQuizzes(){
+    func filterOutQuizzes(completionHandler: @escaping(Bool)->Void){
 //        9 = General Knowledge
 //        10 = Entertainment: Books
 //        11 = Entertainment: Film

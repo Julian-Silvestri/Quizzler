@@ -21,8 +21,10 @@ class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
     @IBOutlet weak var answerBtn1: AnswerButtons!
     @IBOutlet weak var answerBtn2: AnswerButtons!
     @IBOutlet weak var questionLabel: QuestionLabel!
-    
 
+    @IBOutlet weak var viewResultsBtn: PlayAgainBtn!
+    /// used to keep track of the players answers
+    var playerAnswers = [String]()
     let group = DispatchGroup()
     var answerButtonArray = [AnswerButtons]()
     var currentQuizQuestion = 0
@@ -113,7 +115,8 @@ class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
     @IBAction func submitFinalAnswer(_ sender: UIButton){
         
         let attributedCorrectAnswer = Quiz.quizzes[currentQuizQuestion].correctAnswer
-       
+        ///append players final answer to array
+        self.playerAnswers.append(self.selectedAnswer)
         
         if self.selectedAnswer == attributedCorrectAnswer {
             alertActionYesNoWithImage(viewController: self, title: "Correct!", message: "Good Job", image: UIImage(named: "correctIcon")!, completionHandler: {success in
@@ -186,7 +189,18 @@ class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
             self.finalScore.alpha = 1
         })
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "viewResultsTF" {
+            if let destination = segue.destination as? ShowResultsOfQuizVC {
+                destination.playersScore = self.scoreForQuiz
+                destination.playersAnswers = self.playerAnswers
+            }
+        }
+    }
 
+    @IBAction func viewResultsAction(_ sender: Any) {
+        self.performSegue(withIdentifier: "viewResultsTF", sender: self)
+    }
     @IBAction func playAgainBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }

@@ -7,7 +7,19 @@
 //
 
 import Foundation
+import StoreKit
+//
+//enum Product: String, CaseIterable {
+//    case hideAds = "silvestri.QuizifyAdFree"
+//}
 
-enum Product: Int {
-    case hideAds = 0
-}
+
+//enum Product: String, CaseIterable{
+//    case hideAds = "silvestri.QuizifyAdFree"
+//}
+//
+//enum S_K_Product: SKProduct{
+//    typealias RawValue = <#type#>
+//    
+//
+//}

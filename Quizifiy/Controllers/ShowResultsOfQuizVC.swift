@@ -42,6 +42,7 @@ class ShowResultsOfQuizVC: UIViewController, UITableViewDelegate, UITableViewDat
 //                self.incorrectAnswers.append(values)
 //            }
 //            count += 1
+        
 //        }
 //
 //        print(incorrectAnswers)
@@ -59,15 +60,15 @@ class ShowResultsOfQuizVC: UIViewController, UITableViewDelegate, UITableViewDat
 //        let data = self.incorrectAnswers
     
         if let cell = self.resultsOfQuizTableView.dequeueReusableCell(withIdentifier: "results", for: indexPath) as? ResultsOfQuizTableViewCell{
-            cell.questionNumberLabel.text = "\(indexPath.row + 1)"
+            cell.questionNumberLabel.text = "Question: \(indexPath.row + 1)"
             cell.questionTextLabel.text = "\(Quiz.quizzes[indexPath.row].question)"
-            cell.correctAnswerLabel.text = Quiz.quizzes[indexPath.row].correctAnswer
-            cell.yourAnswerLabel.text = "\(self.playersAnswers[indexPath.row])"
+            cell.correctAnswerLabel.text = "Correct Answer: \(Quiz.quizzes[indexPath.row].correctAnswer)"
+            cell.yourAnswerLabel.text = "Your Answer: \(self.playersAnswers[indexPath.row])"
             
-            if cell.correctAnswerLabel.text == cell.yourAnswerLabel.text {
-                cell.backgroundColor = UIColor.green
+            if ("\(Quiz.quizzes[indexPath.row].correctAnswer)" == "\(self.playersAnswers[indexPath.row])") {
+                cell.backgroundColor = #colorLiteral(red: 0.5694975257, green: 0.8108343482, blue: 0.5884379148, alpha: 1)
             } else {
-                cell.backgroundColor = UIColor.red
+                cell.backgroundColor = #colorLiteral(red: 0.958886683, green: 0.4196015894, blue: 0.3852186799, alpha: 1)
             }
             return cell
         }

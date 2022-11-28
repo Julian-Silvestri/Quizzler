@@ -82,8 +82,12 @@ class GenreButtonMenu: UIButton {
     
     
     func setupMenu() {
-
-        filterQuizzes()
+//
+//        filterQuizzes(completionHandler: {success in
+//            if(success == true){
+//                
+//            }
+//        })
         let general = UIAction(title: "General Knowledge", image: nil) { (action) in
             self.setTitle("General Knowledge", for: .normal)
             self.tag = 9
