@@ -884,7 +884,7 @@
             <size key="intrinsicContentSize" width="57.5" height="31"/>
         </designable>
         <designable name="46U-wd-GJd">
-            <size key="intrinsicContentSize" width="71" height="58"/>
+            <size key="intrinsicContentSize" width="78" height="64"/>
         </designable>
         <designable name="4T5-bH-FW7">
             <size key="intrinsicContentSize" width="53" height="31"/>
@@ -899,7 +899,7 @@
             <size key="intrinsicContentSize" width="171.5" height="90.5"/>
         </designable>
         <designable name="SUm-3B-Oke">
-            <size key="intrinsicContentSize" width="225" height="58"/>
+            <size key="intrinsicContentSize" width="228" height="64"/>
         </designable>
         <designable name="hL7-9k-yGL">
             <size key="intrinsicContentSize" width="67" height="31"/>
@@ -917,7 +917,7 @@
             <size key="intrinsicContentSize" width="70" height="31"/>
         </designable>
         <designable name="zKC-iX-IvZ">
-            <size key="intrinsicContentSize" width="132" height="58"/>
+            <size key="intrinsicContentSize" width="136" height="64"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>

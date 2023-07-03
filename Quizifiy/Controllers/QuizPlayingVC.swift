@@ -175,7 +175,7 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
         } else {
 //            print("SELECTED \(self.selectedAnswer)")
 //            print("CORRECT \(Quiz.quizzes[currentQuizQuestion].correctAnswer)")
-            alertActionYesNoWithImage(viewController: self, title: "Wrong!", message: "Correct answer was \(Quiz.quizzes[currentQuizQuestion].correctAnswer).", image: UIImage(named: "wrongIcon")!, completionHandler: {success in
+            alertActionYesNoWithImage(viewController: self, title: "Wrong!", message: "Correct answer was \(decode(str:Quiz.quizzes[currentQuizQuestion].correctAnswer).string).", image: UIImage(named: "wrongIcon")!, completionHandler: {success in
                 if success == true {
                     //next question + 0 to score
                     self.currentQuizQuestion += 1
