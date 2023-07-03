@@ -81,19 +81,23 @@ func alertActionYesNoWithImage(viewController: UIViewController, title:String, m
     viewController.present(alertController, animated: true)
 }
 
-func decode(str: String)->NSAttributedString{
-    var textToDecode = NSAttributedString()
-    if let data = str.data(using: .utf8) {
-        do {
-            let attrStr = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
-//            print(attrStr)
-            textToDecode = attrStr
-        } catch {
-            print(error)
-        }
-    }
-    return textToDecode
-}
+//func decode(str: String)->NSAttributedString{
+//    var textToDecode = NSAttributedString()
+//    let options: [NSAttributedString.DocumentReadingOptionKey: Any] = [
+//        .documentType: NSAttributedString.DocumentType.html,
+//        .characterEncoding: String.Encoding.utf8.rawValue
+//    ]
+//    if let data = str.data(using: .utf8) {
+//        do {
+//            let attrStr = try NSAttributedString(data: data, options: options, documentAttributes: nil)
+////            print(attrStr)
+//            textToDecode = attrStr
+//        } catch {
+//            print(error)
+//        }
+//    }
+//    return textToDecode
+//}
 func decodeArrayOfStrings(str: [String])->[NSAttributedString]{
     var textToDecode = [NSAttributedString]()
     

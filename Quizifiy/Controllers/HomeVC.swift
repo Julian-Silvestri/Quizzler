@@ -24,19 +24,22 @@ class HomeVC: UIViewController {
     private var stepThree = false
     
     
-    var difficulty = ""
+    var difficulty = "easy"
     var type = ""
     var quizSetupTimer = Timer()
-    
+//    var tokenTimer = 0 //21600 == 6 hours in seconds
+//    var tokenTimerTimer = Timer()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 //        dump(QuizCount.totalQuestions)
 //        print("****************")
 //        dump(QuizCount.quizCount)
 //        filterQuizzes()
 //        print("************")
 //        dump(QuizCount.quizCount)
+//        self.tokenTimerTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(self.tokenExpired), userInfo: nil, repeats: true)
         
     }
     
@@ -48,18 +51,6 @@ class HomeVC: UIViewController {
         self.setupBtnsOnLoad()
         filterQuizzes(completionHandler: {_ in})
         self.quizSetupTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(quizSetupProcess), userInfo: nil, repeats: true)
-
-//        NetworkService.secrectKey.removeAll()
-//        NetworkService.shared.grabToken(completionHandler: {success in
-//            if success == true {
-//                DispatchQueue.main.asyncAfter(deadline: .now()+3, execute: {
-//                    filterQuizzes(completionHandler: {_ in})
-//                })
-//            } else {
-//                fatalError()
-//                
-//            }
-//        })
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -67,6 +58,21 @@ class HomeVC: UIViewController {
         self.setupBtnsOnLoad()
         self.quizSetupTimer.invalidate()
     }
+
+    
+    //MARK: Token Expiry
+//    @objc func tokenExpired(){
+//        self.tokenTimer += 1
+//        if self.tokenTimer == 21600{
+////            NetworkService.secrectKey.removeAll()
+//            NetworkService.shared.resetToken(completionHandler: {success in
+//                if success == true {
+//                    self.tokenTimer = 0
+//                    filterQuizzes(completionHandler: {_ in})
+//                }
+//            })
+//        }
+//    }
 
     
     //IVE REMOVED THE DIFFICULTY LOGIC , ALL QUIZZES ARE SET TO EASY
@@ -89,6 +95,10 @@ class HomeVC: UIViewController {
 //        quizSetupTrackerFunction()
         
     }
+    
+    
+    
+    //MARK: Start Quiz Btn
     @IBAction func startQuiz(_ sender: Any) {
         
         //|| self.selectDifficultyBtn.titleLabel?.text == "Select Difficulty"
@@ -98,7 +108,6 @@ class HomeVC: UIViewController {
             })
         }else{
 //            print("TAG = \(self.selectGenreBtn.tag)")
-            difficulty = "easy"
 //            if self.selectDifficultyBtn.tag == 1 {
 //                difficulty = "easy"
 //            } else if self.selectDifficultyBtn.tag == 2 {
@@ -130,6 +139,11 @@ class HomeVC: UIViewController {
                                                         print("MOVED ON TO HARD")
                                                         if Quiz.quizzes.count <= 0{
                                                             DispatchQueue.main.async {
+                                                                NetworkService.shared.resetToken(completionHandler: {success in
+                                                                    if success == true {
+                                                                        filterQuizzes(completionHandler: {_ in})
+                                                                    }
+                                                                })
                                                                 alertActionBasic(viewController: self, title: "Error", message: "Could not load this True or False quiz. Please select a different genre or try again later.", completionHandler: {_ in})
                                                             }
 
@@ -180,6 +194,11 @@ class HomeVC: UIViewController {
                                                         print("MOVED ON TO HARD")
                                                         if Quiz.quizzes.count <= 0{
                                                             DispatchQueue.main.async {
+                                                                NetworkService.shared.resetToken(completionHandler: {success in
+                                                                    if success == true {
+                                                                        filterQuizzes(completionHandler: {_ in})
+                                                                    }
+                                                                })
                                                                 alertActionBasic(viewController: self, title: "Error", message: "Could not load this Multiple Choice quiz. Please select a different genre or try again later.", completionHandler: {_ in})
                                                             }
 

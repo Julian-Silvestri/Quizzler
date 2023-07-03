@@ -61,7 +61,8 @@ class ShowResultsOfQuizVC: UIViewController, UITableViewDelegate, UITableViewDat
     
         if let cell = self.resultsOfQuizTableView.dequeueReusableCell(withIdentifier: "results", for: indexPath) as? ResultsOfQuizTableViewCell{
             cell.questionNumberLabel.text = "Question: \(indexPath.row + 1)"
-            cell.questionTextLabel.text = "\(Quiz.quizzes[indexPath.row].question)"
+            cell.questionTextLabel.text = "\(decode(str:Quiz.quizzes[indexPath.row].question).string)"
+//            cell.questionTextLabel.text = "\(Quiz.quizzes[indexPath.row].question)"
             cell.correctAnswerLabel.text = "Correct Answer: \(Quiz.quizzes[indexPath.row].correctAnswer)"
             cell.yourAnswerLabel.text = "Your Answer: \(self.playersAnswers[indexPath.row])"
             

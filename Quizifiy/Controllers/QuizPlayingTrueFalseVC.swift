@@ -37,7 +37,7 @@ class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
     var incorrectTwo = ""
     var incorrectThree = ""
     var showAd = 1
-    
+
     let strokeTextAttributes: [NSAttributedString.Key: Any] = [
         .strokeColor : UIColor.white
     ]
@@ -46,6 +46,7 @@ class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.quizStartSetup()
         self.questionLabel.numberOfLines = 0
         self.answerBtn1.tag = 1
@@ -97,6 +98,7 @@ class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
 //            print(myAttrString)
         }
     }
+    
 
     //MARK: Quiz setup
     //first load setup
@@ -212,11 +214,11 @@ class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
     @IBAction func quitBtn(_ sender: Any) {
         alertActionYesNo(viewController: self, title: "Quit?", message: "Are you sure you want to quit? All progress will be lost.", completionHandler: {yesNo in
             if yesNo == true {
-                NetworkService.shared.resetToken(completionHandler: {success in
-                    if success == true {
-                        filterQuizzes(completionHandler: {_ in})
-                    }
-                })
+//                NetworkService.shared.resetToken(completionHandler: {success in
+//                    if success == true {
+//                        filterQuizzes(completionHandler: {_ in})
+//                    }
+//                })
                 self.dismiss(animated: true, completion: nil)
             } else {
                 return

@@ -154,13 +154,13 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
         print("************\(currentQuizQuestion)*************")
         
         let attributedCorrectAnswer = Quiz.quizzes[currentQuizQuestion].correctAnswer
-        print("*************CORRECT ANSWER IS -> \(attributedCorrectAnswer)")
+        print("*************CORRECT ANSWER IS -> \(decode(str:attributedCorrectAnswer).string)")
         print("*************SELECTED ANSWER IS -> \(self.selectedAnswer)")
         
         ///append players final answer to array
         self.playerAnswers.append(self.selectedAnswer)
 
-        if self.selectedAnswer == attributedCorrectAnswer {
+        if self.selectedAnswer == decode(str:attributedCorrectAnswer).string {
         
             alertActionYesNoWithImage(viewController: self, title: "Correct!", message: "Good Job", image: UIImage(named: "correctIcon")!, completionHandler: {success in
                 if success == true {

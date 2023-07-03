@@ -23,15 +23,18 @@ class SupportVC: UIViewController{
 //    public private(set) var item: Item!
     private var hiddenStatus: Bool = UserDefaults.standard.bool(forKey: "nonConsumablePurchaseWasMade")
     
-    
+    var alert: UIAlertController?
+//    var action: UIAlertAction?
 //    var products_ = [Product]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        self.alert = UIAlertController(title: "Success!", message: "Your purchase was successfully restored.", preferredStyle: .alert)
+//        self.action = UIAlertAction(title: "OK", style: .default)
+
 //        NotificationCenter.default.addObserver(self, selector: #selector(handlePurchase(_:)), name: NSNotification.Name(IAPServicePurchaseNotification), object: nil)
 //        NotificationCenter.default.addObserver(self, selector: #selector(handleFailure), name: NSNotification.Name(IAPServiceFailureNotification), object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(showRestoredAlert), name: NSNotification.Name(IAPServiceRestoreNotification), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(showRestoredAlert), name: NSNotification.Name(IAPServiceRestoreNotification), object: nil)
         
     }
     
@@ -59,13 +62,38 @@ class SupportVC: UIViewController{
         }
     }
     
-    @objc func showRestoredAlert() {
-        print("ShOULD show restored alert")
-        let alert = UIAlertController(title: "Success!", message: "Your purchases were successfully restored.", preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .default, handler: nil)
-        alert.addAction(action)
+//    func showRestoredAlert() {
+//        print("ShOULD show restored alert")
+//        self.alert?.addAction(UIAlertAction(title: "OK", style: .default))
+//        self.view.addSubview(self.alert?.view ?? UIView())
+//        self.view.window?.rootViewController?.present(self.alert ?? UIAlertController(), animated: true, completion: nil)
+//    }
+    
+    func showRestoredAlert() {
         
-        self.view.window?.rootViewController?.present(alert, animated: true, completion: nil)
+        let alertController = UIAlertController(title: "Success!", message: "Your purchase was successfully restored.", preferredStyle: .alert)
+        //...
+//        var rootVC = UIWindowScene.
+        var rootViewController = self.view.window?.rootViewController
+        if let navigationController = rootViewController as? UINavigationController {
+            rootViewController = navigationController.viewControllers.first
+        }
+        if let tabBarController = rootViewController as? UITabBarController {
+            rootViewController = tabBarController.selectedViewController
+        }
+        //...
+        rootViewController?.present(alertController, animated: true, completion: nil)
+//        let alertWindow = UIWindow(frame: UIScreen.main.bounds)
+//        alertWindow.rootViewController = UIViewController()
+//
+//        let alertController = UIAlertController(title: "Success!", message: "Your purchase was successfully restored.", preferredStyle: UIAlertController.Style.alert)
+//        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertAction.Style.cancel, handler: { _ in
+//            alertWindow.isHidden = true
+//        }))
+//
+//        alertWindow.windowLevel = UIWindow.Level.alert + 1;
+//        alertWindow.makeKeyAndVisible()
+//        alertWindow.rootViewController?.present(alertController, animated: true, completion: nil)
     }
     
     @objc func handleFailure() {
