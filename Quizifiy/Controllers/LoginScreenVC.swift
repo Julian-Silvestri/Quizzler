@@ -8,6 +8,9 @@
 
 import UIKit
 import CryptoKit
+import AppTrackingTransparency
+import AdSupport
+
 
 class LoginScreenVC: UIViewController {
 
@@ -53,10 +56,25 @@ class LoginScreenVC: UIViewController {
                 print("TOTAL QUIZ COUNT FOR EASY QUESTIONS \(QuizCount.quizCount.filter({$0.categoryQuestionCount.totalEasyQuestionCount > 20 }))")
             })
         })
-
-
-        
     }
+    
+    func getIDFA() -> String? {
+        // Check whether advertising tracking is enabled
+        if #available(iOS 14, *) {
+            if ATTrackingManager.trackingAuthorizationStatus != ATTrackingManager.AuthorizationStatus.authorized  {
+                return nil
+            }
+        } else {
+            if ASIdentifierManager.shared().isAdvertisingTrackingEnabled == false {
+                return nil
+            }
+        }
+        
+        print("****** \(ASIdentifierManager.shared().advertisingIdentifier.uuidString)")
+
+        return ASIdentifierManager.shared().advertisingIdentifier.uuidString
+    }
+    
     override var preferredStatusBarStyle: UIStatusBarStyle{
         if #available(iOS 13.0, *) {
             return .darkContent

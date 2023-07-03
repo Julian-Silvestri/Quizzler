@@ -9,6 +9,8 @@
 import UIKit
 import AVFoundation
 import GoogleMobileAds
+import AppTrackingTransparency
+import AdSupport
 
 class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
     
@@ -329,5 +331,20 @@ class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
     print("Ad did dismiss full screen content.")
     }
 
+    func getIDFA() -> String? {
+        // Check whether advertising tracking is enabled
+        if #available(iOS 14, *) {
+            if ATTrackingManager.trackingAuthorizationStatus != ATTrackingManager.AuthorizationStatus.authorized  {
+                return nil
+            }
+        } else {
+            if ASIdentifierManager.shared().isAdvertisingTrackingEnabled == false {
+                return nil
+            }
+        }
+        
+        print("****** \(ASIdentifierManager.shared().advertisingIdentifier.uuidString)")
 
+        return ASIdentifierManager.shared().advertisingIdentifier.uuidString
+    }
 }

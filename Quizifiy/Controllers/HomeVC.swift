@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import GoogleMobileAds
+import AppTrackingTransparency
+import AdSupport
 
 class HomeVC: UIViewController {
 
