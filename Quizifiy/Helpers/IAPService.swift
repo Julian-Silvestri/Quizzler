@@ -31,7 +31,7 @@ class IAPService: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObser
         let request = SKProductsRequest(productIdentifiers: Set(Product.allCases.compactMap({$0.rawValue})))
         request.delegate = self
         request.start()
-        print("request strated")
+        print("request started")
     }
     
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
@@ -73,19 +73,28 @@ class IAPService: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObser
 
     //observe the transaction state
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-        transactions.forEach({ transaction in
 
+        transactions.forEach({ transaction in
+            
             switch transaction.transactionState {
             case .purchasing:
+                print("Transaction state purchasing = \(transaction.transactionState)")
                 break
             case .purchased:
+                print("Transaction state purchased = \(transaction.transactionState)")
                 handlePurchase(transaction.payment.productIdentifier)
                 break
             case .restored:
+                print("Transaction state restored = \(transaction.transactionState)")
+                SKPaymentQueue.default().finishTransaction(transaction as SKPaymentTransaction)
+//                handlePurchase(transaction.payment.productIdentifier)
+                print("??????????????????????")
                 break
             case .failed:
+                print("Transaction state failed = \(transaction.transactionState)")
                 break
             case .deferred:
+                print("Transaction state deferred = \(transaction.transactionState)")
                 break
             @unknown default:
                 print("FATAL ERROR UNKNOWN PAYMENT QUEUE")
@@ -95,8 +104,42 @@ class IAPService: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObser
     }
     private func handlePurchase(_ id: String){
         print("PURCHAAAAAAASED!!!")
+
     }
     
+    func restorePurchases(){
+        print("RESTORING PURCHASES (1)")
+        SKPaymentQueue.default().add(self)
+        if(SKPaymentQueue.canMakePayments()){
+            print("RESTORING PURCHASES (2)")
+            SKPaymentQueue.default().restoreCompletedTransactions()
+        }
+    }
+    
+    func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
+      print("paymentQueueRestoreCompletedTransactionsFinished() called")
+//        SKPaymentQueue.default().restoreCompletedTransactions()
+        
+        for transaction in queue.transactions {
+            let t: SKPaymentTransaction = transaction
+            let prodID = t.payment.productIdentifier as String
+
+            switch prodID {
+            case "silvestri.QuizifyAdFree":
+                print("Transaction state restored = \(transaction.transactionState)")
+                SKPaymentQueue.default().finishTransaction(transaction as SKPaymentTransaction)
+                break
+                // implement the given in-app purchase as if it were bought
+            default:
+                print("iap not found")
+            }
+        }
+    }
+
+    func paymentQueue(_ queue: SKPaymentQueue,
+                      restoreCompletedTransactionsFailedWithError error: Error) {
+      print("paymentQueue - error func called")
+    }
     
 //    static let instance = IAPService()
 //

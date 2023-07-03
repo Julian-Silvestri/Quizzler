@@ -108,52 +108,42 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="quizbg33333" translatesAutoresizingMaskIntoConstraints="NO" id="jcf-GA-irf">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="647"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Support" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qF4-b0-xq1">
-                                <rect key="frame" x="80" y="20" width="216" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="42"/>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="19" translatesAutoresizingMaskIntoConstraints="NO" id="e9d-Vn-l1Y">
-                                <rect key="frame" x="20" y="80" width="335" height="547"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="e9d-Vn-l1Y">
+                                <rect key="frame" x="20" y="80" width="335" height="444"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Want to see the FAQ for quizzler? Hit the FAQ Button below" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="0AW-c1-H2C" customClass="QuizLabels" customModule="Quizify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="75.5"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="26"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="46U-wd-GJd" customClass="SupportButtons" customModule="Quizify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="94.5" width="335" height="75"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="80"/>
                                         <color key="backgroundColor" red="0.93349081280000001" green="0.81795758009999997" blue="0.44882339240000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="zT7-e3-7iF"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="33"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="FAQ"/>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need some help? Press the Contact button to send a message. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="VYR-3h-txO" customClass="QuizLabels" customModule="Quizify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="188.5" width="335" height="75.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Need some help? " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="VYR-3h-txO" customClass="QuizLabels" customModule="Quizify" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="91" width="335" height="80"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="26"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zKC-iX-IvZ" customClass="SupportButtons" customModule="Quizify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="283" width="335" height="75.5"/>
+                                        <rect key="frame" x="0.0" y="182" width="335" height="80"/>
                                         <color key="backgroundColor" red="0.93349081280000001" green="0.81795758009999997" blue="0.44882339240000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="33"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Contact"/>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Want to remove ad's? Go add free for only $2.99!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Srp-YC-17F" customClass="QuizLabels" customModule="Quizify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="377.5" width="335" height="75"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go add free for only $2.99!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" translatesAutoresizingMaskIntoConstraints="NO" id="Srp-YC-17F" customClass="QuizLabels" customModule="Quizify" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="273" width="335" height="80"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="26"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUm-3B-Oke" customClass="SupportButtons" customModule="Quizify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="471.5" width="335" height="75.5"/>
+                                        <rect key="frame" x="0.0" y="364" width="335" height="80"/>
                                         <color key="backgroundColor" red="0.93349081280000001" green="0.81795758009999997" blue="0.44882339240000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="33"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -165,17 +155,23 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="joM-7v-S0V">
-                                <rect key="frame" x="-1" y="18" width="101" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="joM-7v-S0V">
+                                <rect key="frame" x="0.0" y="18" width="93" height="31"/>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="goforward" catalog="system" title=" ">
+                                <buttonConfiguration key="configuration" style="plain" image="goforward" catalog="system" title=" Restore" imagePadding="8">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="restorePurchasesBtnAction:" destination="fW6-QB-nF7" eventType="touchUpInside" id="Ddv-lK-Fw1"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Support" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qF4-b0-xq1">
+                                <rect key="frame" x="89" y="9" width="197" height="52"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="38"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="sXm-Ma-WAW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -184,9 +180,13 @@
                             <constraint firstAttribute="trailing" secondItem="e9d-Vn-l1Y" secondAttribute="trailing" constant="20" id="7sC-Q3-Wb7"/>
                             <constraint firstItem="jcf-GA-irf" firstAttribute="top" secondItem="vHh-wa-Co3" secondAttribute="top" id="8x5-dj-aiM"/>
                             <constraint firstItem="jcf-GA-irf" firstAttribute="leading" secondItem="sXm-Ma-WAW" secondAttribute="leading" id="9cS-Mj-ieN"/>
+                            <constraint firstItem="qF4-b0-xq1" firstAttribute="leading" secondItem="sXm-Ma-WAW" secondAttribute="leading" constant="89" id="L9q-gU-CZ4"/>
                             <constraint firstItem="jcf-GA-irf" firstAttribute="bottom" secondItem="vHh-wa-Co3" secondAttribute="bottom" id="MEF-S3-NKG"/>
                             <constraint firstItem="jcf-GA-irf" firstAttribute="trailing" secondItem="sXm-Ma-WAW" secondAttribute="trailing" id="Sci-Gk-V1s"/>
-                            <constraint firstItem="sXm-Ma-WAW" firstAttribute="bottom" secondItem="e9d-Vn-l1Y" secondAttribute="bottom" constant="20" id="Y68-iV-eai"/>
+                            <constraint firstItem="qF4-b0-xq1" firstAttribute="top" secondItem="sXm-Ma-WAW" secondAttribute="top" constant="9" id="W0X-eA-Ng9"/>
+                            <constraint firstItem="joM-7v-S0V" firstAttribute="top" secondItem="sXm-Ma-WAW" secondAttribute="top" constant="18" id="Zn2-Qx-eUK"/>
+                            <constraint firstItem="sXm-Ma-WAW" firstAttribute="trailing" secondItem="qF4-b0-xq1" secondAttribute="trailing" constant="89" id="mXp-HB-wzx"/>
+                            <constraint firstItem="joM-7v-S0V" firstAttribute="leading" secondItem="sXm-Ma-WAW" secondAttribute="leading" id="uSr-N3-U5Q"/>
                             <constraint firstItem="e9d-Vn-l1Y" firstAttribute="leading" secondItem="sXm-Ma-WAW" secondAttribute="leading" constant="20" id="vaK-Oi-k9g"/>
                         </constraints>
                     </view>
@@ -214,24 +214,30 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.16078431372549018" green="0.25490196078431371" blue="0.23137254901960785" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz Setup" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bga-U9-R5x" customClass="QuizLabels" customModule="Quizify" customModuleProvider="target">
-                                <rect key="frame" x="20" y="17" width="335" height="59"/>
-                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="43"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quiz Setup" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="45" translatesAutoresizingMaskIntoConstraints="NO" id="Bga-U9-R5x" customClass="QuizLabels" customModule="Quizify" customModuleProvider="target">
+                                <rect key="frame" x="67" y="17" width="288" height="91"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="91" id="aYV-4l-fEj"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="82"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="JLc-WY-Jna">
-                                <rect key="frame" x="32" y="84" width="311" height="450"/>
+                                <rect key="frame" x="32" y="117.5" width="311" height="320"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4gU-nE-VLk" customClass="QuizLabels" customModule="Quizify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="311" height="75"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="311" height="80"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="34"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TjM-dD-eGd" customClass="TypeButtonMenu" customModule="Quizify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="75" width="311" height="75"/>
+                                        <rect key="frame" x="0.0" y="80" width="311" height="80"/>
                                         <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="abC-Tg-SGt"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <menu key="menu" id="EHs-BE-L2i">
                                             <children>
@@ -247,13 +253,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iE4-il-DA6" customClass="QuizLabels" customModule="Quizify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="150" width="311" height="75"/>
+                                        <rect key="frame" x="0.0" y="160" width="311" height="80"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="34"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iz0-v8-WWj" customClass="GenreButtonMenu" customModule="Quizify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="225" width="311" height="75"/>
+                                        <rect key="frame" x="0.0" y="240" width="311" height="80"/>
                                         <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <menu key="menu" id="kMo-v2-Tsd">
@@ -267,16 +273,17 @@
                                         </state>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Difficulty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RPi-3t-sgb" customClass="QuizLabels" customModule="Quizify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="300" width="311" height="75"/>
+                                        <rect key="frame" x="0.0" y="284" width="311" height="71"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="34"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" showsMenuAsPrimaryAction="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d9v-aM-bCe" customClass="DifficultyButtonMenu" customModule="Quizify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="375" width="311" height="75"/>
+                                        <rect key="frame" x="0.0" y="284" width="311" height="71"/>
                                         <color key="backgroundColor" red="0.90980392156862744" green="0.90980392156862744" blue="0.90980392156862744" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="75" id="JCz-bj-6D8"/>
+                                            <constraint firstAttribute="height" constant="71" id="JCz-bj-6D8"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <menu key="menu" id="iOT-Kx-bEk">
@@ -290,9 +297,15 @@
                                         </state>
                                     </button>
                                 </subviews>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="RPi-3t-sgb"/>
+                                        <exclude reference="d9v-aM-bCe"/>
+                                    </mask>
+                                </variation>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwk-lO-sW8">
-                                <rect key="frame" x="20" y="26" width="44" height="40"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwk-lO-sW8">
+                                <rect key="frame" x="16" y="26" width="44" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="h3o-Cv-NXK"/>
                                     <constraint firstAttribute="height" constant="40" id="kon-Ey-naP"/>
@@ -327,7 +340,7 @@
                             <constraint firstItem="o3F-bP-9h4" firstAttribute="leading" secondItem="0ZN-Ez-kha" secondAttribute="leading" constant="82" id="3Ci-AG-Wyd"/>
                             <constraint firstItem="0ZN-Ez-kha" firstAttribute="trailing" secondItem="JLc-WY-Jna" secondAttribute="trailing" constant="32" id="3KE-U5-1WQ"/>
                             <constraint firstAttribute="bottom" secondItem="xhG-cI-9l9" secondAttribute="bottom" id="75X-be-mpl"/>
-                            <constraint firstItem="Bga-U9-R5x" firstAttribute="leading" secondItem="0ZN-Ez-kha" secondAttribute="leading" constant="20" id="Exg-ce-gjf"/>
+                            <constraint firstItem="Bga-U9-R5x" firstAttribute="leading" secondItem="0ZN-Ez-kha" secondAttribute="leading" constant="67" id="Exg-ce-gjf"/>
                             <constraint firstItem="xhG-cI-9l9" firstAttribute="trailing" secondItem="0ZN-Ez-kha" secondAttribute="trailing" id="G9d-dM-nLn"/>
                             <constraint firstItem="xhG-cI-9l9" firstAttribute="top" secondItem="3Mf-YZ-XvF" secondAttribute="top" id="GPF-s5-J4D"/>
                             <constraint firstItem="Bga-U9-R5x" firstAttribute="top" secondItem="0ZN-Ez-kha" secondAttribute="top" constant="17" id="JGv-S7-Psb"/>
@@ -335,10 +348,9 @@
                             <constraint firstItem="0ZN-Ez-kha" firstAttribute="trailing" secondItem="o3F-bP-9h4" secondAttribute="trailing" constant="82" id="Q5o-84-dGQ"/>
                             <constraint firstAttribute="bottom" secondItem="o3F-bP-9h4" secondAttribute="bottom" constant="33" id="Vhi-jL-QDU"/>
                             <constraint firstItem="JLc-WY-Jna" firstAttribute="leading" secondItem="0ZN-Ez-kha" secondAttribute="leading" constant="32" id="VwF-yh-DHP"/>
-                            <constraint firstItem="JLc-WY-Jna" firstAttribute="top" secondItem="Bga-U9-R5x" secondAttribute="bottom" constant="8" id="XBH-kF-Grb"/>
+                            <constraint firstItem="JLc-WY-Jna" firstAttribute="top" secondItem="Bga-U9-R5x" secondAttribute="bottom" constant="9.5" id="XBH-kF-Grb"/>
                             <constraint firstItem="xhG-cI-9l9" firstAttribute="leading" secondItem="0ZN-Ez-kha" secondAttribute="leading" id="XdF-NI-u4Q"/>
                             <constraint firstItem="0ZN-Ez-kha" firstAttribute="trailing" secondItem="Bga-U9-R5x" secondAttribute="trailing" constant="20" id="axP-we-4tJ"/>
-                            <constraint firstItem="o3F-bP-9h4" firstAttribute="top" secondItem="JLc-WY-Jna" secondAttribute="bottom" constant="37" id="l0z-ul-8uG"/>
                             <constraint firstItem="gwk-lO-sW8" firstAttribute="top" secondItem="0ZN-Ez-kha" secondAttribute="top" constant="26" id="pzn-AY-ywu"/>
                         </constraints>
                     </view>
@@ -355,7 +367,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ua-DE-dSD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1628.985507246377" y="134.5108695652174"/>
+            <point key="canvasLocation" x="1628" y="134.48275862068968"/>
         </scene>
         <!--Quiz PlayingVC-->
         <scene sceneID="TQq-42-KF4">
@@ -375,7 +387,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="11" translatesAutoresizingMaskIntoConstraints="NO" id="iVZ-Vb-6LK" customClass="QuestionLabel" customModule="Quizify" customModuleProvider="target">
-                                <rect key="frame" x="16" y="98" width="343" height="69"/>
+                                <rect key="frame" x="16" y="98" width="343" height="104"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Label">
                                         <attributes>
@@ -400,10 +412,10 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="UCe-co-onG">
-                                <rect key="frame" x="32" y="175" width="311" height="472"/>
+                                <rect key="frame" x="32" y="210" width="311" height="437"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nBs-60-p6H" customClass="AnswerButtons" customModule="Quizify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="311" height="80"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="311" height="73"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Button">
@@ -414,7 +426,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hL7-9k-yGL" customClass="AnswerButtons" customModule="Quizify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="98" width="311" height="80"/>
+                                        <rect key="frame" x="0.0" y="91" width="311" height="73"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
@@ -426,10 +438,10 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hRu-Nq-Usm" customClass="AnswerButtons" customModule="Quizify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="196" width="311" height="80"/>
+                                        <rect key="frame" x="0.0" y="182" width="311" height="73"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="80" id="kqY-mF-W8n"/>
+                                            <constraint firstAttribute="height" constant="73" id="kqY-mF-W8n"/>
                                         </constraints>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
@@ -441,7 +453,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wmf-it-4NJ" customClass="AnswerButtons" customModule="Quizify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="294" width="311" height="80"/>
+                                        <rect key="frame" x="0.0" y="273" width="311" height="73"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
@@ -453,7 +465,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1W-Ev-oVY" customClass="SubmitAnswerButton" customModule="Quizify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="392" width="311" height="80"/>
+                                        <rect key="frame" x="0.0" y="364" width="311" height="73"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="Submit"/>
@@ -466,21 +478,12 @@
                             <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z76-dM-8ei">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="finishScreenIcon_2" translatesAutoresizingMaskIntoConstraints="NO" id="Iyb-rr-jih">
-                                        <rect key="frame" x="121" y="264" width="134" height="139"/>
-                                    </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="2Rt-Ig-5uK">
-                                        <rect key="frame" x="0.0" y="37" width="375" height="151"/>
+                                        <rect key="frame" x="0.0" y="37" width="375" height="90.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final Score " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="44" translatesAutoresizingMaskIntoConstraints="NO" id="tpz-hx-UT7">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="90.5"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="66"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0X4-hi-lGs">
-                                                <rect key="frame" x="0.0" y="90.5" width="375" height="60.5"/>
-                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="44"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -518,20 +521,37 @@
                                             <constraint firstAttribute="height" constant="157" id="pYg-yZ-HbD"/>
                                         </constraints>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="22" translatesAutoresizingMaskIntoConstraints="NO" id="0X4-hi-lGs">
+                                        <rect key="frame" x="0.0" y="272.5" width="375" height="122"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="89"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Iyb-rr-jih">
+                                        <rect key="frame" x="121" y="264" width="134" height="139"/>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.31372549019607843" green="0.46274509803921571" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.31372549019607843" green="0.46274509803921571" blue="0.63921568627450975" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Iyb-rr-jih" secondAttribute="bottom" constant="264" id="2HS-Nl-kAc"/>
                                     <constraint firstAttribute="trailing" secondItem="Iyb-rr-jih" secondAttribute="trailing" constant="120" id="LtP-yQ-ZWX"/>
                                     <constraint firstAttribute="trailing" secondItem="2Rt-Ig-5uK" secondAttribute="trailing" id="Mfc-6s-5sh"/>
+                                    <constraint firstItem="0X4-hi-lGs" firstAttribute="leading" secondItem="z76-dM-8ei" secondAttribute="leading" id="N83-7e-CK8"/>
                                     <constraint firstItem="2Rt-Ig-5uK" firstAttribute="top" secondItem="z76-dM-8ei" secondAttribute="top" constant="37" id="QGS-Pb-emN"/>
                                     <constraint firstAttribute="bottom" secondItem="tQz-8x-drg" secondAttribute="bottom" constant="45.5" id="cSy-Bd-cLa"/>
                                     <constraint firstAttribute="trailing" secondItem="tQz-8x-drg" secondAttribute="trailing" constant="5" id="fFl-JP-uM0"/>
+                                    <constraint firstItem="0X4-hi-lGs" firstAttribute="centerY" secondItem="z76-dM-8ei" secondAttribute="centerY" id="gin-8j-llV"/>
                                     <constraint firstItem="2Rt-Ig-5uK" firstAttribute="leading" secondItem="z76-dM-8ei" secondAttribute="leading" id="hxd-ip-BO8"/>
+                                    <constraint firstAttribute="trailing" secondItem="0X4-hi-lGs" secondAttribute="trailing" id="rmF-9v-BXy"/>
                                     <constraint firstItem="Iyb-rr-jih" firstAttribute="top" secondItem="z76-dM-8ei" secondAttribute="top" constant="264" id="uGM-ny-UQd"/>
                                     <constraint firstItem="Iyb-rr-jih" firstAttribute="leading" secondItem="z76-dM-8ei" secondAttribute="leading" constant="121" id="uW8-gi-XGM"/>
                                     <constraint firstItem="tQz-8x-drg" firstAttribute="leading" secondItem="z76-dM-8ei" secondAttribute="leading" constant="5" id="x6P-lF-AP5"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="Iyb-rr-jih"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Hde-Rf-2zS"/>
@@ -555,6 +575,7 @@
                             <constraint firstItem="UCe-co-onG" firstAttribute="top" secondItem="iVZ-Vb-6LK" secondAttribute="bottom" constant="8" id="iqO-pe-IVL"/>
                             <constraint firstItem="Yef-tL-5X4" firstAttribute="top" secondItem="f4j-3Z-KhU" secondAttribute="top" id="jyV-dw-vGn"/>
                             <constraint firstItem="Hde-Rf-2zS" firstAttribute="trailing" secondItem="LYl-yz-dr2" secondAttribute="trailing" constant="101" id="l7d-kq-cN6"/>
+                            <constraint firstItem="LYl-yz-dr2" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2lS-eq-q8T" secondAttribute="trailing" constant="8" symbolic="YES" id="qc3-oB-ywY"/>
                             <constraint firstItem="Yef-tL-5X4" firstAttribute="trailing" secondItem="Hde-Rf-2zS" secondAttribute="trailing" id="rzT-y1-tDb"/>
                             <constraint firstItem="iVZ-Vb-6LK" firstAttribute="leading" secondItem="Hde-Rf-2zS" secondAttribute="leading" constant="16" id="ylD-Wy-ApO"/>
                         </constraints>
@@ -772,7 +793,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="ss1-Qo-5qa">
-                                        <rect key="frame" x="0.0" y="53" width="375" height="151"/>
+                                        <rect key="frame" x="0.0" y="53" width="375" height="90.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Final Score " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="44" translatesAutoresizingMaskIntoConstraints="NO" id="JIU-EK-gUH">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="90.5"/>
@@ -780,17 +801,8 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9r-NT-LFT">
-                                                <rect key="frame" x="0.0" y="90.5" width="375" height="60.5"/>
-                                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="44"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                     </stackView>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="finishScreenIcon_2" translatesAutoresizingMaskIntoConstraints="NO" id="ORG-rH-qpl">
-                                        <rect key="frame" x="121" y="264" width="134" height="139"/>
-                                    </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gfB-BY-0Mk">
                                         <rect key="frame" x="5" y="464.5" width="365" height="157"/>
                                         <subviews>
@@ -823,20 +835,37 @@
                                             <constraint firstAttribute="height" constant="157" id="51Y-CV-YA2"/>
                                         </constraints>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/20" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K9r-NT-LFT">
+                                        <rect key="frame" x="0.0" y="272.5" width="375" height="122"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="89"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="happyFace" translatesAutoresizingMaskIntoConstraints="NO" id="ORG-rH-qpl">
+                                        <rect key="frame" x="139" y="342" width="97" height="114"/>
+                                    </imageView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.31372549019607843" green="0.46274509803921571" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.31372549019607843" green="0.46274509803921571" blue="0.63949447277746396" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="ORG-rH-qpl" secondAttribute="trailing" constant="120" id="BbC-Hi-Re5"/>
-                                    <constraint firstItem="ORG-rH-qpl" firstAttribute="top" secondItem="pKc-NA-Wci" secondAttribute="top" constant="264" id="DXV-UF-xC6"/>
+                                    <constraint firstAttribute="trailing" secondItem="ORG-rH-qpl" secondAttribute="trailing" constant="139" id="BbC-Hi-Re5"/>
+                                    <constraint firstItem="ORG-rH-qpl" firstAttribute="top" secondItem="pKc-NA-Wci" secondAttribute="top" constant="342" id="DXV-UF-xC6"/>
                                     <constraint firstItem="ss1-Qo-5qa" firstAttribute="leading" secondItem="pKc-NA-Wci" secondAttribute="leading" id="Dmb-op-7zJ"/>
                                     <constraint firstAttribute="trailing" secondItem="ss1-Qo-5qa" secondAttribute="trailing" id="EJs-RL-lKL"/>
                                     <constraint firstItem="gfB-BY-0Mk" firstAttribute="leading" secondItem="pKc-NA-Wci" secondAttribute="leading" constant="5" id="FbI-TD-y59"/>
                                     <constraint firstItem="ss1-Qo-5qa" firstAttribute="top" secondItem="pKc-NA-Wci" secondAttribute="top" constant="53" id="Mb9-vT-KPM"/>
-                                    <constraint firstItem="ORG-rH-qpl" firstAttribute="leading" secondItem="pKc-NA-Wci" secondAttribute="leading" constant="121" id="Qy2-7K-Ici"/>
-                                    <constraint firstAttribute="bottom" secondItem="ORG-rH-qpl" secondAttribute="bottom" constant="264" id="T0g-6r-EuM"/>
+                                    <constraint firstItem="ORG-rH-qpl" firstAttribute="leading" secondItem="pKc-NA-Wci" secondAttribute="leading" constant="139" id="Qy2-7K-Ici"/>
+                                    <constraint firstItem="K9r-NT-LFT" firstAttribute="centerY" secondItem="pKc-NA-Wci" secondAttribute="centerY" id="RaX-xh-IJi"/>
+                                    <constraint firstAttribute="bottom" secondItem="ORG-rH-qpl" secondAttribute="bottom" constant="211" id="T0g-6r-EuM"/>
+                                    <constraint firstItem="K9r-NT-LFT" firstAttribute="leading" secondItem="pKc-NA-Wci" secondAttribute="leading" id="dCK-5F-gq9"/>
+                                    <constraint firstAttribute="trailing" secondItem="K9r-NT-LFT" secondAttribute="trailing" id="idd-CH-bla"/>
                                     <constraint firstAttribute="trailing" secondItem="gfB-BY-0Mk" secondAttribute="trailing" constant="5" id="sCe-Bs-WZc"/>
                                     <constraint firstAttribute="bottom" secondItem="gfB-BY-0Mk" secondAttribute="bottom" constant="45.5" id="vu2-8F-o5L"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="subviews">
+                                        <exclude reference="ORG-rH-qpl"/>
+                                    </mask>
+                                </variation>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Moq-rv-yOh"/>
@@ -882,7 +911,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wUM-bG-hWM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2350" y="830"/>
+            <point key="canvasLocation" x="2349.5999999999999" y="829.83508245877067"/>
         </scene>
     </scenes>
     <designables>
@@ -927,11 +956,11 @@
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="fBc-DV-Zl7"/>
+        <segue reference="dn3-NR-K46"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="finishScreenIcon_2" width="96" height="96"/>
         <image name="goforward" catalog="system" width="121" height="128"/>
+        <image name="happyFace" width="512" height="512"/>
         <image name="info.circle" catalog="system" width="128" height="121"/>
         <image name="openTD" width="1234" height="600"/>
         <image name="quizBG123411" width="3000" height="2000"/>

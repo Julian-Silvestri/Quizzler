@@ -176,10 +176,10 @@ class GenreButtonMenu: UIButton {
             self.setTitle("Science: Gadgets", for: .normal)
             self.tag = 30
         }
-        let entertainmentJapaneseAnimeManga = UIAction(title: "Entertainment: Japanese Anime and Manga", image: nil) { (action) in
-            self.setTitle("Entertainment: Japanese Anime and Manga", for: .normal)
-            self.tag = 31
-        }
+//        let entertainmentJapaneseAnimeManga = UIAction(title: "Entertainment: Japanese Anime and Manga", image: nil) { (action) in
+//            self.setTitle("Entertainment: Japanese Anime and Manga", for: .normal)
+//            self.tag = 31
+//        }
         let entertainmentCartoonAnimation = UIAction(title: "Entertainment: Cartoon and Animation", image: nil) { (action) in
             self.setTitle("Entertainment: Cartoon and Animation", for: .normal)
             self.tag = 32
@@ -310,10 +310,10 @@ class GenreButtonMenu: UIButton {
                     scienceGadgets_ = true
                     filteredBtnArray.append(scienceGadgets)
                 }
-                if i == 31 {
-                    entertainmentJapanAnime_ = true
-                    filteredBtnArray.append(entertainmentJapaneseAnimeManga)
-                }
+//                if i == 31 {
+//                    entertainmentJapanAnime_ = true
+//                    filteredBtnArray.append(entertainmentJapaneseAnimeManga)
+//                }
                 if i == 32 {
                     entertainmentCartoon_ = true
                     filteredBtnArray.append(entertainmentCartoonAnimation)

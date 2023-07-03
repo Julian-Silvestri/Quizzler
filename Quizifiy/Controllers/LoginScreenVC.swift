@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CryptoKit
 
 class LoginScreenVC: UIViewController {
 
@@ -18,7 +19,6 @@ class LoginScreenVC: UIViewController {
     var titlesOfQuizzes = [String]()
     var descriptionOfQuizzes = [String]()
     var imagesForCell = [String]()
-    var count = 9
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,13 +27,10 @@ class LoginScreenVC: UIViewController {
         NetworkService.shared.grabToken(completionHandler: {success in
             if success == true {
                 print("good to go")
+                print(NetworkService.secrectKey[0].token)
             }
         })
-        filterOutQuizzes(completionHandler: {success in
-            if success == true {
-               
-            }
-        })
+        filterOutQuizzes(completionHandler: {_ in})
         
         
 //        loadQuizzes()
@@ -51,6 +48,9 @@ class LoginScreenVC: UIViewController {
                     CustomLoader.instance.hideLoaderView()
                     self.performSegue(withIdentifier: "login", sender: self)
                 }
+                print("DUMP HERE!  ")
+                dump(QuizCount.quizCount)
+                print("TOTAL QUIZ COUNT FOR EASY QUESTIONS \(QuizCount.quizCount.filter({$0.categoryQuestionCount.totalEasyQuestionCount > 20 }))")
             })
         })
 
@@ -104,18 +104,13 @@ class LoginScreenVC: UIViewController {
 //        31 = Entertainment: Japanese Anime and Manga
 //        32 = Entertainment: Cartoon and Animation
 
-        
-        ///WHY DOES THIS NOT WORK :(
-        while self.count < 32 {
-            NetworkService.shared.quizCount(category: self.count, completionHandler: {success in
+        for i in 9...32{
+            NetworkService.shared.quizCount(category: i, completionHandler: {success in
                 if success == true {
-//                    self.count+=1
                     return
                 }
             })
-            self.count+=1
         }
-
     }
 }
 

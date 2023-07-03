@@ -14,3 +14,6 @@ let IAP_HIDE_ADS_ID = "silvestri.QuizifyAdFree"
 let IAPServicePurchaseNotification = "IAPServicePurchaseNotification"
 let IAPServiceRestoreNotification = "IAPServiceRestoreNotification"
 let IAPServiceFailureNotification = "IAPServiceFailureNotification"
+
+var globalcurrentQuizQuestion: Int = 0
+var globalcurrentQuizQuestion_notCompuSci: Int = 1

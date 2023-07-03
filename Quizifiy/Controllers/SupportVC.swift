@@ -10,7 +10,7 @@ import UIKit
 import StoreKit
 //import StoreKit
 
-class SupportVC: UIViewController {
+class SupportVC: UIViewController{
     
     @IBOutlet weak var faqBtn: SupportButtons!
     @IBOutlet weak var contactBtn: SupportButtons!
@@ -31,13 +31,13 @@ class SupportVC: UIViewController {
         
 //        NotificationCenter.default.addObserver(self, selector: #selector(handlePurchase(_:)), name: NSNotification.Name(IAPServicePurchaseNotification), object: nil)
 //        NotificationCenter.default.addObserver(self, selector: #selector(handleFailure), name: NSNotification.Name(IAPServiceFailureNotification), object: nil)
-//        NotificationCenter.default.addObserver(self, selector: #selector(showRestoredAlert), name: NSNotification.Name(IAPServiceRestoreNotification), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(showRestoredAlert), name: NSNotification.Name(IAPServiceRestoreNotification), object: nil)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showOrHideAds()
+       //showOrHideAds()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -50,9 +50,9 @@ class SupportVC: UIViewController {
         
         switch productID {
         case IAP_HIDE_ADS_ID:
-            self.removeAdsBtn.isHidden = true
-            self.removeAdsLabel.isHidden = true
-            debugPrint("Ads hidden!")
+//            self.removeAdsBtn.isHidden = true
+//            self.removeAdsLabel.isHidden = true
+            debugPrint("Hide Ads Purchased!")
             break
         default:
             break
@@ -60,10 +60,12 @@ class SupportVC: UIViewController {
     }
     
     @objc func showRestoredAlert() {
+        print("ShOULD show restored alert")
         let alert = UIAlertController(title: "Success!", message: "Your purchases were successfully restored.", preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
-        present(alert, animated: true, completion: nil)
+        
+        self.view.window?.rootViewController?.present(alert, animated: true, completion: nil)
     }
     
     @objc func handleFailure() {
@@ -73,6 +75,7 @@ class SupportVC: UIViewController {
     
     @IBAction func restorePurchasesBtnAction(_ sender: Any) {
         print("restoring purchases")
+        IAPService.sharedInstance.restorePurchases()
     }
     func showOrHideAds() {
         self.removeAdsLabel.isHidden = hiddenStatus
@@ -81,6 +84,8 @@ class SupportVC: UIViewController {
     
     @IBAction func removeAdsBtnAction(_ sender: Any) {
         IAPService.sharedInstance.fetchProducts()
+//        self.removeAdsBtn.isHidden = true
+//        self.removeAdsLabel.isHidden = true
 //        IAPService.sharedInstance.purchase(product: )
 //        IAPService.instance.attemptPurchaseForItemWith(productIndex: .hideAds)
     }

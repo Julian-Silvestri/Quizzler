@@ -1,5 +1,5 @@
 {
-  "identifier" : "2DE72774",
+  "identifier" : "35020059",
   "nonRenewingSubscriptions" : [
 
   ],
@@ -7,7 +7,7 @@
     {
       "displayPrice" : "2.99",
       "familyShareable" : false,
-      "internalID" : "9A7F5EA8",
+      "internalID" : "5AEDA8D2",
       "localizations" : [
         {
           "description" : "",
@@ -16,7 +16,7 @@
         }
       ],
       "productID" : "silvestri.QuizifyAdFree",
-      "referenceName" : "hideAds",
+      "referenceName" : "AdFree",
       "type" : "NonConsumable"
     }
   ],

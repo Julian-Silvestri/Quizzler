@@ -23,6 +23,9 @@ class HomeVC: UIViewController {
     private var stepTwo = false
     private var stepThree = false
     
+    
+    var difficulty = ""
+    var type = ""
     var quizSetupTimer = Timer()
     
     
@@ -43,8 +46,20 @@ class HomeVC: UIViewController {
         Quiz.quizzes.removeAll()
         Quiz.quiz.removeAll()
         self.setupBtnsOnLoad()
+        filterQuizzes(completionHandler: {_ in})
         self.quizSetupTimer = Timer.scheduledTimer(timeInterval: 0.5, target: self, selector: #selector(quizSetupProcess), userInfo: nil, repeats: true)
-        
+
+//        NetworkService.secrectKey.removeAll()
+//        NetworkService.shared.grabToken(completionHandler: {success in
+//            if success == true {
+//                DispatchQueue.main.asyncAfter(deadline: .now()+3, execute: {
+//                    filterQuizzes(completionHandler: {_ in})
+//                })
+//            } else {
+//                fatalError()
+//                
+//            }
+//        })
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -53,50 +68,92 @@ class HomeVC: UIViewController {
         self.quizSetupTimer.invalidate()
     }
 
+    
+    //IVE REMOVED THE DIFFICULTY LOGIC , ALL QUIZZES ARE SET TO EASY
     @objc func quizSetupProcess(){
         if self.selectQuizTypeBtn.titleLabel?.text != "Select Quiz Type"  {
             self.selectGenreBtn.enable()
             if selectGenreBtn.titleLabel?.text != "Select Genre"{
-                self.selectDifficultyBtn.enable()
-                if self.selectDifficultyBtn.titleLabel?.text != "Select Difficulty"{
-                    self.startQuizBtn.enable()
-                    CustomLoader.instance.hideLoaderView()
-                }
+//                self.selectDifficultyBtn.enable()
+                self.startQuizBtn.enable()
+                CustomLoader.instance.hideLoaderView()
+//                if self.selectDifficultyBtn.titleLabel?.text != "Select Difficulty"{
+//                    self.startQuizBtn.enable()
+//                    CustomLoader.instance.hideLoaderView()
+//                }
             }
         }
     }
     
     @IBAction func selectTypeBtnAction(_ sender: Any) {
 //        quizSetupTrackerFunction()
+        
     }
     @IBAction func startQuiz(_ sender: Any) {
         
-        if self.selectGenreBtn.titleLabel?.text == "Select Genre" || self.selectDifficultyBtn.titleLabel?.text == "Select Difficulty"{
-            alertActionBasic(viewController: self, title: "Error",  message: "Please make sure you select a genre and a difficulty", completionHandler: {success in
+        //|| self.selectDifficultyBtn.titleLabel?.text == "Select Difficulty"
+        if self.selectGenreBtn.titleLabel?.text == "Select Genre" {
+            alertActionBasic(viewController: self, title: "Error",  message: "Please make sure you select a genre", completionHandler: {success in
                 return
             })
         }else{
-            print("TAG = \(self.selectGenreBtn.tag)")
-            var difficulty = ""
-            var type = ""
+//            print("TAG = \(self.selectGenreBtn.tag)")
+            difficulty = "easy"
+//            if self.selectDifficultyBtn.tag == 1 {
+//                difficulty = "easy"
+//            } else if self.selectDifficultyBtn.tag == 2 {
+//                difficulty = "medium"
+//            } else if self.selectDifficultyBtn.tag == 3 {
+//                difficulty = "hard"
+//            }
             
-            if self.selectDifficultyBtn.tag == 1 {
-                difficulty = "easy"
-            } else if self.selectDifficultyBtn.tag == 2 {
-                difficulty = "medium"
-            } else if self.selectDifficultyBtn.tag == 3 {
-                difficulty = "hard"
-            }
-            
+            ///The purpose of this logic block here is to avoid the scenario where a user taps a quiz to play and the first level (easy) is unavailable.
+            ///If the first level (easy) is unavailable, instead of erroring out this logic will attempt another call to grab the second level quiz (medium).
+            ///If the second level (medium) is unavailable, instead of erroring out, logic will attempt another call to grab the third level quiz (hard).
+            ///If last level (hard) fails, then the app will error out and
             if self.selectQuizTypeBtn.tag == 1{
                 type = "boolean"
-                print("BOOOL")
-                NetworkService.shared.loadQuiz(type: type, difficulty: difficulty, category: self.selectGenreBtn.tag, completionHandler: {success in
+//                print("BOOOL")
+                NetworkService.shared.loadQuiz(type: type, difficulty: difficulty, category: self.selectGenreBtn.tag, completionHandler: { [self]success in
                     if success == true {
-                        print("quiz loaded")
-                        DispatchQueue.main.async {
+//                        print("quiz loaded")
+                        dump(Quiz.quizzes)
+                        DispatchQueue.main.sync {
                             if Quiz.quizzes.count <= 0 {
-                                alertActionBasic(viewController: self, title: "Error", message: "Could not load this quiz", completionHandler: {_ in})
+                                NetworkService.shared.loadQuiz(type: type, difficulty: "medium", category: self.selectGenreBtn.tag, completionHandler: {success in
+                                    if success == true {
+                                        print("MOVED ON TO LOAD MEDIUM")
+                                        if Quiz.quizzes.count <= 0 {
+                                            DispatchQueue.main.async {
+                                                NetworkService.shared.loadQuiz(type: self.type, difficulty: "hard", category: self.selectGenreBtn.tag, completionHandler: {success in
+                                                    if success == true {
+                                                        print("MOVED ON TO HARD")
+                                                        if Quiz.quizzes.count <= 0{
+                                                            DispatchQueue.main.async {
+                                                                alertActionBasic(viewController: self, title: "Error", message: "Could not load this True or False quiz. Please select a different genre or try again later.", completionHandler: {_ in})
+                                                            }
+
+                                                        } else {
+                                                            self.quizSetupTimer.invalidate()
+                                                            DispatchQueue.main.async {
+                                                                self.performSegue(withIdentifier: "playTF", sender: self)
+                                                            }
+                                                            
+                                                        }
+                                                    }
+                                                })
+                                            }
+  
+                                        } else {
+                                            self.quizSetupTimer.invalidate()
+                                            DispatchQueue.main.async {
+                                                self.performSegue(withIdentifier:"playTF", sender: self)
+                                            }
+                                            
+                                        }
+                                    }
+                                })
+                                
                             } else {
                                 self.quizSetupTimer.invalidate()
                                 self.performSegue(withIdentifier: "playTF", sender: self)
@@ -106,13 +163,47 @@ class HomeVC: UIViewController {
                 })
             }else if self.selectQuizTypeBtn.tag == 2 {
                 type = "multiple"
-                print("MULTIPLEEEEEE")
-                NetworkService.shared.loadQuiz(type: type, difficulty: difficulty, category: self.selectGenreBtn.tag, completionHandler: {success in
+//                print("MULTIPLEEEEEE")
+                NetworkService.shared.loadQuiz(type: type, difficulty: difficulty, category: self.selectGenreBtn.tag, completionHandler: { [self]success in
                     if success == true {
-                        print("quiz loaded")
-                        DispatchQueue.main.async {
+//                        print("quiz loaded")
+                        dump(Quiz.quizzes)
+                        DispatchQueue.main.sync {
                             if Quiz.quizzes.count <= 0 {
-                                alertActionBasic(viewController: self, title: "Error", message: "Could not load this quiz", completionHandler: {_ in})
+                                NetworkService.shared.loadQuiz(type: type, difficulty: "medium", category: self.selectGenreBtn.tag, completionHandler: {success in
+                                    if success == true {
+                                        print("MOVED ON TO LOAD MEDIUM")
+                                        if Quiz.quizzes.count <= 0 {
+                                            DispatchQueue.main.async {
+                                                NetworkService.shared.loadQuiz(type: self.type, difficulty: "hard", category: self.selectGenreBtn.tag, completionHandler: {success in
+                                                    if success == true {
+                                                        print("MOVED ON TO HARD")
+                                                        if Quiz.quizzes.count <= 0{
+                                                            DispatchQueue.main.async {
+                                                                alertActionBasic(viewController: self, title: "Error", message: "Could not load this Multiple Choice quiz. Please select a different genre or try again later.", completionHandler: {_ in})
+                                                            }
+
+                                                        } else {
+                                                            self.quizSetupTimer.invalidate()
+                                                            DispatchQueue.main.async {
+                                                                self.performSegue(withIdentifier: "playMC", sender: self)
+                                                            }
+                                                            
+                                                        }
+                                                    }
+                                                })
+                                            }
+  
+                                        } else {
+                                            self.quizSetupTimer.invalidate()
+                                            DispatchQueue.main.async {
+                                                self.performSegue(withIdentifier:"playMC", sender: self)
+                                            }
+                                            
+                                        }
+                                    }
+                                })
+                                
                             } else {
                                 self.quizSetupTimer.invalidate()
                                 self.performSegue(withIdentifier: "playMC", sender: self)
@@ -146,5 +237,13 @@ class HomeVC: UIViewController {
     }
     @IBAction func supportBtnAction(_ sender: Any) {
         self.performSegue(withIdentifier: "supportPage", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "playTF"{
+            if let destination = segue.destination as? QuizPlayingVC{
+                destination.type = self.type
+            }
+        }
     }
 }

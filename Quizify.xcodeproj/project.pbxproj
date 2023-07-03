@@ -97,6 +97,7 @@
 		0899CC9F292BD81900F6C09C /* Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
 		0899CCA1292BD84100F6C09C /* CustomLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoader.swift; sourceTree = "<group>"; };
 		089DC50028BE788C00CD44C2 /* ShowResultsOfQuizVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowResultsOfQuizVC.swift; sourceTree = "<group>"; };
+		089DFB362A53474D0069BEC0 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		08CBE42627C48AE700A61518 /* SubmitAnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitAnswerButton.swift; sourceTree = "<group>"; };
 		08CBE42A27C48C1300A61518 /* QuizPlayingNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizPlayingNumber.swift; sourceTree = "<group>"; };
 		08D7795A28807BD100AFC5E1 /* IAPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPService.swift; sourceTree = "<group>"; };
@@ -253,6 +254,7 @@
 				08D7796128807D9900AFC5E1 /* Constants.swift */,
 				0899CC9F292BD81900F6C09C /* Gif.swift */,
 				0899CCA1292BD84100F6C09C /* CustomLoader.swift */,
+				089DFB362A53474D0069BEC0 /* Configuration.storekit */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";

@@ -10,7 +10,7 @@ import UIKit
 
 class PlayAgainBtn: UIButton {
     
-    var bgColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
+    var bgColor = #colorLiteral(red: 1, green: 0.7450980392, blue: 0, alpha: 1)
     var tint = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
 
     override func awakeFromNib() {
