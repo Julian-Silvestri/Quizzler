@@ -172,18 +172,24 @@ class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
         }
         
         //MARK: AD REQUEST
-        if showAd == 5 || showAd == 10 || showAd == 15 {
-            loadAdRequest()
-//                if GAMInterstitialAd.is
-            
-            if interstitial != nil {
-                interstitial?.present(fromRootViewController: self)
+        if(UserDefaults.standard.value(forKey: "hideAds") as! String == "true"){
+            print("AD IS HIDDEN / purchased")
+            showAd = 1
+        } else {
+            if showAd == 5 || showAd == 10 || showAd == 15 {
+                loadAdRequest()
+    //                if GAMInterstitialAd.is
+                
+                if interstitial != nil {
+                    interstitial?.present(fromRootViewController: self)
 
-            } else {
-              print("Ad wasn't ready")
+                } else {
+                  print("Ad wasn't ready")
+                }
             }
+            showAd += 1
         }
-        showAd += 1
+
     }
     
     //MARK: NEXT QUESTION

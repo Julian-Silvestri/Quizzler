@@ -105,7 +105,7 @@ class IAPService: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObser
     }
     private func handlePurchase(_ id: String){
         print("PURCHAAAAAAASED!!!")
-
+        UserDefaults.standard.setValue("true", forKey: "hideAds")
     }
     
     func restorePurchases(){

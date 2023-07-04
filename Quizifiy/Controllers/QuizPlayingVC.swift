@@ -211,19 +211,27 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
             self.decodeQuestionText(input: Quiz.quizzes[currentQuizQuestion].question)
             loadAnswersPerQuestion(correctAnswer: Quiz.quizzes[currentQuizQuestion].correctAnswer, incorrectAnswers: Quiz.quizzes[currentQuizQuestion].incorrectAnswers)
             
+            
+            
             //MARK: AD REQUEST
-            if showAd == 5 || showAd == 10 || showAd == 15 {
-                loadAdRequest()
-//                if GAMInterstitialAd.is
-                
-                if interstitial != nil {
-                    interstitial?.present(fromRootViewController: self)
-
-                } else {
-                  print("Ad wasn't ready")
+            
+            if(UserDefaults.standard.value(forKey: "hideAds") as! String == "true"){
+                print("AD IS HIDDEN / purchased")
+                showAd = 1
+            } else {
+                if showAd == 5 || showAd == 10 || showAd == 15 {
+                    loadAdRequest()
+                    //                if GAMInterstitialAd.is
+                    
+                    if interstitial != nil {
+                        interstitial?.present(fromRootViewController: self)
+                        
+                    } else {
+                        print("Ad wasn't ready")
+                    }
                 }
+                showAd += 1
             }
-            showAd += 1
         }
 
     }
