@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="UIMenu" message="Requires Xcode 11 or later." minToolsVersion="11.0" requiredIntegratedClassName="UICommandDiff"/>
@@ -126,7 +126,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="joM-7v-S0V">
-                                <rect key="frame" x="0.0" y="18" width="93" height="31"/>
+                                <rect key="frame" x="0.0" y="18" width="98" height="34"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="goforward" catalog="system" title=" Restore" imagePadding="8">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
@@ -370,7 +370,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lS-eq-q8T">
-                                <rect key="frame" x="0.0" y="29" width="51" height="31"/>
+                                <rect key="frame" x="0.0" y="29" width="56" height="31"/>
                                 <color key="backgroundColor" red="0.67450980392156867" green="0.10980392156862745" blue="0.15294117647058825" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="31" id="2et-3G-uYf"/>
@@ -584,7 +584,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="results" rowHeight="223" id="Amj-7H-zYh" customClass="ResultsOfQuizTableViewCell" customModule="Quizify" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="375" height="223"/>
+                                        <rect key="frame" x="0.0" y="50" width="375" height="223"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Amj-7H-zYh" id="wGx-ZU-5fy">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="223"/>
@@ -748,7 +748,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="haM-Y0-K89">
-                                <rect key="frame" x="0.0" y="20" width="51" height="31"/>
+                                <rect key="frame" x="0.0" y="20" width="56" height="34.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.74509803921568629" green="0.10980392156862745" blue="0.15294117647058825" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Button"/>
@@ -881,16 +881,16 @@
     </scenes>
     <designables>
         <designable name="42C-zZ-07J">
-            <size key="intrinsicContentSize" width="57.5" height="31"/>
+            <size key="intrinsicContentSize" width="63.5" height="34.5"/>
         </designable>
         <designable name="46U-wd-GJd">
             <size key="intrinsicContentSize" width="78" height="64"/>
         </designable>
         <designable name="4T5-bH-FW7">
-            <size key="intrinsicContentSize" width="53" height="31"/>
+            <size key="intrinsicContentSize" width="58" height="34.5"/>
         </designable>
         <designable name="BxB-7J-cEg">
-            <size key="intrinsicContentSize" width="70" height="31"/>
+            <size key="intrinsicContentSize" width="78" height="34.5"/>
         </designable>
         <designable name="CSg-vy-gt0">
             <size key="intrinsicContentSize" width="171.5" height="90.5"/>
@@ -902,31 +902,31 @@
             <size key="intrinsicContentSize" width="228" height="64"/>
         </designable>
         <designable name="hL7-9k-yGL">
-            <size key="intrinsicContentSize" width="67" height="31"/>
+            <size key="intrinsicContentSize" width="75" height="34.5"/>
         </designable>
         <designable name="hRu-Nq-Usm">
-            <size key="intrinsicContentSize" width="67" height="31"/>
+            <size key="intrinsicContentSize" width="75" height="34.5"/>
         </designable>
         <designable name="nBs-60-p6H">
-            <size key="intrinsicContentSize" width="67" height="31"/>
+            <size key="intrinsicContentSize" width="75" height="34.5"/>
         </designable>
         <designable name="wmf-it-4NJ">
-            <size key="intrinsicContentSize" width="67" height="31"/>
+            <size key="intrinsicContentSize" width="75" height="34.5"/>
         </designable>
         <designable name="z1W-Ev-oVY">
-            <size key="intrinsicContentSize" width="70" height="31"/>
+            <size key="intrinsicContentSize" width="78" height="34.5"/>
         </designable>
         <designable name="zKC-iX-IvZ">
             <size key="intrinsicContentSize" width="136" height="64"/>
         </designable>
     </designables>
     <inferredMetricsTieBreakers>
-        <segue reference="dn3-NR-K46"/>
+        <segue reference="fBc-DV-Zl7"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="goforward" catalog="system" width="121" height="128"/>
+        <image name="goforward" catalog="system" width="119" height="128"/>
         <image name="happyFace" width="512" height="512"/>
-        <image name="info.circle" catalog="system" width="128" height="121"/>
+        <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="quizBG123411" width="3000" height="2000"/>
         <image name="quizbg33333" width="1920" height="823"/>
         <image name="quizbgzzzz" width="1920" height="1080"/>
