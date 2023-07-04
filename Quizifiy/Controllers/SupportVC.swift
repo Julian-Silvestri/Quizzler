@@ -68,7 +68,13 @@ class SupportVC: UIViewController{
 //        self.view.addSubview(self.alert?.view ?? UIView())
 //        self.view.window?.rootViewController?.present(self.alert ?? UIAlertController(), animated: true, completion: nil)
 //    }
+    @IBAction func faqBtnPress(_ sender: Any) {
+        UIApplication.shared.open(URL(string: "http://www.jsilvestri.ca")!)
+    }
     
+    @IBAction func contactBtnPressed(_ sender: Any) {
+        UIApplication.shared.open(URL(string: "http://www.jsilvestri.ca")! )
+    }
     func showRestoredAlert() {
         
         let alertController = UIAlertController(title: "Success!", message: "Your purchase was successfully restored.", preferredStyle: .alert)
