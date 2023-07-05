@@ -172,10 +172,14 @@ class QuizPlayingTrueFalseVC: UIViewController, GADFullScreenContentDelegate {
         }
         
         //MARK: AD REQUEST
-        if(UserDefaults.standard.value(forKey: "hideAds") as! String == "true"){
+//        guard let didBuyAds = UserDefaults.standard.value(forKey: "hideAds") as? String ?? nil else{
+//            return
+//        }
+        if(UserDefaults.standard.value(forKey: "hideAds") as? String == "false" || UserDefaults.standard.value(forKey: "hideAds") as? String != nil){
             print("AD IS HIDDEN / purchased")
             showAd = 1
         } else {
+            print("ADS ARE ACTIVE")
             if showAd == 5 || showAd == 10 || showAd == 15 {
                 loadAdRequest()
     //                if GAMInterstitialAd.is

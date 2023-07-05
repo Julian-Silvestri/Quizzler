@@ -212,13 +212,19 @@ class QuizPlayingVC: UIViewController,GADFullScreenContentDelegate {
             loadAnswersPerQuestion(correctAnswer: Quiz.quizzes[currentQuizQuestion].correctAnswer, incorrectAnswers: Quiz.quizzes[currentQuizQuestion].incorrectAnswers)
             
             
-            
+            print("getting value from buy ads")
             //MARK: AD REQUEST
+//            guard let didBuyAds = UserDefaults.standard.value(forKey: "hideAds") as? String ?? nil else{
+//                return
+//            }
             
-            if(UserDefaults.standard.value(forKey: "hideAds") as! String == "true"){
+//            print("**BUY ADS  ****\(didBuyAds)")
+            
+            if(UserDefaults.standard.value(forKey: "hideAds") as? String == "true" || UserDefaults.standard.value(forKey: "hideAds") as? String != nil){
                 print("AD IS HIDDEN / purchased")
                 showAd = 1
             } else {
+                print("AD IS ACTIVE")
                 if showAd == 5 || showAd == 10 || showAd == 15 {
                     loadAdRequest()
                     //                if GAMInterstitialAd.is
