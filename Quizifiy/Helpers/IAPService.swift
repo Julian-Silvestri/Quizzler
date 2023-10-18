@@ -16,6 +16,13 @@ class IAPService: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObser
     
     //MARK: IN APP PURCHASES
     
+    enum ReceiptValidationError: Error {
+        case receiptNotFound
+        case jsonResponseIsNotValid(description: String)
+        case notBought
+        case expired
+    }
+    
     static let sharedInstance = IAPService()
     
     private var products = [SKProduct]()
@@ -89,7 +96,7 @@ class IAPService: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObser
                 SKPaymentQueue.default().finishTransaction(transaction as SKPaymentTransaction)
                 SupportVC().showRestoredAlert()
 //                handlePurchase(transaction.payment.productIdentifier)
-                print("??????????????????????")
+//                print("??????????????????????")
                 break
             case .failed:
                 print("Transaction state failed = \(transaction.transactionState)")
@@ -105,6 +112,11 @@ class IAPService: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObser
     }
     private func handlePurchase(_ id: String){
         print("PURCHAAAAAAASED!!!")
+        do {
+            try validateReceipt()
+        } catch {
+            print("errr")
+        }
         UserDefaults.standard.setValue("true", forKey: "hideAds")
     }
     
@@ -143,146 +155,60 @@ class IAPService: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObser
       print("paymentQueue - error func called")
     }
     
-//    static let instance = IAPService()
-//
-//    var delegate: IAPServiceDelegate?
-//
-//    var products = [SKProduct]()
-//    var productIds = Set<String>()
-//    var productRequest = SKProductsRequest()
-//
-//    var nonConsumablePurchaseWasMade = UserDefaults.standard.bool(forKey: "nonConsumablePurchaseWasMade")
-//
-//    override init() {
-//        super.init()
-//        SKPaymentQueue.default().add(self)
-//    }
-//
-//    func loadProducts() {
-//        productIdToStringSet()
-//        requestProducts(forIds: productIds)
-//
-//    }
-//
-//    func productIdToStringSet() {
-////        let ids = [IAP_HIDE_ADS_ID]
-////        for id in ids {
-////            productIds.insert(id)
-////        }
-//
-//        productIds.insert(IAP_HIDE_ADS_ID)
-//
-//        print("prodcuts inserted into products array")
-//    }
-//
-//    func requestProducts(forIds ids: Set<String>) {
-//        productRequest.cancel()
-//        productRequest = SKProductsRequest(productIdentifiers: ids)
-//        productRequest.delegate = self
-//        productRequest.start()
-//        print("product request started")
-//    }
-//
-//    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-//        self.products = response.products
-//        print("PRODUCT REQUEST BEGUN")
-//
-//        if products.count == 0 {
-//            requestProducts(forIds: productIds)
-//        } else {
-//            delegate?.iapProductsLoaded()
-//            print("PRODUCTS FINISHED LOADING")
-//        }
-//    }
-//
-//    func attemptPurchaseForItemWith(productIndex: Product) {
-//        let product = products[productIndex.rawValue]
-//        let payment = SKPayment(product: product)
-//        SKPaymentQueue.default().add(payment)
-//        print("PAYMENT QUEUE ADDED")
-//    }
-//
-//    func restorePurchases() {
-//        SKPaymentQueue.default().restoreCompletedTransactions()
-//    }
-//}
-//
-//extension IAPService: SKPaymentTransactionObserver {
-//    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-//        for transaction in transactions {
-//            switch transaction.transactionState {
-//            case .purchased:
-//                SKPaymentQueue.default().finishTransaction(transaction)
-//                complete(transaction: transaction)
-//                sendNotificationFor(status: .purchased, withIdentifier: transaction.payment.productIdentifier)
-//                debugPrint("Purchase was successful!")
-//                break
-//            case .restored:
-//                SKPaymentQueue.default().finishTransaction(transaction)
-//                break
-//            case .failed:
-//                SKPaymentQueue.default().finishTransaction(transaction)
-//                sendNotificationFor(status: .failed, withIdentifier: nil)
-//                break
-//            case .deferred:
-//                break
-//            case .purchasing:
-//                break
-//            @unknown default:
-//                fatalError()
+    func validateReceipt() throws {
+        guard let appStoreReceiptURL = Bundle.main.appStoreReceiptURL, FileManager.default.fileExists(atPath: appStoreReceiptURL.path) else {
+            throw ReceiptValidationError.receiptNotFound
+        }
+        
+        let receiptData = try! Data(contentsOf: appStoreReceiptURL, options: .alwaysMapped)
+        let receiptString = receiptData.base64EncodedString()
+        let jsonObjectBody = ["receipt-data" : receiptString, "password" : "password"]
+        
+        #if DEBUG
+        let url = URL(string: "https://sandbox.itunes.apple.com/verifyReceipt")!
+        #else
+        let url = URL(string: "https://buy.itunes.apple.com/verifyReceipt")!
+        #endif
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.httpBody = try! JSONSerialization.data(withJSONObject: jsonObjectBody, options: .prettyPrinted)
+        
+        let semaphore = DispatchSemaphore(value: 0)
+        
+        var validationError : ReceiptValidationError?
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, let httpResponse = response as? HTTPURLResponse, error == nil, httpResponse.statusCode == 200 else {
+                validationError = ReceiptValidationError.jsonResponseIsNotValid(description: error?.localizedDescription ?? "")
+                semaphore.signal()
+                return
+            }
+            guard let jsonResponse = (try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers)) as? [AnyHashable: Any] else {
+                validationError = ReceiptValidationError.jsonResponseIsNotValid(description: "Unable to parse json")
+                semaphore.signal()
+                return
+            }
+//            guard let expirationDate = self.expirationDate(jsonResponse: jsonResponse, forProductId: String) else {
+//                validationError = ReceiptValidationError.notBought
+//                semaphore.signal()
+//                return
 //            }
-//        }
-//    }
-//
-//    func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
-//        sendNotificationFor(status: .restored, withIdentifier: nil)
-//        setNonConsumablePurchase(true)
-//    }
-//
-//    func complete(transaction: SKPaymentTransaction) {
-//        switch transaction.payment.productIdentifier {
-//        case IAP_HIDE_ADS_ID:
-//            setNonConsumablePurchase(true)
-//            break
-//        default:
-//            break
-//        }
-//    }
-//
-//    func setNonConsumablePurchase(_ status: Bool) {
-//        UserDefaults.standard.set(status, forKey: "nonConsumablePurchaseWasMade")
-//    }
-//
-//    func sendNotificationFor(status: PurchaseStatus, withIdentifier identifier: String?) {
-//        switch status {
-//        case .purchased:
-//            NotificationCenter.default.post(name: NSNotification.Name(IAPServicePurchaseNotification), object: identifier)
-//            break
-//        case .restored:
-//            NotificationCenter.default.post(name: NSNotification.Name(IAPServiceRestoreNotification), object: nil)
-//            break
-//        case .failed:
-//            NotificationCenter.default.post(name: NSNotification.Name(IAPServiceFailureNotification), object: nil)
-//            break
-//        }
-//    }
+            
+//            let currentDate = Date()
+//            if currentDate > expirationDate {
+//                validationError = ReceiptValidationError.expired
+//            }
+            
+            semaphore.signal()
+        }
+        task.resume()
+        
+        semaphore.wait()
+        
+        if let validationError = validationError {
+            throw validationError
+        }
+    }
 }
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+

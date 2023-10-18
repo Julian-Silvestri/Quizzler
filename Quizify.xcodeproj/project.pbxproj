@@ -42,7 +42,7 @@
 		08D7796228807D9900AFC5E1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08D7796128807D9900AFC5E1 /* Constants.swift */; };
 		08ED33F6285E811D006D8CAF /* TypeButtonMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ED33F5285E811D006D8CAF /* TypeButtonMenu.swift */; };
 		08ED33F8285E84B0006D8CAF /* QuizPlayingTrueFalseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08ED33F7285E84B0006D8CAF /* QuizPlayingTrueFalseVC.swift */; };
-		158963DF3FC7C31054FE95E3 /* Pods_Quizzler.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C366C4AAE142FA4B4EC95968 /* Pods_Quizzler.framework */; };
+		B99393F543FD91565DC1D8D7 /* Pods_Quizify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA92E7A1475760050BC819F5 /* Pods_Quizify.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,7 +106,9 @@
 		08D7796128807D9900AFC5E1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		08ED33F5285E811D006D8CAF /* TypeButtonMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeButtonMenu.swift; sourceTree = "<group>"; };
 		08ED33F7285E84B0006D8CAF /* QuizPlayingTrueFalseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizPlayingTrueFalseVC.swift; sourceTree = "<group>"; };
-		C366C4AAE142FA4B4EC95968 /* Pods_Quizzler.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quizzler.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0CE75BD8DE72A4F45F57F119 /* Pods-Quizify.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quizify.release.xcconfig"; path = "Target Support Files/Pods-Quizify/Pods-Quizify.release.xcconfig"; sourceTree = "<group>"; };
+		421D5A20B596150EA80CDA87 /* Pods-Quizify.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quizify.debug.xcconfig"; path = "Target Support Files/Pods-Quizify/Pods-Quizify.debug.xcconfig"; sourceTree = "<group>"; };
+		CA92E7A1475760050BC819F5 /* Pods_Quizify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Quizify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0F0EAA7E5C48FA09C51D97F /* Pods-Quizzler.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quizzler.release.xcconfig"; path = "Target Support Files/Pods-Quizzler/Pods-Quizzler.release.xcconfig"; sourceTree = "<group>"; };
 		F41985FE1615CB0A4A03D1BF /* Pods-Quizzler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Quizzler.debug.xcconfig"; path = "Target Support Files/Pods-Quizzler/Pods-Quizzler.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -116,8 +118,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				158963DF3FC7C31054FE95E3 /* Pods_Quizzler.framework in Frameworks */,
 				087F095C2881CDC50025AF67 /* StoreKit.framework in Frameworks */,
+				B99393F543FD91565DC1D8D7 /* Pods_Quizify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,6 +275,8 @@
 			children = (
 				F41985FE1615CB0A4A03D1BF /* Pods-Quizzler.debug.xcconfig */,
 				E0F0EAA7E5C48FA09C51D97F /* Pods-Quizzler.release.xcconfig */,
+				421D5A20B596150EA80CDA87 /* Pods-Quizify.debug.xcconfig */,
+				0CE75BD8DE72A4F45F57F119 /* Pods-Quizify.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -281,7 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				087F095B2881CDC50025AF67 /* StoreKit.framework */,
-				C366C4AAE142FA4B4EC95968 /* Pods_Quizzler.framework */,
+				CA92E7A1475760050BC819F5 /* Pods_Quizify.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -417,19 +421,19 @@
 /* Begin PBXShellScriptBuildPhase section */
 		2A308BE3A204A0539B06BA96 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 8;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Quizzler/Pods-Quizzler-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Quizify/Pods-Quizify-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Quizzler/Pods-Quizzler-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-Quizify/Pods-Quizify-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
-			runOnlyForDeploymentPostprocessing = 0;
+			runOnlyForDeploymentPostprocessing = 1;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Quizzler/Pods-Quizzler-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Quizify/Pods-Quizify-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		708618428279EE24057E7EDD /* [CP] Check Pods Manifest.lock */ = {
@@ -447,7 +451,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Quizzler-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Quizify-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -660,11 +664,11 @@
 		};
 		083928BA24EADD2700897989 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F41985FE1615CB0A4A03D1BF /* Pods-Quizzler.debug.xcconfig */;
+			baseConfigurationReference = 421D5A20B596150EA80CDA87 /* Pods-Quizify.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.1;
+				CURRENT_PROJECT_VERSION = 1.0.2;
 				DEVELOPMENT_TEAM = A2B79Z9A8Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Quizifiy/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -672,6 +676,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = silvestri.Quizify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -684,11 +689,11 @@
 		};
 		083928BB24EADD2700897989 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E0F0EAA7E5C48FA09C51D97F /* Pods-Quizzler.release.xcconfig */;
+			baseConfigurationReference = 0CE75BD8DE72A4F45F57F119 /* Pods-Quizify.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0.1;
+				CURRENT_PROJECT_VERSION = 1.0.2;
 				DEVELOPMENT_TEAM = A2B79Z9A8Q;
 				INFOPLIST_FILE = "$(SRCROOT)/Quizifiy/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
@@ -696,6 +701,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = silvestri.Quizify;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

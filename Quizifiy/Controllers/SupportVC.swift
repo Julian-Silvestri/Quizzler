@@ -117,6 +117,7 @@ class SupportVC: UIViewController{
     }
     
     @IBAction func removeAdsBtnAction(_ sender: Any) {
+        getReceiptData()
         IAPService.sharedInstance.fetchProducts()
 //        self.removeAdsBtn.isHidden = true
 //        self.removeAdsLabel.isHidden = true
@@ -124,6 +125,33 @@ class SupportVC: UIViewController{
 //        IAPService.instance.attemptPurchaseForItemWith(productIndex: .hideAds)
     }
     
+    
+    func validateInAppReceipt(){
+//        IAPService.receipt
+//        IAPService.validateInAppReceipt()
+    }
+    
+    
+    func getReceiptData(){
+        if let appStoreReceiptURL = Bundle.main.appStoreReceiptURL,
+            FileManager.default.fileExists(atPath: appStoreReceiptURL.path) {
+
+
+            do {
+                let receiptData = try Data(contentsOf: appStoreReceiptURL, options: .alwaysMapped)
+                print(receiptData)
+
+
+                let receiptString = receiptData.base64EncodedString(options: [])
+
+
+                // Read receiptData.
+                
+                print("RECIEPT DATA => \(receiptString)")
+            }
+            catch { print("Couldn't read receipt data with error: " + error.localizedDescription) }
+        }
+    }
 
 
 }
