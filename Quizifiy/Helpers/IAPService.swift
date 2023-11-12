@@ -111,13 +111,19 @@ class IAPService: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObser
         })
     }
     private func handlePurchase(_ id: String){
-        print("PURCHAAAAAAASED!!!")
-        do {
-            try validateReceipt()
-        } catch {
-            print("errr")
+        if(UserDefaults.standard.value(forKey: "hideAds") as? String == "true"){
+            restorePurchases()
+        } else {
+            print("PURCHAAAAAAASED!!!")
+            UserDefaults.standard.setValue("true", forKey: "hideAds")
+            do {
+                try validateReceipt()
+            } catch {
+                print("errr")
+            }
         }
-        UserDefaults.standard.setValue("true", forKey: "hideAds")
+
+        
     }
     
     func restorePurchases(){
@@ -162,7 +168,7 @@ class IAPService: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObser
         
         let receiptData = try! Data(contentsOf: appStoreReceiptURL, options: .alwaysMapped)
         let receiptString = receiptData.base64EncodedString()
-        let jsonObjectBody = ["receipt-data" : receiptString, "password" : "password"]
+        let jsonObjectBody = ["receipt-data" : receiptString, "password" : "f9582a68a1bf4a6fa61352e05bb470b7"]
         
         #if DEBUG
         let url = URL(string: "https://sandbox.itunes.apple.com/verifyReceipt")!

@@ -118,33 +118,21 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUm-3B-Oke" customClass="SupportButtons" customModule="Quizify" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SUm-3B-Oke">
                                         <rect key="frame" x="0.0" y="364" width="335" height="80"/>
                                         <color key="backgroundColor" red="0.93349081280000001" green="0.81795758009999997" blue="0.44882339240000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="33"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Remove Ad's"/>
                                         <connections>
                                             <action selector="removeAdsBtnAction:" destination="fW6-QB-nF7" eventType="touchUpInside" id="MVe-dD-OXe"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="joM-7v-S0V">
-                                <rect key="frame" x="0.0" y="18" width="98" height="34"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="goforward" catalog="system" title=" Restore" imagePadding="8">
-                                    <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
-                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="restorePurchasesBtnAction:" destination="fW6-QB-nF7" eventType="touchUpInside" id="Ddv-lK-Fw1"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Support" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qF4-b0-xq1">
-                                <rect key="frame" x="89" y="9" width="197" height="52"/>
-                                <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="38"/>
+                                <rect key="frame" x="89" y="9" width="197" height="42.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="31"/>
                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -160,10 +148,7 @@
                             <constraint firstItem="jcf-GA-irf" firstAttribute="bottom" secondItem="vHh-wa-Co3" secondAttribute="bottom" id="MEF-S3-NKG"/>
                             <constraint firstItem="jcf-GA-irf" firstAttribute="trailing" secondItem="sXm-Ma-WAW" secondAttribute="trailing" id="Sci-Gk-V1s"/>
                             <constraint firstItem="qF4-b0-xq1" firstAttribute="top" secondItem="sXm-Ma-WAW" secondAttribute="top" constant="9" id="W0X-eA-Ng9"/>
-                            <constraint firstItem="joM-7v-S0V" firstAttribute="top" secondItem="sXm-Ma-WAW" secondAttribute="top" constant="18" id="Zn2-Qx-eUK"/>
                             <constraint firstItem="sXm-Ma-WAW" firstAttribute="trailing" secondItem="qF4-b0-xq1" secondAttribute="trailing" constant="89" id="mXp-HB-wzx"/>
-                            <constraint firstItem="joM-7v-S0V" firstAttribute="leading" secondItem="sXm-Ma-WAW" secondAttribute="leading" id="sYE-v3-iVU"/>
-                            <constraint firstItem="joM-7v-S0V" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sXm-Ma-WAW" secondAttribute="leading" id="uSr-N3-U5Q"/>
                             <constraint firstItem="e9d-Vn-l1Y" firstAttribute="leading" secondItem="sXm-Ma-WAW" secondAttribute="leading" constant="20" id="vaK-Oi-k9g"/>
                         </constraints>
                     </view>
@@ -171,7 +156,7 @@
                     <connections>
                         <outlet property="contactBtn" destination="zKC-iX-IvZ" id="uKa-pl-K2r"/>
                         <outlet property="faqBtn" destination="46U-wd-GJd" id="Ohb-zE-sGC"/>
-                        <outlet property="removeAdsBtn" destination="SUm-3B-Oke" id="D5x-LA-wV5"/>
+                        <outlet property="removeAdsBtn" destination="SUm-3B-Oke" id="Kfg-xa-Rlv"/>
                         <outlet property="removeAdsLabel" destination="Srp-YC-17F" id="3Br-4g-FbE"/>
                     </connections>
                 </viewController>
@@ -905,7 +890,7 @@
             <size key="intrinsicContentSize" width="171.5" height="90.5"/>
         </designable>
         <designable name="SUm-3B-Oke">
-            <size key="intrinsicContentSize" width="228" height="64"/>
+            <size key="intrinsicContentSize" width="30" height="58"/>
         </designable>
         <designable name="hL7-9k-yGL">
             <size key="intrinsicContentSize" width="75" height="34.5"/>
@@ -930,7 +915,6 @@
         <segue reference="fBc-DV-Zl7"/>
     </inferredMetricsTieBreakers>
     <resources>
-        <image name="goforward" catalog="system" width="119" height="128"/>
         <image name="happyFace" width="512" height="512"/>
         <image name="info.circle" catalog="system" width="128" height="123"/>
         <image name="quizBG123411" width="3000" height="2000"/>

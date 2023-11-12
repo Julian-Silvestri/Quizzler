@@ -3,4 +3,117 @@
    uuid = "5B83A100-4798-4304-BF30-AC4434B28C72"
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "087979A1-BC30-4BDB-98E1-5E83732100A7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Quizifiy/Helpers/IAPService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "validateReceipt()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "087979A1-BC30-4BDB-98E1-5E83732100A7 - 969106352a1b1700"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Quizify.IAPService.validateReceipt() throws -&gt; ()"
+                  moduleName = "Quizify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thesilvestris/Documents/Quizzler/Quizifiy/Helpers/IAPService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "164"
+                  endingLineNumber = "164"
+                  offsetFromSymbolStart = "355">
+               </Location>
+               <Location
+                  uuid = "087979A1-BC30-4BDB-98E1-5E83732100A7 - 969106352a1b1700"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Quizify.IAPService.validateReceipt() throws -&gt; ()"
+                  moduleName = "Quizify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thesilvestris/Documents/Quizzler/Quizifiy/Helpers/IAPService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "164"
+                  endingLineNumber = "164"
+                  offsetFromSymbolStart = "468">
+               </Location>
+               <Location
+                  uuid = "087979A1-BC30-4BDB-98E1-5E83732100A7 - 969106352a1b1767"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Quizify.IAPService.validateReceipt() throws -&gt; ()"
+                  moduleName = "Quizify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thesilvestris/Documents/Quizzler/Quizifiy/Helpers/IAPService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "165"
+                  endingLineNumber = "165"
+                  offsetFromSymbolStart = "355">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8D6EDA19-5048-4001-99A6-CD49AE045C5F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Quizifiy/Controllers/SupportVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8D6EDA19-5048-4001-99A6-CD49AE045C5F - 5bf27b6101bd3858"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Quizify.SupportVC.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "Quizify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thesilvestris/Documents/Quizzler/Quizifiy/Controllers/SupportVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "2271">
+               </Location>
+               <Location
+                  uuid = "8D6EDA19-5048-4001-99A6-CD49AE045C5F - 5bf27b6101bd3858"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Quizify.SupportVC.viewWillAppear(Swift.Bool) -&gt; ()"
+                  moduleName = "Quizify"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/thesilvestris/Documents/Quizzler/Quizifiy/Controllers/SupportVC.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "60"
+                  endingLineNumber = "60"
+                  offsetFromSymbolStart = "1264">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
