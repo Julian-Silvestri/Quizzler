@@ -56,26 +56,21 @@ class SupportVC: UIViewController{
         NotificationCenter.default.removeObserver(self)
     }
 
-    @objc func handlePurchase(_ notification: Notification) {
-        guard let productID = notification.object as? String else { return }
-        
-        switch productID {
-        case IAP_HIDE_ADS_ID:
-//            self.removeAdsBtn.isHidden = true
-//            self.removeAdsLabel.isHidden = true
-            debugPrint("Hide Ads Purchased!")
-            break
-        default:
-            break
-        }
-    }
-    
-//    func showRestoredAlert() {
-//        print("ShOULD show restored alert")
-//        self.alert?.addAction(UIAlertAction(title: "OK", style: .default))
-//        self.view.addSubview(self.alert?.view ?? UIView())
-//        self.view.window?.rootViewController?.present(self.alert ?? UIAlertController(), animated: true, completion: nil)
+//    @objc func handlePurchase(_ notification: Notification) {
+//        guard let productID = notification.object as? String else { return }
+//
+//        switch productID {
+//        case IAP_HIDE_ADS_ID:
+////            self.removeAdsBtn.isHidden = true
+////            self.removeAdsLabel.isHidden = true
+//            debugPrint("Hide Ads Purchased!")
+//            break
+//        default:
+//            break
+//        }
 //    }
+    
+
     @IBAction func faqBtnPress(_ sender: Any) {
         UIApplication.shared.open(URL(string: "http://www.jsilvestri.ca")!)
     }
@@ -83,67 +78,67 @@ class SupportVC: UIViewController{
     @IBAction func contactBtnPressed(_ sender: Any) {
         UIApplication.shared.open(URL(string: "http://www.jsilvestri.ca")! )
     }
-    func showRestoredAlert() {
-        
-        let alertController = UIAlertController(title: "Success!", message: "Your purchase was successfully restored.", preferredStyle: .alert)
-        //...
-//        var rootVC = UIWindowScene.
-        var rootViewController = self.view.window?.rootViewController
-        if let navigationController = rootViewController as? UINavigationController {
-            rootViewController = navigationController.viewControllers.first
-        }
-        if let tabBarController = rootViewController as? UITabBarController {
-            rootViewController = tabBarController.selectedViewController
-        }
-        //...
-        rootViewController?.present(alertController, animated: true, completion: nil)
-
-    }
+//    func showRestoredAlert() {
+//
+//        let alertController = UIAlertController(title: "Success!", message: "Your purchase was successfully restored.", preferredStyle: .alert)
+//        //...
+////        var rootVC = UIWindowScene.
+//        var rootViewController = self.view.window?.rootViewController
+//        if let navigationController = rootViewController as? UINavigationController {
+//            rootViewController = navigationController.viewControllers.first
+//        }
+//        if let tabBarController = rootViewController as? UITabBarController {
+//            rootViewController = tabBarController.selectedViewController
+//        }
+//        //...
+//        rootViewController?.present(alertController, animated: true, completion: nil)
+//
+//    }
+//
+//    @objc func handleFailure() {
+//        removeAdsBtn.isEnabled = true
+//        debugPrint("Purchase Failed!")
+//    }
     
-    @objc func handleFailure() {
-        removeAdsBtn.isEnabled = true
-        debugPrint("Purchase Failed!")
-    }
-    
-    @IBAction func restorePurchasesBtnAction(_ sender: Any) {
-        print("restoring purchases")
-        IAPService.sharedInstance.restorePurchases()
-    }
-    func showOrHideAds() {
-        self.removeAdsLabel.isHidden = hiddenStatus
-        self.removeAdsBtn.isHidden = hiddenStatus
-    }
-    
-    @IBAction func removeAdsBtnAction(_ sender: Any) {
-//        getReceiptData()
-        if(UserDefaults.standard.value(forKey: "hideAds") as? String == "true"){
-            IAPService.sharedInstance.restorePurchases()
-        } else{
-            IAPService.sharedInstance.fetchProducts()
-        }
-    }
+//    @IBAction func restorePurchasesBtnAction(_ sender: Any) {
+//        print("restoring purchases")
+//        IAPService.sharedInstance.restorePurchases()
+//    }
+//    func showOrHideAds() {
+//        self.removeAdsLabel.isHidden = hiddenStatus
+//        self.removeAdsBtn.isHidden = hiddenStatus
+//    }
+//
+//    @IBAction func removeAdsBtnAction(_ sender: Any) {
+////        getReceiptData()
+//        if(UserDefaults.standard.value(forKey: "hideAds") as? String == "true"){
+//            IAPService.sharedInstance.restorePurchases()
+//        } else{
+//            IAPService.sharedInstance.fetchProducts()
+//        }
+//    }
     
     
-    func getReceiptData(){
-        if let appStoreReceiptURL = Bundle.main.appStoreReceiptURL,
-            FileManager.default.fileExists(atPath: appStoreReceiptURL.path) {
-
-
-            do {
-                let receiptData = try Data(contentsOf: appStoreReceiptURL, options: .alwaysMapped)
-                print(receiptData)
-
-
-                let receiptString = receiptData.base64EncodedString(options: [])
-
-
-                // Read receiptData.
-                
-                print("RECIEPT DATA => \(receiptString)")
-            }
-            catch { print("Couldn't read receipt data with error: " + error.localizedDescription) }
-        }
-    }
+//    func getReceiptData(){
+//        if let appStoreReceiptURL = Bundle.main.appStoreReceiptURL,
+//            FileManager.default.fileExists(atPath: appStoreReceiptURL.path) {
+//
+//
+//            do {
+//                let receiptData = try Data(contentsOf: appStoreReceiptURL, options: .alwaysMapped)
+//                print(receiptData)
+//
+//
+//                let receiptString = receiptData.base64EncodedString(options: [])
+//
+//
+//                // Read receiptData.
+//
+//                print("RECIEPT DATA => \(receiptString)")
+//            }
+//            catch { print("Couldn't read receipt data with error: " + error.localizedDescription) }
+//        }
+//    }
 
 
 }

@@ -29,7 +29,6 @@
 		087A100527C45AB200D0D054 /* QuizLabels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087A100427C45AB200D0D054 /* QuizLabels.swift */; };
 		087A100927C45D0500D0D054 /* StartQuizButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087A100827C45D0500D0D054 /* StartQuizButton.swift */; };
 		087A100B27C4899C00D0D054 /* AnswerButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 087A100A27C4899C00D0D054 /* AnswerButtons.swift */; };
-		087F095C2881CDC50025AF67 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 087F095B2881CDC50025AF67 /* StoreKit.framework */; };
 		0887100224F1D69C00A5B088 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0887100124F1D69C00A5B088 /* HomeVC.swift */; };
 		0899CCA0292BD81900F6C09C /* Gif.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899CC9F292BD81900F6C09C /* Gif.swift */; };
 		0899CCA2292BD84100F6C09C /* CustomLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0899CCA1292BD84100F6C09C /* CustomLoader.swift */; };
@@ -91,7 +90,6 @@
 		087A100427C45AB200D0D054 /* QuizLabels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizLabels.swift; sourceTree = "<group>"; };
 		087A100827C45D0500D0D054 /* StartQuizButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartQuizButton.swift; sourceTree = "<group>"; };
 		087A100A27C4899C00D0D054 /* AnswerButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButtons.swift; sourceTree = "<group>"; };
-		087F095B2881CDC50025AF67 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		0887100124F1D69C00A5B088 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		088D587129349150004DA41A /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		0899CC9F292BD81900F6C09C /* Gif.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gif.swift; sourceTree = "<group>"; };
@@ -116,7 +114,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				087F095C2881CDC50025AF67 /* StoreKit.framework in Frameworks */,
 				663FDC607251563BDD4AE09F /* Pods_Quizify.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,7 +277,6 @@
 		F532E39ABC3EC14A78867CA6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				087F095B2881CDC50025AF67 /* StoreKit.framework */,
 				8EE1EB6788479A308951F6BF /* Pods_Quizify.framework */,
 			);
 			name = Frameworks;

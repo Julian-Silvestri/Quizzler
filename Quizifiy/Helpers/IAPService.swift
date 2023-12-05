@@ -94,7 +94,7 @@ class IAPService: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObser
             case .restored:
                 print("Transaction state restored = \(transaction.transactionState)")
                 SKPaymentQueue.default().finishTransaction(transaction as SKPaymentTransaction)
-                SupportVC().showRestoredAlert()
+//                SupportVC().showRestoredAlert()
 //                handlePurchase(transaction.payment.productIdentifier)
 //                print("??????????????????????")
                 break
@@ -147,7 +147,7 @@ class IAPService: NSObject, SKProductsRequestDelegate, SKPaymentTransactionObser
             case "silvestri.QuizifyAdFree":
                 print("Transaction state restored = \(transaction.transactionState)")
                 SKPaymentQueue.default().finishTransaction(transaction as SKPaymentTransaction)
-                SupportVC().showRestoredAlert()
+//                SupportVC().showRestoredAlert()
                 break
                 // implement the given in-app purchase as if it were bought
             default:
